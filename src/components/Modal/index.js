@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Modal, Fade, Backdrop } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -62,5 +63,11 @@ function ModalComponent({ isOpen = true, handler, children }) {
     </Modal>
   );
 }
+
+ModalComponent.propTypes = {
+  isOpen: PropTypes.bool,
+  handler: PropTypes.func,
+  children: PropTypes.object
+};
 
 export default ModalComponent;

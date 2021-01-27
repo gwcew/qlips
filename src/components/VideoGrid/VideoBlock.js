@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Avatar, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import image from '../../data/previews/CO_2020.png'
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function VideoBlock({ width = 3, videoData, dispatchClick }) {
+function VideoBlock({ width = 3, videoData }) {
   const classes = useStyles();
   
  
@@ -68,5 +69,10 @@ function VideoBlock({ width = 3, videoData, dispatchClick }) {
     </Grid>
   );
 }
+
+VideoBlock.propTypes = {
+  width: PropTypes.number,
+  videoData: PropTypes.object
+};
 
 export default VideoBlock;

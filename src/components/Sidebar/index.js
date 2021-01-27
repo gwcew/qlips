@@ -10,6 +10,9 @@ import {
   Home,
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -137,5 +140,12 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme }) {
     </Grid>
   );
 }
+
+Sidebar.propTypes = {
+  collapsed: PropTypes.bool,
+  setCollapsed: PropTypes.func,
+  setTheme: PropTypes.func,
+  isLightTheme: PropTypes.bool
+};
 
 export default Sidebar;

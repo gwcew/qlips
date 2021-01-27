@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function VideoPage({videoID}) {
+function VideoPage(props) {
   const classes = useStyles();
  
   return (
