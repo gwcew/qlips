@@ -74,7 +74,6 @@ function Header({handleSearch, handleGenerateContentBySearch}) {
   };
 
   const handleGenerateOnKeyPressed = (event) => {
-    console.log(event);
     if (event.key === 'Enter') {
       handleGenerateContentBySearch();
     }
