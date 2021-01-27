@@ -33,7 +33,7 @@ function VideoPage(props) {
   const classes = useStyles();
 
   const videoData = props.videocontent.content[props.match.params.id - 1];
-
+  
   return (
     <Grid item className={props.className}>
       <Container>

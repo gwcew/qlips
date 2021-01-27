@@ -27,7 +27,7 @@ function SidebarRight() {
 
   return (
     <Grid className={classes.root} container>
-      <Grid item xs="12" className={classes.menuBlock} />
+      <Grid item xs={12} className={classes.menuBlock} />
     </Grid>
   );
 }

@@ -73,8 +73,8 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme }) {
   };
 
   return (
-    <Grid className={collapsed ? [classes.root, classes.collapsed] : classes.root} container>
-      <Grid item xs="12" className={[classes.menuBlock, classes.menuBlockMain]}>
+    <Grid className={collapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
+      <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
         <Button
           fullWidth
           className={classes.menuButton}
@@ -125,7 +125,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme }) {
           {!collapsed && 'Курсы'}
         </Button>
       </Grid>
-      <Grid item xs="12" className={[classes.menuBlock, classes.menuBlockSecondary]}>
+      <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
         <Button
           fullWidth
           className={classes.menuButton}
