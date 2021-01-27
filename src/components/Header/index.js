@@ -73,6 +73,13 @@ function Header({handleSearch, handleGenerateContentBySearch}) {
     handleSearch(event.target.value);
   };
 
+  const handleGenerateOnKeyPressed = (event) => {
+    console.log(event);
+    if (event.key === 'Enter') {
+      handleGenerateContentBySearch();
+    }
+  };
+
   return (
     <Grid className={classes.root} container>
       <Grid item xs={2}>
@@ -100,6 +107,7 @@ function Header({handleSearch, handleGenerateContentBySearch}) {
             )}
             labelWidth={45}
             onChange={handleOnChange}
+            onKeyPress={handleGenerateOnKeyPressed}
           />
         </FormControl>
       </Grid>
