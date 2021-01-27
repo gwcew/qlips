@@ -18,10 +18,11 @@ function VideoGrid({videocontent, handleAccessType}) {
 
   return (
     <Grid container spacing={2}>
-      {videocontent.content.map((element, index) => 
+      {videocontent.searchOutput.length === 0 ? videocontent.content.map((element, index) => 
       element.accessType <= Number(videocontent.accessType) 
       ? <VideoBlick key={index} width={3} videoData={element}/>
-      : null)}
+      : null) 
+      : videocontent.searchOutput.map((element, index) => <VideoBlick key={index} width={3} videoData={element}/>)}
     </Grid>
   );
 }

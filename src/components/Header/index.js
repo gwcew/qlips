@@ -16,6 +16,10 @@ import RegisterForm from 'components/RegisterForm';
 import { Search, Person } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import imgLogo from './logo.png';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import PropTypes from 'prop-types';
+import {setSearchResult, setSearchContentByString} from 'redux/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header() {
+function Header({handleSearch, handleGenerateContentBySearch}) {
   const classes = useStyles();
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
@@ -64,6 +68,10 @@ function Header() {
       setIsOpenLogin(false);
     }
   }, [isOpenLogin, isOpenReg]);
+
+  const handleOnChange = (event) => {
+    handleSearch(event.target.value);
+  };
 
   return (
     <Grid className={classes.root} container>
@@ -84,12 +92,14 @@ function Header() {
               <InputAdornment position="end">
                 <IconButton
                   edge="end"
+                  onClick={handleGenerateContentBySearch}
                 >
                   <Search />
                 </IconButton>
               </InputAdornment>
             )}
             labelWidth={45}
+            onChange={handleOnChange}
           />
         </FormControl>
       </Grid>
@@ -137,4 +147,23 @@ function Header() {
   );
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    videoContent: state.gridvideo,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    handleSearch: setSearchResult,
+    handleGenerateContentBySearch: setSearchContentByString,
+  }, dispatch);
+}
+
+Header.propTypes = {
+  handleSearch: PropTypes.func,
+  handleGenerateContentBySearch: PropTypes.func,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

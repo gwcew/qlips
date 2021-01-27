@@ -1,4 +1,12 @@
-import {VIDEO_ADD, VIDEO_DELETE, VIDEO_CLICK, VIDEO_SET_ACCESS_TYPE} from '../actionTypes'
+import {
+    VIDEO_ADD,
+    VIDEO_DELETE,
+    VIDEO_CLICK,
+    VIDEO_SET_ACCESS_TYPE,
+    VIDEO_SET_SEARCH_STRING_RESULT,
+    VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING
+} from '../actionTypes'
+
 import image1 from 'data/previews/CO_2020.png'
 import image2 from 'data/previews/dokmed_2020.png'
 import image3 from 'data/previews/dokmed2.jpg'
@@ -14,6 +22,9 @@ import video5 from 'data/video/neyrogenetika_2020.mp4';
 import video6 from 'data/video/neyrosteroidy2020.mp4';
 
 import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_STUDENT, ACCESS_TYPE_SPECIAL} from '../../components/LoginForm/AccessTypes';
+
+import fuzzySearch from 'fuzzy-search';
+
 
 const contentVideo = [
     {
@@ -66,7 +77,7 @@ const contentVideo = [
     },
 ];
 
-const initialState = { content: contentVideo, accessType: ACCESS_TYPE_DEFAULT };
+const initialState = { content: contentVideo, accessType: ACCESS_TYPE_DEFAULT, searchString: '', searchOutput: [] };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -89,6 +100,30 @@ export default function reducer(state = initialState, action) {
         case VIDEO_SET_ACCESS_TYPE: {
             let result = {...state};
             result.accessType = action.accessType;
+            return result;
+        }
+        case VIDEO_SET_SEARCH_STRING_RESULT: {
+            let result = {...state};
+            result.searchString = action.searchString;
+
+            return result;
+        }
+        case VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING: {
+            let result = {...state};
+
+            if (result.searchString === '') {
+                result.searchOutput = [];
+                return result;
+            }
+
+            const wheretosearch = result.content.filter(element => element.accessType <= result.accessType);
+            
+            const searcher = new fuzzySearch(wheretosearch, ['title', 'author'], {caseSensitive: false});
+
+            const test = searcher.search(result.searchString);
+
+            result.searchOutput = test;
+
             return result;
         }
     }
