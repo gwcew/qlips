@@ -29,7 +29,7 @@ import fuzzySearch from 'fuzzy-search';
 const contentVideo = [
     {
         id: 0,
-        title: 'Name1',
+        title: 'test label Name1',
         author: 'author1',
         url_preview: image1,
         url_video: video1,
@@ -37,7 +37,7 @@ const contentVideo = [
     },
     {
         id: 1,
-        title: 'Name2',
+        title: 'get Name2',
         author: 'author2',
         url_preview: image2,
         url_video: video2,
@@ -45,7 +45,7 @@ const contentVideo = [
     },
     {
         id: 2,
-        title: 'Name3',
+        title: 'as Name3',
         author: 'author3',
         url_preview: image3,
         url_video: video3,
@@ -53,7 +53,7 @@ const contentVideo = [
     },
     {
         id: 3,
-        title: 'Name4',
+        title: 'test label as here Name4',
         author: 'author4',
         url_preview: image4,
         url_video: video4,
@@ -69,7 +69,7 @@ const contentVideo = [
     },
     {
         id: 5,
-        title: 'Name6',
+        title: 'get Name6',
         author: 'author6',
         url_preview: image6,
         url_video: video6,
