@@ -77,7 +77,7 @@ const contentVideo = [
     },
 ];
 
-const initialState = { content: contentVideo, accessType: ACCESS_TYPE_DEFAULT, searchString: '', searchOutput: [] };
+const initialState = { content: contentVideo, accessType: ACCESS_TYPE_DEFAULT, searchString: '', searchOutput: [], searchStatus: "" };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -113,6 +113,7 @@ export default function reducer(state = initialState, action) {
 
             if (result.searchString === '') {
                 result.searchOutput = [];
+                result.searchStatus = "";
                 return result;
             }
 
@@ -121,6 +122,10 @@ export default function reducer(state = initialState, action) {
             const searcher = new fuzzySearch(wheretosearch, ['title', 'author'], {caseSensitive: false});
 
             const test = searcher.search(result.searchString);
+            
+            if (test.length === 0) {
+                result.searchStatus = "[PLACEHOLDER] can't find anything by your string! [PLACEHOLDER]";
+            }
 
             result.searchOutput = test;
 

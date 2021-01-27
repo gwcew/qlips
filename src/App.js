@@ -145,7 +145,6 @@ function App() {
 
   // By default we use light theme, but user can change it at anytime!
   const requestedTheme = localStorage.getItem('theme');
-  console.log(requestedTheme);
   const [isLightTheme, setTheme] = useState(requestedTheme);
 
   useEffect(() => {

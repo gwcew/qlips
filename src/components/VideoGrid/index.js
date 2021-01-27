@@ -16,13 +16,32 @@ function VideoGrid({videocontent, handleAccessType}) {
 
   useEffect(() => handleAccessType(accessType), [])
 
-  return (
-    <Grid container spacing={2}>
-      {videocontent.searchOutput.length === 0 ? videocontent.content.map((element, index) => 
+  const handleGeneratingItems = () => {
+    if (videocontent.searchOutput.length === 0 
+      && videocontent.searchStatus.length === 0) {
+      return videocontent.content.map((element, index) => 
       element.accessType <= Number(videocontent.accessType) 
       ? <VideoBlick key={index} width={3} videoData={element}/>
-      : null) 
-      : videocontent.searchOutput.map((element, index) => <VideoBlick key={index} width={3} videoData={element}/>)}
+      : null);
+    }
+
+    if (videocontent.searchOutput.length !== 0) {
+      return videocontent.searchOutput.map((element, index) => <VideoBlick key={index} width={3} videoData={element}/>);
+    }
+
+    if (videocontent.searchOutput.length === 0 && videocontent.searchString.length !== 0) {
+      return "can't find anything by your string";
+    }
+
+    return videocontent.content.map((element, index) => 
+    element.accessType <= Number(videocontent.accessType) 
+    ? <VideoBlick key={index} width={3} videoData={element}/>
+    : null);
+  };
+
+  return (
+    <Grid container spacing={2}>
+      {handleGeneratingItems()}
     </Grid>
   );
 }
