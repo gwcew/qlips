@@ -1,45 +1,60 @@
 import React from 'react';
-import { Avatar, Button, Grid } from '@material-ui/core';
+import { 
+  Avatar,
+  Button, 
+  Grid, 
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: theme.spacing(2),
   },
   videoName: {
-    marginTop: theme.spacing(0.5),
-    marginBottom: theme.spacing(1),
     color: theme.palette.text.main,
   },
   channelName: {
-    marginTop: theme.spacing(0),
-    marginBottom: theme.spacing(1),
     color: theme.palette.subtext.main,
+  },
+  header: {
+    backgroundColor: 'transparent',
   },
 }));
 
 function VideoBanner({videoData}) {
   const classes = useStyles();
+  const colorChannel = classes.videoName.color;
 
   return (
-    <Grid container spacing={1} className={classes.root}>
-      <Grid item>
-        <Avatar
-          alt="channel avatar"
-          className={classes.avatar}
-        />
-      </Grid>
-      <Grid item>
-        <h2 className={classes.videoName}>{videoData.title}</h2>
-        <p className={classes.channelName}>{videoData.author}</p>
-        <Button
+    <Grid container className={classes.root} direction="column" alignItems="center">
+      <Grid item xs={6}>
+        <Card style={{backgroundColor: 'transparent'}}>
+          <CardHeader 
+            avatar={          <Avatar
+              alt="channel avatar"
+              className={classes.avatar}
+            />}
+            title={videoData.title}
+            subheader={<div className={classes.channelName}>{videoData.author}</div>}
+            classes={{
+              title: classes.videoName,
+            }}
+          >
+          </CardHeader>
+          <CardActions style={{paddingLeft: '70px'}}>
+          <Button
           variant="contained"
           color="primary"
           size="small"
         >
           Подписаться
         </Button>
+          </CardActions>
+        </Card>
       </Grid>
     </Grid>
   );
