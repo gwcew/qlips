@@ -32,7 +32,7 @@ function VideoBanner({videoData}) {
   return (
     <Grid container className={classes.root} direction="column" alignItems="center">
       <Grid item xs={6}>
-        <Card style={{backgroundColor: 'transparent'}}>
+        <Card style={{backgroundColor: 'transparent', boxShadow: 'none'}}>
           <CardHeader 
             avatar={          <Avatar
               alt="channel avatar"

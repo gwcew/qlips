@@ -22,8 +22,9 @@ function VideoPage({videoData}) {
       <Grid item xs={6}>
         <VideoBanner videoData={videoData} />
       </Grid>
-
-      <Comments></Comments>
+      <Grid item xs={12}>
+        <Comments></Comments>
+      </Grid>
     </Grid>
   );
 }
