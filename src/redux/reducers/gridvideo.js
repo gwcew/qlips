@@ -88,10 +88,7 @@ export default function reducer(state = initialState, action) {
         }
         case VIDEO_SET_ACCESS_TYPE: {
             let result = {...state};
-            console.log(action);
-
             result.accessType = action.accessType;
-            console.log(result);
             return result;
         }
     }
