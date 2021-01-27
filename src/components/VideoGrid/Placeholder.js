@@ -21,7 +21,6 @@ function Placeholder() {
             <Grid item>
                 <h1>Ничего не найдено!</h1>
             </Grid>
-
         </div>
     </Grid>
 }
