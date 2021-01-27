@@ -19,7 +19,7 @@ function VideoPage({videoData}) {
       <Grid>
         <ReactPlayer url={videoData.url_video} controls width="100%" height="auto" />
       </Grid>
-      <VideoBanner />
+      <VideoBanner videoData={videoData} />
     </Grid>
   );
 }

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function VideoBanner() {
+function VideoBanner({videoData}) {
   const classes = useStyles();
 
   return (
@@ -31,8 +31,8 @@ function VideoBanner() {
         />
       </Grid>
       <Grid item>
-        <h2 className={classes.videoName}>Медицинская генетика</h2>
-        <p className={classes.channelName}>Sons Of Medicine</p>
+        <h2 className={classes.videoName}>{videoData.title}</h2>
+        <p className={classes.channelName}>{videoData.author}</p>
         <Button
           variant="contained"
           color="primary"
@@ -44,5 +44,9 @@ function VideoBanner() {
     </Grid>
   );
 }
+
+VideoBanner.propTypes = {
+  videoData: PropTypes.object,
+};
 
 export default VideoBanner;
