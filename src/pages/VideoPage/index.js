@@ -46,7 +46,7 @@ function VideoPage(props) {
         <Grid item xs={8}>
           <VideoPlayer videoData={videoData} />
         </Grid>
-        <Grid item xs={2} className={[classes.sideBlock, classes.rightBlock]}>
+        <Grid item xs={2} className={[classes.sideBlock, classes.rightBlock].join(' ')}>
           <Box justifyContent="center">
             <Info style={{ color: '#fff' }} fontSize="large" />
           </Box>
@@ -58,7 +58,7 @@ function VideoPage(props) {
 }
 
 VideoPage.propTypes = {
-  className: PropTypes.object,
+  className: PropTypes.string,
   videocontent: PropTypes.object,
   match: PropTypes.object,
 };
