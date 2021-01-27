@@ -42,6 +42,13 @@ const lightTheme = createMuiTheme({
       main: '#b3abbd',
       background: '#f0f0f0',
     },
+    comment: {
+      hoverColor: '#e9edfd',
+      backgroundColor: '#F3F3F3',
+      subbackgroundColor: '#e1e1e1',
+      authorNameColor: '#9978DC',
+      contentNameColor: '#364095',
+    },
   },
 });
 
@@ -70,6 +77,13 @@ const darkTheme = createMuiTheme({
     },
     caption: {
       main: '#5f5f5f',
+    },
+    comment: {
+      hoverColor: '#383838',
+      backgroundColor: '#262626',
+      subbackgroundColor: '#313131',
+      authorNameColor: 'white',
+      contentNameColor: '#b4c1f6',
     },
   },
 });

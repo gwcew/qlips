@@ -5,24 +5,37 @@ import {
     ListItem,
     ListItemAvatar,
     Button,
+    ListSubheader,
     Grid
 } from '@material-ui/core';
 
 import {makeStyles} from '@material-ui/styles';
+import Comment from './Comment';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: theme.palette.subbackground.main,
+        backgroundColor: theme.palette.comment.subbackgroundColor,
         borderRadius: '5px',
+    },
+    header: {
+        color: theme.palette.text.main,
+    },
+    list: {
+        backgroundColor: theme.palette.background.default,
     },
 }));
 
 function Comments() {
     const classes = useStyles();
 
-    return <Grid container className={classes.root}>
-        <Grid item>
-            text
+    return <Grid container className={classes.root} spacing={3}>
+        <Grid item xs={12}>
+            <List component="nav" subheader={<h3 className={classes.header}>Обсуждение</h3>}>
+                <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
+                <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
+                <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
+                <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
+            </List>
         </Grid>
     </Grid>
 }

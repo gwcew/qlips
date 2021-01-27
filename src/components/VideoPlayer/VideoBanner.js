@@ -27,14 +27,14 @@ const useStyles = makeStyles((theme) => ({
 
 function VideoBanner({videoData}) {
   const classes = useStyles();
-  const colorChannel = classes.videoName.color;
+ 
 
   return (
     <Grid container className={classes.root} direction="column" alignItems="center">
       <Grid item xs={6}>
         <Card style={{backgroundColor: 'transparent', boxShadow: 'none'}}>
           <CardHeader 
-            avatar={          <Avatar
+            avatar={<Avatar
               alt="channel avatar"
               className={classes.avatar}
             />}
