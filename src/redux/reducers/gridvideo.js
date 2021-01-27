@@ -6,6 +6,12 @@ import image4 from 'data/previews/test1.jpg'
 import image5 from 'data/previews/neyrogenetika_2020.jpg'
 import image6 from 'data/previews/neyrosteroidy2020.png'
  
+import video1 from 'data/video/CO_2020.mp4';
+import video2 from 'data/video/dokmed_2020.mp4';
+import video3 from 'data/video/dokmed2.mp4';
+import video4 from 'data/video/demo1.mov';
+import video5 from 'data/video/neyrogenetika_2020.mp4';
+import video6 from 'data/video/neyrosteroidy2020.mp4';
 
 
 const contentVideo = [
@@ -14,42 +20,42 @@ const contentVideo = [
         title: 'Name1',
         author: 'author1',
         url_preview: image1,
-        url_video: '../../data/video/CO_2020.mp4',
+        url_video: video1,
     },
     {
         id: 2,
         title: 'Name2',
         author: 'author2',
         url_preview: image2,
-        url_video: '../../data/video/dokmed_2020.mp4',
+        url_video: video2,
     },
     {
         id: 3,
         title: 'Name3',
         author: 'author3',
         url_preview: image3,
-        url_video: '../../data/video/dokmed2.mp4',
+        url_video: video3,
     },
     {
         id: 4,
         title: 'Name4',
         author: 'author4',
         url_preview: image4,
-        url_video: '../../data/video/demo1.mov',
+        url_video: video4,
     },
     {
         id: 5,
         title: 'Name5',
         author: 'author5',
         url_preview: image5,
-        url_video: '../../data/video/neyrogenetika_2020.mp4',
+        url_video: video5,
     },
     {
         id: 6,
         title: 'Name6',
         author: 'author6',
         url_preview: image6,
-        url_video: '../../data/neyrosteroidy2020.mp4',
+        url_video: video6,
     },
 ];
 

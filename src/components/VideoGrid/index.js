@@ -7,11 +7,6 @@ import {addVideo, deleteVideo, clickVideo} from '../../redux/actions';
 import PropTypes from 'prop-types';
 
 function VideoGrid(props) {
-  
-  useEffect(() => {
-    console.log(props);
-  }, []);
-
   return (
     <Grid container spacing={2}>
       {props.videocontent.content.map((element, index) => <VideoBlick key={index} width={3} videoData={element}/>)}

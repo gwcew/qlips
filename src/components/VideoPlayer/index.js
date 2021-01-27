@@ -4,22 +4,28 @@ import { makeStyles } from '@material-ui/core/styles';
 import videoSrc from 'data/video/demo1.mov';
 import ReactPlayer from 'react-player';
 import VideoBanner from './VideoBanner';
+import PropTypes from 'prop-types';
+
 
 const useStyles = makeStyles(() => ({
   root: {},
 }));
 
-function VideoPage() {
+function VideoPage({videoData}) {
   const classes = useStyles();
 
   return (
     <Grid className={classes.root}>
       <Grid>
-        <ReactPlayer url={videoSrc} controls width="100%" height="auto" />
+        <ReactPlayer url={videoData.url_video} controls width="100%" height="auto" />
       </Grid>
       <VideoBanner />
     </Grid>
   );
 }
+
+VideoPage.propTypes = {
+  videoData: PropTypes.object,
+};
 
 export default VideoPage;

@@ -175,10 +175,9 @@ function App() {
                 <HomePage />
               </Grid>
             </Route>
-            <Route exact path="/video/:id" component={VideoPage}>
-              <Grid item className={classes.fullWidth}>
-                <VideoPage />
-              </Grid>
+            <Route exact path="/video/:id" render={(props) => (
+              <VideoPage {...props} className={classes.fullWidth}/>
+            )}>
             </Route>
             <Route exact path="/playlists" component={Page404}>
               <Grid item className={collapsedSidebar ? currentClasses.inner : currentClasses.collapsed}>

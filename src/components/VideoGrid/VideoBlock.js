@@ -44,8 +44,6 @@ const useStyles = makeStyles((theme) => ({
 
 function VideoBlock({ width = 3, videoData }) {
   const classes = useStyles();
-  
- 
 
   return (
     <Grid item xs={width} className={classes.root}>
