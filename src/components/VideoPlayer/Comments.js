@@ -31,7 +31,7 @@ function Comments() {
 
     return <Grid container className={classes.root} spacing={3}>
         <Grid item xs={12}>
-            <List component="nav" subheader={<h3 className={classes.header}>Обсуждение</h3>}>
+            <List subheader={<h3 className={classes.header}>Обсуждение</h3>}>
                 <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
                 <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
                 <Comment authorName="Виктор Голдман" contentName="Здравствуйте! Я думал вы не работаете..."></Comment>
