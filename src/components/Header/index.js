@@ -15,7 +15,7 @@ import LoginForm from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
 import { Search, Person } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
-import imgLogo from './logo.jpg';
+import imgLogo from './logo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
