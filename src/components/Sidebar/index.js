@@ -145,7 +145,7 @@ Sidebar.propTypes = {
   collapsed: PropTypes.bool,
   setCollapsed: PropTypes.func,
   setTheme: PropTypes.func,
-  isLightTheme: PropTypes.bool
+  isLightTheme: PropTypes.string
 };
 
 export default Sidebar;

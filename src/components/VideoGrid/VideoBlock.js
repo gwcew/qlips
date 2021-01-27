@@ -49,7 +49,7 @@ function VideoBlock({ width = 3, videoData }) {
     <Grid item xs={width} className={classes.root}>
       <Link to={"/video/" + videoData.id}>
       <img src={videoData.url_preview} alt="preview" className={classes.previewImg} />
-        <Grid container xs={12} className={classes.captionWrap} spacing={1}>
+        <Grid container className={classes.captionWrap} spacing={1}>
           <Grid item>
             <div className={classes.avatarWrap}>
               <Avatar
