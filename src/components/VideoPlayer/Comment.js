@@ -75,6 +75,9 @@ const styles = (theme) => ({
 
 function CustomListItemComponent(props) {
     return <ListItem button className={props.classes.root}>
+        <ListItemIcon style={{paddingLeft: '15px'}}>
+            <AccountCircleIcon></AccountCircleIcon>
+        </ListItemIcon>
         <ListItemText>
             <Grid container direction="column">
                 <Grid item className={props.classes.authorName}>
