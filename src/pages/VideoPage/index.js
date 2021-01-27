@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 function VideoPage(props) {
   const classes = useStyles();
 
-  const videoData = props.videocontent.content[props.match.params.id - 1];
+  const videoData = props.videocontent.content[props.match.params.id];
 
   return (
     <Grid item className={props.className}>

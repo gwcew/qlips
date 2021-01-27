@@ -7,6 +7,7 @@ import {
   ToggleButtonGroup,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_SPECIAL, ACCESS_TYPE_STUDENT} from './AccessTypes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,9 +48,18 @@ const useStyles = makeStyles((theme) => ({
 
 function LoginForm() {
   const classes = useStyles();
-  const [alignment, setAlignment] = useState(1);
+
+  const accessType = localStorage.getItem('accessType');
+
+  if (accessType === undefined || accessType === null) {
+    localStorage.setItem('accessType', ACCESS_TYPE_DEFAULT);
+    accessType = localStorage.getItem('accessType');
+  }
+
+  const [alignment, setAlignment] = useState(Number(accessType));
 
   const handleAlignment = (event, newAlignment) => {
+    localStorage.setItem('accessType', newAlignment);
     setAlignment(newAlignment);
   };
 
@@ -84,13 +94,13 @@ function LoginForm() {
           exclusive
           onChange={handleAlignment}
         >
-          <ToggleButton value={1} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+          <ToggleButton value={ACCESS_TYPE_SPECIAL} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
             Специалист
           </ToggleButton>
-          <ToggleButton value={2} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+          <ToggleButton value={ACCESS_TYPE_STUDENT} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
             Студент
           </ToggleButton>
-          <ToggleButton value={3} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+          <ToggleButton value={ACCESS_TYPE_DEFAULT} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
             Обычный
           </ToggleButton>
         </ToggleButtonGroup>

@@ -13,49 +13,56 @@ import video4 from 'data/video/demo1.mov';
 import video5 from 'data/video/neyrogenetika_2020.mp4';
 import video6 from 'data/video/neyrosteroidy2020.mp4';
 
+import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_STUDENT, ACCESS_TYPE_SPECIAL} from '../../components/LoginForm/AccessTypes';
 
 const contentVideo = [
     {
-        id: 1,
+        id: 0,
         title: 'Name1',
         author: 'author1',
         url_preview: image1,
         url_video: video1,
+        accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 2,
+        id: 1,
         title: 'Name2',
         author: 'author2',
         url_preview: image2,
         url_video: video2,
+        accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 3,
+        id: 2,
         title: 'Name3',
         author: 'author3',
         url_preview: image3,
         url_video: video3,
+        accessType: ACCESS_TYPE_STUDENT,
     },
     {
-        id: 4,
+        id: 3,
         title: 'Name4',
         author: 'author4',
         url_preview: image4,
         url_video: video4,
+        accessType: ACCESS_TYPE_STUDENT,
     },
     {
-        id: 5,
+        id: 4,
         title: 'Name5',
         author: 'author5',
         url_preview: image5,
         url_video: video5,
+        accessType: ACCESS_TYPE_SPECIAL,
     },
     {
-        id: 6,
+        id: 5,
         title: 'Name6',
         author: 'author6',
         url_preview: image6,
         url_video: video6,
+        accessType: ACCESS_TYPE_SPECIAL,
     },
 ];
 
