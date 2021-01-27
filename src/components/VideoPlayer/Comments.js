@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         color: theme.palette.text.main,
+        paddingLeft: 58,
     },
     list: {
         backgroundColor: theme.palette.background.default,

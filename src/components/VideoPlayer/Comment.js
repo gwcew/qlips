@@ -67,24 +67,30 @@ const styles = (theme) => ({
 
     authorName: {
         color: theme.palette.comment.authorNameColor,
+        fontSize: 15,
     },
     contentName: {
         color: theme.palette.comment.contentNameColor,
+        fontSize: 14,
     },
 });
 
 function CustomListItemComponent(props) {
     return <ListItem button className={props.classes.root}>
-        <ListItemIcon style={{paddingLeft: '15px'}}>
-            <AccountCircleIcon></AccountCircleIcon>
+        <ListItemIcon style={{paddingLeft: '10px'}}>
+            <AccountCircleIcon style={{width: '48px', height: '48px'}}></AccountCircleIcon>
         </ListItemIcon>
         <ListItemText>
             <Grid container direction="column">
-                <Grid item className={props.classes.authorName}>
-                    <div>{props.authorName}</div>
+                <Grid item className={props.classes.authorName} direction="column">
+                    <div>
+                        {props.authorName}
+                    </div>
                 </Grid>
                 <Grid item className={props.classes.contentName}>
-                    <div>{props.contentName}</div>
+                    <div>
+                        {props.contentName}
+                    </div>
                 </Grid>
             </Grid>
         </ListItemText>
@@ -104,7 +110,9 @@ function Comment({authorName, contentName, iconURL, replies}) {
 
     return <p>
         <CustomListItem authorName={authorName} contentName={contentName}>
-
+            <List component="div" disablePadding>
+                <CustomListItem authorName={"1"} contentName={"2"}></CustomListItem>
+            </List>
         </CustomListItem>
     </p>
 }
