@@ -1,4 +1,4 @@
-import {VIDEO_ADD, VIDEO_DELETE, VIDEO_CLICK} from '../actionTypes'
+import {VIDEO_ADD, VIDEO_DELETE, VIDEO_CLICK, VIDEO_SET_ACCESS_TYPE} from '../actionTypes'
 import image1 from 'data/previews/CO_2020.png'
 import image2 from 'data/previews/dokmed_2020.png'
 import image3 from 'data/previews/dokmed2.jpg'
@@ -66,7 +66,7 @@ const contentVideo = [
     },
 ];
 
-const initialState = { content: contentVideo, };
+const initialState = { content: contentVideo, accessType: ACCESS_TYPE_DEFAULT };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -85,6 +85,14 @@ export default function reducer(state = initialState, action) {
         }
         case VIDEO_CLICK: {
             return {};
+        }
+        case VIDEO_SET_ACCESS_TYPE: {
+            let result = {...state};
+            console.log(action);
+
+            result.accessType = action.accessType;
+            console.log(result);
+            return result;
         }
     }
 

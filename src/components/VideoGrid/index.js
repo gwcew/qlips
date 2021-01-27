@@ -3,13 +3,25 @@ import { Grid } from '@material-ui/core';
 import VideoBlick from './VideoBlock';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addVideo, deleteVideo, clickVideo} from '../../redux/actions';
+import {setAccessType} from '../../redux/actions';
 import PropTypes from 'prop-types';
+import {ACCESS_TYPE_DEFAULT} from 'components/LoginForm/AccessTypes'
 
-function VideoGrid(props) {
+function VideoGrid({videocontent, handleAccessType}) {
+  const accessType = localStorage.getItem('accessType');
+
+  if (accessType === undefined || accessType === null) {
+    accessType = ACCESS_TYPE_DEFAULT;
+  }
+
+  useEffect(() => handleAccessType(accessType), [])
+
   return (
     <Grid container spacing={2}>
-      {props.videocontent.content.map((element, index) => <VideoBlick key={index} width={3} videoData={element}/>)}
+      {videocontent.content.map((element, index) => 
+      element.accessType <= Number(videocontent.accessType) 
+      ? <VideoBlick key={index} width={3} videoData={element}/>
+      : null)}
     </Grid>
   );
 }
@@ -22,14 +34,13 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    handleAddVideo: addVideo,
-    handleDeleteVideo: deleteVideo,
-    handleClickVideo: clickVideo,
+    handleAccessType: setAccessType,
   }, dispatch);
 }
 
 VideoGrid.propTypes = {
-  videocontent: PropTypes.object
+  videocontent: PropTypes.object,
+  handleAccessType: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoGrid);

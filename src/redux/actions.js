@@ -1,4 +1,4 @@
-import {VIDEO_ADD, VIDEO_DELETE, VIDEO_CLICK} from './actionTypes';
+import {VIDEO_ADD, VIDEO_DELETE, VIDEO_CLICK, VIDEO_SET_ACCESS_TYPE} from './actionTypes';
 
 /*
 export const mapboxReady = () => ({
@@ -26,4 +26,11 @@ export const clickVideo = (data) => {
     type: VIDEO_CLICK,
     video: data,
   };
+};
+
+export const setAccessType = (id) => {
+  return {
+    type: VIDEO_SET_ACCESS_TYPE,
+    accessType: id,
+  }
 };
