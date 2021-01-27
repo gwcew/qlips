@@ -33,12 +33,12 @@ function VideoPage(props) {
   const classes = useStyles();
 
   const videoData = props.videocontent.content[props.match.params.id - 1];
-  
+
   return (
     <Grid item className={props.className}>
       <Container>
       <Grid container className={classes.root} spacing={4}>
-        <Grid item xs={2} className={[classes.sideBlock, classes.leftBlock]}>
+        <Grid item xs={2} className={[classes.sideBlock, classes.leftBlock].join(' ')}>
           <Box justifyContent="center" flexDirection="row-reverse">
             <FormatListNumbered style={{ color: '#fff' }} fontSize="large" />
           </Box>
