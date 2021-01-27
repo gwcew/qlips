@@ -30,10 +30,10 @@ const lightTheme = createMuiTheme({
       main: '#637ee0',
     },
     text: {
-      main: '',
+      main: '#364095',
     },
     subtext: {
-      main: '',
+      main: '#626a96',
     },
     caption: {
       main: '#515151',

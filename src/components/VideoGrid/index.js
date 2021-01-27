@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import {setAccessType} from '../../redux/actions';
 import PropTypes from 'prop-types';
 import {ACCESS_TYPE_DEFAULT} from 'components/LoginForm/AccessTypes'
+import Placeholder from './Placeholder';
 
 function VideoGrid({videocontent, handleAccessType}) {
   const accessType = localStorage.getItem('accessType');
@@ -30,7 +31,7 @@ function VideoGrid({videocontent, handleAccessType}) {
     }
 
     if (videocontent.searchOutput.length === 0 && videocontent.searchString.length !== 0) {
-      return "can't find anything by your string";
+      return <Placeholder></Placeholder>;
     }
 
     return videocontent.content.map((element, index) => 
