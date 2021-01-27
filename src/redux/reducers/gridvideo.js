@@ -29,48 +29,48 @@ import fuzzySearch from 'fuzzy-search';
 const contentVideo = [
     {
         id: 0,
-        title: 'test label Name1',
-        author: 'author1',
+        title: 'Отравления уграным газом: помощь на догоспитальном этапе',
+        author: 'Кремков Андрей Владимирович',
         url_preview: image1,
         url_video: video1,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
         id: 1,
-        title: 'get Name2',
-        author: 'author2',
+        title: 'Основы и принципы доказательной медицины',
+        author: 'Арсланов Глеб Маратович',
         url_preview: image2,
         url_video: video2,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
         id: 2,
-        title: 'as Name3',
-        author: 'author3',
+        title: 'Доказательная медицина: мода и необходимость',
+        author: 'Барон Екатерина Алексеевна',
         url_preview: image3,
         url_video: video3,
         accessType: ACCESS_TYPE_STUDENT,
     },
     {
         id: 3,
-        title: 'test label as here Name4',
-        author: 'author4',
+        title: 'Медицинская генетика',
+        author: 'Sons of Medicine',
         url_preview: image4,
         url_video: video4,
         accessType: ACCESS_TYPE_STUDENT,
     },
     {
         id: 4,
-        title: 'Name5',
-        author: 'author5',
+        title: 'Генетика и Психопатология',
+        author: 'Евгений Касьянов',
         url_preview: image5,
         url_video: video5,
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
         id: 5,
-        title: 'get Name6',
-        author: 'author6',
+        title: 'Нейростероиды: биологические функции и терапевтический потенциал',
+        author: 'Осипенко Антон Николаевич',
         url_preview: image6,
         url_video: video6,
         accessType: ACCESS_TYPE_SPECIAL,
@@ -122,7 +122,7 @@ export default function reducer(state = initialState, action) {
             const searcher = new fuzzySearch(wheretosearch, ['title', 'author'], {caseSensitive: false});
 
             const test = searcher.search(result.searchString);
-            
+
             if (test.length === 0) {
                 result.searchStatus = "[PLACEHOLDER] can't find anything by your string! [PLACEHOLDER]";
             }
