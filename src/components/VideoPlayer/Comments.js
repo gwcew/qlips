@@ -22,7 +22,7 @@ function Comments() {
 
     return <Grid container className={classes.root}>
         <Grid item>
-            Sas
+            text
         </Grid>
     </Grid>
 }
