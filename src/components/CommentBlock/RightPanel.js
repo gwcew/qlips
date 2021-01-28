@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     sendButton: {
         color: theme.palette.comment.secondaryColor,
     },
+    default: {
+        color: theme.palette.comment.secondaryColor,
+    },
 }));
 
 function RightPanelPage() {
@@ -58,7 +61,7 @@ function RightPanelPage() {
                 <Grid item>
                     <div className={classes.makeBold}>B</div>
                 </Grid>
-                <Grid item>
+                <Grid item className={classes.default}>
                     /
                 </Grid>
                 <Grid item>
@@ -66,7 +69,7 @@ function RightPanelPage() {
                 </Grid>
                 <Grid container direction="row" alignItems="center" justify="flex-end">
                     <Grid item>
-                        <MoodIcon></MoodIcon>
+                        <MoodIcon className={classes.default}></MoodIcon>
                     </Grid>
                     <Grid item>
                         <div className={classes.sendButton}>
