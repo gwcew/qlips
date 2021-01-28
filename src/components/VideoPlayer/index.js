@@ -5,7 +5,7 @@ import videoSrc from 'data/video/demo1.mov';
 import ReactPlayer from 'react-player';
 import VideoBanner from './VideoBanner';
 import PropTypes from 'prop-types';
-import Comments from './Comments';
+import Comments from '../CommentBlock';
 
 const useStyles = makeStyles(() => ({
   root: {},

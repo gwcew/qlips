@@ -55,6 +55,7 @@ const styles = (theme) => ({
         "&.MuiButtonBase-root": {
             border: `1px solid ${theme.palette.border.main}`,
             borderRadius: '0px',
+            paddingLeft: 29.5,
             backgroundColor: theme.palette.comment.backgroundColor,
           },
           "&:hover": {
