@@ -9,7 +9,7 @@ import {ACCESS_TYPE_DEFAULT} from 'components/LoginForm/AccessTypes'
 import Placeholder from './Placeholder';
 
 function VideoGrid({videocontent, handleAccessType}) {
-  const accessType = localStorage.getItem('accessType');
+  let accessType = localStorage.getItem('accessType');
 
   if (accessType === undefined || accessType === null) {
     accessType = ACCESS_TYPE_DEFAULT;
