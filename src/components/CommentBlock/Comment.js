@@ -160,7 +160,7 @@ function Comment({authorName, contentName, iconURL, replies}) {
             <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
             <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
             <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
-            <CloseButton></CloseButton>
+            <CloseButton caption=""></CloseButton>
         </List>
         </>
 }

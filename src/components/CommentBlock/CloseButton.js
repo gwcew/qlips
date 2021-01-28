@@ -26,7 +26,6 @@ const styles = (theme) => ({
         borderBottomLeftRadius: '8px',
         borderBottomRightRadius: '8px',
         backgroundColor: theme.palette.comment.backgroundColor,
-        padding: '1px', /* здесь это важно, если убрать padding к примеру занулить, то система не создаст прилегающую компоненту CloseButton */
       },
       "&:hover": {
           borderBottom: `1px solid ${theme.palette.border.main}`,
@@ -35,6 +34,25 @@ const styles = (theme) => ({
           backgroundColor: theme.palette.comment.hoverColor,
       }
     },
+    rootEmpty: {
+        "&.MuiButtonBase-root": {
+            border: `1px solid ${theme.palette.border.main}`,
+            borderTop: '0px solid',
+            borderTopLeftRadius: '0px',
+            borderTopRightRadius: '0px',
+            borderBottom: `1px solid ${theme.palette.border.main}`,
+            borderBottomLeftRadius: '8px',
+            borderBottomRightRadius: '8px',
+            backgroundColor: theme.palette.comment.backgroundColor,
+            bottom: '9px',
+          },
+          "&:hover": {
+              borderBottom: `1px solid ${theme.palette.border.main}`,
+              borderBottomLeftRadius: '8px',
+              borderBottomRightRadius: '8px',
+              backgroundColor: theme.palette.comment.hoverColor,
+          } 
+      },
     content: {
         textAlign: 'center',
         color: theme.palette.comment.secondaryColor,
@@ -47,10 +65,10 @@ const styles = (theme) => ({
 });
 
 function CustomListItemComponent(props) {
-    return <ListItem button className={props.classes.root} disableRipple={true}>
+    return <ListItem button className={props.caption ? props.classes.root : props.classes.rootEmpty} disableRipple={true}>
         <ListItemText className={props.classes.content}>
              <Typography variant="h6" className={props.classes.text}>
-                Просмотреть ещё (38 ответов)
+                 {props.caption ? props.caption : ""}
              </Typography>
         </ListItemText>
     </ListItem>
@@ -58,6 +76,7 @@ function CustomListItemComponent(props) {
 
 CustomListItemComponent.propTypes = {
     classes: PropTypes.object,
+    caption: PropTypes.string,
 };
 
 const CloseButton = withStyles(styles)(CustomListItemComponent);
