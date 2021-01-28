@@ -14,27 +14,7 @@ import {makeStyles, withStyles} from '@material-ui/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PropTypes from 'prop-types';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        background: theme.palette.background.default,
-        borderRadius: '8px',
-        borderColor: theme.palette.border.main,
-    },
-    authorName: {
-        fontSize: 12,
-        color: theme.palette.secondary.main,
-    },
-    contentName: {
-        fontSize: 16,
-        color: theme.palette.text.main,
-    },
-    button: {
-        "&$hover": {
-            backgroundColor: 'white',
-        },
-    },
-}));
+import CloseButton from './CloseButton';
 
 const styles = (theme) => ({
     root: {
@@ -170,8 +150,7 @@ function Comment({authorName, contentName, iconURL, replies}) {
     return <>
         <List component="nav">
             <CustomListItem authorName={authorName} contentName={contentName}></CustomListItem>
-            <CustomListItem isNested={true} authorName={"Сергей Добросмыслов"} contentName={"Здравствуйте! Мы работаем с 8 до 21. Приходите к нам!"}></CustomListItem>
-            <CustomListItem isNested={true} authorName={"Николай Захарченко"} contentName={"Где у вас можно просмотреть ..."}></CustomListItem>
+            <CloseButton></CloseButton>
         </List>
         </>
 }
