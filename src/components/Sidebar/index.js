@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuBlock: {
     marginBottom: theme.spacing(1),
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.sidebar.backgroundColor,
     borderRadius: '0 8px 8px 0',
     borderColor: theme.palette.border.main,
     borderWidth: '1px',

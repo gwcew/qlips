@@ -52,7 +52,9 @@ const lightTheme = createMuiTheme({
       optionsColor: '#626a97',
       avatarColor: 'black',
       rightPanelInputBackgroundColor: '#f5f5f5',
-
+    },
+    sidebar: {
+      backgroundColor: '#f5f5f5',
     },
   },
 });
@@ -93,6 +95,9 @@ const darkTheme = createMuiTheme({
       optionsColor: '#c1defe',
       avatarColor: 'white',
       rightPanelInputBackgroundColor: '#383838',
+    },
+    sidebar: {
+      backgroundColor: '#383838',
     },
   },
 });
