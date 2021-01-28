@@ -27,7 +27,7 @@ const lightTheme = createMuiTheme({
       main: '#e1e1e1',   
     },
     border: {
-      main: '#637ee0',
+      main: '#b6cbf3',
     },
     text: {
       main: '#364095',
