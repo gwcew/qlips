@@ -7,7 +7,9 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    backgroundColor: theme.palette.searchbar.backgroundColor,
+  },
   header: {
     textAlign: 'center',
   },
@@ -22,10 +24,13 @@ const useStyles = makeStyles((theme) => ({
   },
   caption: {
     fontSize: '14px',
-    color: '#515151',
+    color: theme.palette.caption.main,
   },
   button: {
     margin: `0 ${theme.spacing(1)}`,
+  },
+  input: {
+    backgroundColor: theme.palette.searchbar.inputbackgroundColor,
   },
 }));
 
@@ -37,26 +42,26 @@ function RegisterForm() {
       <h2 className={classes.header}>Регистрация</h2>
       <Grid container className={classes.inputWrap}>
         <Grid item xs={12} className={classes.input}>
-          <TextField fullWidth label="Фамилия" variant="filled" />
+          <TextField fullWidth label="Фамилия" variant="filled" InputProps={{className: classes.caption}} InputLabelProps={{className: classes.caption}} />
         </Grid>
       </Grid>
       <Grid container className={classes.inputWrap}>
         <Grid item xs={12} className={classes.input}>
-          <TextField fullWidth label="Имя" variant="filled" />
+          <TextField fullWidth label="Имя" variant="filled" InputProps={{className: classes.caption}} InputLabelProps={{className: classes.caption}} />
         </Grid>
       </Grid>
       <Grid container className={classes.inputWrap}>
         <Grid item xs={12} className={classes.input}>
-          <TextField fullWidth label="Отчество" variant="filled" />
+          <TextField fullWidth label="Отчество" variant="filled" InputProps={{className: classes.caption}} InputLabelProps={{className: classes.caption}} />
         </Grid>
       </Grid>
       <Grid container className={classes.inputWrap}>
         <Grid item xs={12} className={classes.input}>
-          <TextField fullWidth label="Email" variant="filled" />
+          <TextField fullWidth label="Email" variant="filled" InputProps={{className: classes.caption}} InputLabelProps={{className: classes.caption}} />
         </Grid>
       </Grid>
       <Grid container className={classes.inputWrap}>
-        <Grid item xs={12} className={classes.input}>
+        <Grid item xs={12}>
           <Button variant="contained" component="label">
             Загрузить документ
             <input type="file" hidden />

@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.searchbar.backgroundColor,
     color: theme.palette.text.main,
   },
   header: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'red',
   },
   textfield: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.searchbar.inputbackgroundColor,
     color: theme.palette.caption.main,
   },
   togglebutton: {
@@ -77,7 +77,7 @@ function LoginForm({handleAccessType}) {
       <h2 className={classes.header}>Вход</h2>
       <Grid container className={classes.inputWrap}>
         <Grid item xs={12} className={classes.input}>
-          <TextField fullWidth label="E-mail" variant="filled" InputProps={{className: classes.textfield}}/>
+          <TextField fullWidth label="E-mail" variant="filled" InputProps={{className: classes.textfield}} InputLabelProps={{className: classes.caption}}/>
         </Grid>
       </Grid>
       <Grid container className={classes.inputWrap}>
@@ -88,6 +88,7 @@ function LoginForm({handleAccessType}) {
             variant="filled"
             type="password"
             InputProps={{className: classes.textfield}}
+            InputLabelProps={{className: classes.caption}}
           />
         </Grid>
       </Grid>

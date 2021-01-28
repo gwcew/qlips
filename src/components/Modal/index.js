@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.searchbar.backgroundColor,
     padding: theme.spacing(2, 4, 3),
     outline: 'none!important',
     borderRadius: '40px',
