@@ -40,7 +40,7 @@ const styles = (theme) => ({
     root: {
       "&.MuiButtonBase-root": {
         border: `1px solid ${theme.palette.border.main}`,
-        borderBottom: '0px',
+        borderBottom: `1px solid ${theme.palette.border.main}`,
         borderBottomLeftRadius: '0px',
         borderBottomRightRadius: '0px',
         borderRadius: '8px',
@@ -48,7 +48,7 @@ const styles = (theme) => ({
       },
       "&:hover": {
           borderRadius: '8px',
-          borderBottom: '0px',
+          borderBottom: `1px solid ${theme.palette.border.main}`,
           borderBottomLeftRadius: '0px',
           borderBottomRightRadius: '0px',
           backgroundColor: theme.palette.comment.hoverColor,
@@ -58,6 +58,7 @@ const styles = (theme) => ({
     rootnested: {
         "&.MuiButtonBase-root": {
             border: `1px solid ${theme.palette.border.main}`,
+            borderTop: '0px solid white',
             borderRadius: '0px',
             paddingLeft: 28,
             backgroundColor: theme.palette.comment.backgroundColor,
