@@ -56,6 +56,10 @@ const lightTheme = createMuiTheme({
     sidebar: {
       backgroundColor: '#f5f5f5',
     },
+    searchbar: {
+      backgroundColor: '#ffffff',
+      inputbackgroundColor: '#f0f0f0',
+    },
   },
 });
 
@@ -98,6 +102,10 @@ const darkTheme = createMuiTheme({
     },
     sidebar: {
       backgroundColor: '#383838',
+    },
+    searchbar: {
+      backgroundColor: '#262626',
+      inputbackgroundColor: '#323232',
     },
   },
 });
