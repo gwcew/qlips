@@ -1,6 +1,9 @@
 import React from 'react';
 import {
     Grid,
+    FormControl,
+    InputLabel,
+    OutlinedInput,
     TextField,
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
@@ -17,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: theme.palette.comment.rightPanelInputBackgroundColor,
         },
     },
+
+    inputText: {
+        color: theme.palette.comment.contentNameColor,
+    },
 }));
 
 function RightPanelPage() {
@@ -24,9 +31,10 @@ function RightPanelPage() {
 
     return <Grid container direction="column" className={classes.root} spacing={3}>
         <Grid item>
-            <TextField className={classes.input} maxRows={35}>
-                Some text
-            </TextField>
+        <FormControl className={classes.input}>
+            <OutlinedInput multiline className={classes.inputText}>
+            </OutlinedInput>
+        </FormControl>
         </Grid>
         <Grid item>
             Element2
