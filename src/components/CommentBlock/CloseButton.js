@@ -26,6 +26,7 @@ const styles = (theme) => ({
         borderBottomLeftRadius: '8px',
         borderBottomRightRadius: '8px',
         backgroundColor: theme.palette.comment.backgroundColor,
+        padding: '1px',
       },
       "&:hover": {
           borderBottom: `1px solid ${theme.palette.border.main}`,
@@ -34,15 +35,23 @@ const styles = (theme) => ({
           backgroundColor: theme.palette.comment.hoverColor,
       }
     },
-    text: {
+    content: {
         textAlign: 'center',
+        color: theme.palette.comment.secondaryColor,
+    },
+    text: {
+        "&.MuiTypography-root": {
+            fontSize: '0.75rem',
+        },
     },
 });
 
 function CustomListItemComponent(props) {
     return <ListItem button className={props.classes.root} disableRipple={true}>
-        <ListItemText className={props.classes.text}>
-             1
+        <ListItemText className={props.classes.content}>
+             <Typography variant="h6" className={props.classes.text}>
+                Просмотреть ещё (38 ответов)
+             </Typography>
         </ListItemText>
     </ListItem>
 }

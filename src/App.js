@@ -48,6 +48,9 @@ const lightTheme = createMuiTheme({
       subbackgroundColor: '#e1e1e1',
       authorNameColor: '#9978DC',
       contentNameColor: '#364095',
+      secondaryColor: '#626a97',
+      optionsColor: '#626a97',
+      avatarColor: 'black',
     },
   },
 });
@@ -84,6 +87,9 @@ const darkTheme = createMuiTheme({
       subbackgroundColor: '#313131',
       authorNameColor: 'white',
       contentNameColor: '#b4c1f6',
+      secondaryColor: '#8994bf',
+      optionsColor: '#c1defe',
+      avatarColor: 'white',
     },
   },
 });

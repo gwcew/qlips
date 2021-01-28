@@ -69,6 +69,7 @@ const styles = (theme) => ({
             position: 'absolute',
             right: 0,
             bottom: 32,
+            color: theme.palette.comment.optionsColor,
           },
           "&:hover": {
             borderRadius: '0px',
@@ -83,6 +84,7 @@ const styles = (theme) => ({
             position: 'absolute',
             right: 0,
             bottom: 32,
+            color: theme.palette.comment.optionsColor,
           },
           "&:hover": {
             borderRadius: '0px',
@@ -96,6 +98,7 @@ const styles = (theme) => ({
         position: 'relative',
         top: 15,
         left: 0,
+        color: theme.palette.comment.secondaryColor,
         "&.MuiTypography-root": {
             fontSize: '0.7rem',
             fontWeight: 'bold',
@@ -105,11 +108,15 @@ const styles = (theme) => ({
         color: theme.palette.comment.contentNameColor,
         fontSize: 14,
     },
+    avatar: {
+        color: theme.palette.comment.avatarColor,
+        paddingLeft: '10px',
+    },
 });
 
 function CustomListItemComponent(props) {
     return <ListItem button className={props.isNested ? props.classes.rootnested : props.classes.root} disableRipple={true}>
-        <ListItemIcon style={{paddingLeft: '10px'}}>
+        <ListItemIcon className={props.classes.avatar}>
             <AccountCircleIcon style={{width: '48px', height: '48px'}}></AccountCircleIcon>
         </ListItemIcon>
         <ListItemText>
@@ -150,6 +157,9 @@ function Comment({authorName, contentName, iconURL, replies}) {
     return <>
         <List component="nav">
             <CustomListItem authorName={authorName} contentName={contentName}></CustomListItem>
+            <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
+            <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
+            <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
             <CloseButton></CloseButton>
         </List>
         </>
