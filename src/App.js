@@ -180,7 +180,7 @@ function App() {
   
   const currentTheme = isLightTheme === "true" ? lightTheme : darkTheme;
 
-  const classes = useStyles(isLightTheme);
+  const classes = useStyles();
   const classesDark = useStylesDark();
 
   const currentClasses = isLightTheme === "true" ? classes : classesDark;
