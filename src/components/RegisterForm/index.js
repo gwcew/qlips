@@ -26,6 +26,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     color: theme.palette.caption.main,
   },
+  buttonCancel: {
+    margin: `0 ${theme.spacing(1)}`,
+
+    "&.MuiButtonBase-root": {
+      color: '#8e8e8e',
+      borderColor: '#8e8e8e'
+    },
+  },
   button: {
     margin: `0 ${theme.spacing(1)}`,
   },
@@ -81,7 +89,7 @@ function RegisterForm() {
       </Grid>
       <Grid container className={classes.inputWrap} spacing={1}>
         <Grid item>
-          <Button className={classes.button} variant="contained" color="secondary">
+          <Button className={classes.buttonCancel} variant="outlined" color="secondary">
             Отмена
           </Button>
         </Grid>
