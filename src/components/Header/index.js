@@ -9,6 +9,7 @@ import {
   IconButton,
   Button,
   Avatar,
+  Hidden,
 } from '@material-ui/core';
 import Modal from 'components/Modal';
 import LoginForm from 'components/LoginForm';
@@ -55,7 +56,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header({handleSearch, handleGenerateContentBySearch}) {
+{/* width - для отладки когда мобилка а когда ПК */}
+function Header({width, handleSearch, handleGenerateContentBySearch}) {
   const classes = useStyles();
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
@@ -113,26 +115,30 @@ function Header({handleSearch, handleGenerateContentBySearch}) {
       <Grid item xs={4} className={classes.loginBox}>
         <Grid container spacing={1} className={classes.rightAlign}>
           <Grid item>
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="primary"
-              size="small"
-              onClick={() => setIsOpenLogin(true)}
-            >
-              Вход
-            </Button>
+            <Hidden mdDown>
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="primary"
+                size="small"
+                onClick={() => setIsOpenLogin(true)}
+              >
+                Вход
+              </Button>
+            </Hidden>
           </Grid>
           <Grid item>
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="secondary"
-              size="small"
-              onClick={() => setIsOpenReg(true)}
-            >
-              Регистрация
-            </Button>
+            <Hidden smDown>
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="secondary"
+                size="small"
+                onClick={() => setIsOpenReg(true)}
+              >
+                Регистрация
+              </Button>
+            </Hidden>
           </Grid>
           <Grid item>
             <Avatar
@@ -170,6 +176,7 @@ function mapDispatchToProps(dispatch) {
 Header.propTypes = {
   handleSearch: PropTypes.func,
   handleGenerateContentBySearch: PropTypes.func,
+  width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
 };
 
 
