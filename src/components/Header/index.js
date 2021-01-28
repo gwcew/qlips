@@ -23,7 +23,7 @@ import {setSearchResult, setSearchContentByString} from 'redux/actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     position: 'fixed',
     top: '0',
     backgroundColor: theme.palette.background.default,
