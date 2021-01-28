@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.subbackground.main,
+    backgroundColor: theme.palette.background.default,
     color: theme.palette.text.main,
   },
   header: {
@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.caption.main,
   },
   togglebutton: {
+    "&.MuiButtonBase-root": {
+      backgroundColor: theme.palette.subbackground.main,
+    },
+
     '&$selected': {
       backgroundColor: theme.palette.primary.main,
     },

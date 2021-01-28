@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuBlock: {
     marginBottom: theme.spacing(1),
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: theme.palette.sidebar.backgroundColor,
     borderRadius: '0 0 0 0',
     borderColor: theme.palette.border.main,
     borderWidth: '1px',
