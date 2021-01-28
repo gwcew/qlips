@@ -7,7 +7,7 @@ import Sidebar from 'components/Sidebar';
 import SidebarRight from 'components/SidebarRight';
 import VideoPage from 'pages/VideoPage';
 import Page404 from 'pages/404Page';
-import { Grid } from '@material-ui/core';
+import { Grid, Hidden } from '@material-ui/core';
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline'
 import {connect} from 'react-redux';
@@ -238,7 +238,10 @@ function App() {
           </Switch>
         </Grid>
         <Sidebar collapsed={collapsedSidebar} setCollapsed={setCollapsedSidebar} setTheme={setTheme} isLightTheme={isLightTheme} />
-        <SidebarRight />
+        <Hidden smDown>
+          <SidebarRight />
+        </Hidden>
+
         <Grid container className={currentClasses.rounded}/>
         </div>
       </ThemeProvider>

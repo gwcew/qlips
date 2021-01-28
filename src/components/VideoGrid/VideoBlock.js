@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles((theme) => ({
   root: {
     cursor: 'pointer',
+    minWidth: '200px',
   },
   previewImg: {
     width: '100%',
@@ -46,7 +47,7 @@ function VideoBlock({ width = 3, videoData }) {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} xl={3} className={classes.root}>
+    <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.root}>
       <Link to={"/video/" + videoData.id}>
       <img src={videoData.url_preview} alt="preview" className={classes.previewImg} />
         <Grid container className={classes.captionWrap} spacing={1}>
