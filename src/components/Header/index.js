@@ -81,6 +81,10 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
     }
   };
 
+  const handleClickAvatar = () => {
+    setIsOpenLogin(true);
+  };
+
   return (
     <Grid className={classes.root} container>
       <Grid item xs={2}>
@@ -144,6 +148,7 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
             <Avatar
               alt="avatar"
               className={classes.avatar}
+              onClick={handleClickAvatar}
             >
               <Person />
             </Avatar>
