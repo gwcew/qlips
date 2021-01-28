@@ -60,6 +60,9 @@ const lightTheme = createMuiTheme({
       backgroundColor: '#ffffff',
       inputbackgroundColor: '#f0f0f0',
     },
+    loginform: {
+      buttonbackgroundColor: '#8e8e8e',
+    },
   },
 });
 
@@ -107,6 +110,9 @@ const darkTheme = createMuiTheme({
       backgroundColor: '#262626',
       inputbackgroundColor: '#323232',
     },
+    loginform: {
+      buttonbackgroundColor: '#8e8e8e',
+    }
   },
 });
 

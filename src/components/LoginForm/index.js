@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.searchbar.backgroundColor,
     color: theme.palette.text.main,
   },
+  link: {
+    color: theme.palette.text.main,
+    textDecoration: 'none',
+  },
   header: {
     textAlign: 'center',
   },
@@ -43,7 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
   togglebutton: {
     "&.MuiButtonBase-root": {
-      backgroundColor: theme.palette.subbackground.main,
+      backgroundColor: theme.palette.loginform.buttonbackgroundColor,
+      borderRadius: '7px',
+      marginLeft: '8px',
     },
 
     '&$selected': {
@@ -100,7 +106,7 @@ function LoginForm({handleAccessType}) {
         </Grid>
       </Grid>
       <Grid container className={classes.inputWrap}>
-        <a href="/">Забыли пароль?</a>
+        <a href="/" className={classes.link}>Забыли пароль?</a>
       </Grid>
       <Grid container className={classes.inputWrap}>
         <h3 className={classes.header}>Тип пользователя*</h3>
