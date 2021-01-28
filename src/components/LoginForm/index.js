@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: `0 ${theme.spacing(1)}`,
-    color: 'red',
   },
   textfield: {
     backgroundColor: theme.palette.searchbar.inputbackgroundColor,
@@ -49,6 +48,14 @@ const useStyles = makeStyles((theme) => ({
 
     '&$selected': {
       backgroundColor: theme.palette.primary.main,
+    },
+  },
+  buttonCancel: {
+    margin: `0 ${theme.spacing(1)}`,
+
+    "&.MuiButtonBase-root": {
+      color: '#8e8e8e',
+      borderColor: '#8e8e8e'
     },
   },
   selected: {},
@@ -125,7 +132,7 @@ function LoginForm({handleAccessType}) {
       </Grid>
       <Grid container className={classes.button} spacing={1}>
         <Grid item>
-          <Button variant="outlined" style={{color: '#8e8e8e', borderColor: '#8e8e8e'}}>
+          <Button variant="outlined" className={classes.buttonCancel}>
             Отмена
           </Button>
         </Grid>
