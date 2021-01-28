@@ -51,7 +51,9 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '7px',
       marginLeft: '8px',
     },
-
+    "&.MuiToggleButton-root": {
+      padding: '4px',
+    },
     '&$selected': {
       backgroundColor: theme.palette.primary.main,
     },
