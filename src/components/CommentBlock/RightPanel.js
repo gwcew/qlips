@@ -5,9 +5,11 @@ import {
     InputLabel,
     OutlinedInput,
     TextField,
+    Button,
 } from '@material-ui/core';
 import {makeStyles} from '@material-ui/styles';
 import PropTypes from 'prop-types';
+import MoodIcon from '@material-ui/icons/Mood';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,6 +26,16 @@ const useStyles = makeStyles((theme) => ({
     inputText: {
         color: theme.palette.comment.contentNameColor,
     },
+
+    makeBold: {
+
+    },
+    makeUnderline: {
+
+    },
+    chooseSmile: {
+
+    },
 }));
 
 function RightPanelPage() {
@@ -37,7 +49,27 @@ function RightPanelPage() {
         </FormControl>
         </Grid>
         <Grid item>
-            Element2
+            <Grid container direction="row" alignItems="center" justify="flex-end">
+                <Grid item>
+                    <div>B</div>
+                </Grid>
+                <Grid item>
+                    /
+                </Grid>
+                <Grid item>
+                    <div>U</div>
+                </Grid>
+                <Grid container direction="row" alignItems="center" justify="flex-end">
+                    <Grid item>
+                        <MoodIcon></MoodIcon>
+                    </Grid>
+                    <Grid item>
+                        <div>
+                            Отправить
+                        </div>
+                    </Grid>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 }
