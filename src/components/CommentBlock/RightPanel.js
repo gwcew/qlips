@@ -28,13 +28,18 @@ const useStyles = makeStyles((theme) => ({
     },
 
     makeBold: {
-
+        color: theme.palette.comment.secondaryColor,
+        fontWeight: 'bold',
     },
     makeUnderline: {
-
+        color: theme.palette.comment.secondaryColor,
+        textDecoration: 'underline',
     },
     chooseSmile: {
 
+    },
+    sendButton: {
+        color: theme.palette.comment.secondaryColor,
     },
 }));
 
@@ -51,20 +56,20 @@ function RightPanelPage() {
         <Grid item>
             <Grid container direction="row" alignItems="center" justify="flex-end">
                 <Grid item>
-                    <div>B</div>
+                    <div className={classes.makeBold}>B</div>
                 </Grid>
                 <Grid item>
                     /
                 </Grid>
                 <Grid item>
-                    <div>U</div>
+                    <div className={classes.makeUnderline}>U</div>
                 </Grid>
                 <Grid container direction="row" alignItems="center" justify="flex-end">
                     <Grid item>
                         <MoodIcon></MoodIcon>
                     </Grid>
                     <Grid item>
-                        <div>
+                        <div className={classes.sendButton}>
                             Отправить
                         </div>
                     </Grid>
