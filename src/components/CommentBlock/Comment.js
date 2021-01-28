@@ -8,7 +8,7 @@ import {
     Grid,
     IconButton,
     ListItemSecondaryAction,
-    Button,
+    Typography,
 } from '@material-ui/core';
 import {makeStyles, withStyles} from '@material-ui/styles';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -59,7 +59,7 @@ const styles = (theme) => ({
         "&.MuiButtonBase-root": {
             border: `1px solid ${theme.palette.border.main}`,
             borderRadius: '0px',
-            paddingLeft: 29.5,
+            paddingLeft: 28,
             backgroundColor: theme.palette.comment.backgroundColor,
           },
           "&:hover": {
@@ -78,15 +78,6 @@ const styles = (theme) => ({
         textDecoration: "line-through"
       }
     },
-  
-    iconButton: {
-      padding: 5
-    },
-  
-    important: {
-      color: "#00ACE9",
-      fontWeight: "bold"
-    },
 
     authorName: {
         color: theme.palette.comment.authorNameColor,
@@ -96,7 +87,7 @@ const styles = (theme) => ({
         "&.MuiButtonBase-root": {
             position: 'absolute',
             right: 0,
-            bottom: 20,
+            bottom: 32,
           },
           "&:hover": {
             borderRadius: '0px',
@@ -110,7 +101,7 @@ const styles = (theme) => ({
         "&.MuiButtonBase-root": {
             position: 'absolute',
             right: 0,
-            bottom: 20,
+            bottom: 32,
           },
           "&:hover": {
             borderRadius: '0px',
@@ -121,19 +112,13 @@ const styles = (theme) => ({
           },
     },
     buttonAnswer: {
-        "&.MuiButtonBase-root": {
-            position: 'relative',
-            top: 15,
-            left: 20,
-            fontSize: 10,
-          },
-          "&:hover": {
-            borderRadius: '0px',
-            borderBottom: '0px',
-            borderBottomLeftRadius: '0px',
-            borderBottomRightRadius: '0px',
-            backgroundColor: 'transparent',
-          },
+        position: 'relative',
+        top: 15,
+        left: 0,
+        "&.MuiTypography-root": {
+            fontSize: '0.7rem',
+            fontWeight: 'bold',
+        },
     },
     contentName: {
         color: theme.palette.comment.contentNameColor,
@@ -161,11 +146,11 @@ function CustomListItemComponent(props) {
             </Grid>
         </ListItemText>
         <IconButton className={props.isNested ? props.classes.buttonOptionsNested : props.classes.buttonOptions}>
-                        <MoreHorizIcon className={props.classes.buttonShare}></MoreHorizIcon>
-                    </IconButton>
-                    <Button className={props.classes.buttonAnswer}>
-                        Hello
-                    </Button>
+            <MoreHorizIcon className={props.classes.buttonShare}></MoreHorizIcon>
+        </IconButton>
+        <Typography variant="h6" className={props.classes.buttonAnswer}>
+            Ответить
+        </Typography>
     </ListItem>
 }
 
