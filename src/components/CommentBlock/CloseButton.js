@@ -26,7 +26,7 @@ const styles = (theme) => ({
         borderBottomLeftRadius: '8px',
         borderBottomRightRadius: '8px',
         backgroundColor: theme.palette.comment.backgroundColor,
-        padding: '1px',
+        padding: '1px', /* здесь это важно, если убрать padding к примеру занулить, то система не создаст прилегающую компоненту CloseButton */
       },
       "&:hover": {
           borderBottom: `1px solid ${theme.palette.border.main}`,

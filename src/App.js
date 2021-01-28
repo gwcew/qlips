@@ -44,13 +44,15 @@ const lightTheme = createMuiTheme({
     },
     comment: {
       hoverColor: '#e9edfd',
-      backgroundColor: '#F3F3F3',
+      backgroundColor: '#fff',
       subbackgroundColor: '#e1e1e1',
       authorNameColor: '#9978DC',
       contentNameColor: '#364095',
       secondaryColor: '#626a97',
       optionsColor: '#626a97',
       avatarColor: 'black',
+      rightPanelInputBackgroundColor: '#f5f5f5',
+
     },
   },
 });
@@ -90,6 +92,7 @@ const darkTheme = createMuiTheme({
       secondaryColor: '#8994bf',
       optionsColor: '#c1defe',
       avatarColor: 'white',
+      rightPanelInputBackgroundColor: '#383838',
     },
   },
 });
