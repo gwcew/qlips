@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     textAlign: 'center',
+    color: theme.palette.text.main,
   },
   label: {
     textAlign: 'right',
