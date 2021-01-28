@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 function LoginForm({handleAccessType}) {
   const classes = useStyles();
 
-  const accessType = localStorage.getItem('accessType');
+  let accessType = localStorage.getItem('accessType');
 
   if (accessType === undefined || accessType === null) {
     localStorage.setItem('accessType', ACCESS_TYPE_DEFAULT);
