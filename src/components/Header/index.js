@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     position: 'fixed',
     top: '0',
-    backgroundColor: theme.palette.subbackground.main,
+    backgroundColor: theme.palette.background.default,
     zIndex: '1000',
   },
   loginBox: {
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     width: 'auto',
   },
   searchbar: {
-    background: theme.palette.background.default,
+    background: theme.palette.subbackground.main,
   },
   searchbar_text: {
     color: theme.palette.text.main,

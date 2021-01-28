@@ -9,6 +9,9 @@ import Comments from '../CommentBlock';
 
 const useStyles = makeStyles(() => ({
   root: {},
+  comments: {
+    paddingTop: '30px',
+  },
 }));
 
 function VideoPage({videoData}) {
