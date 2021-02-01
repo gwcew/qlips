@@ -21,7 +21,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import {setSearchResult, setSearchContentByString} from 'redux/actions';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -66,6 +66,8 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
 
   const [searchString, setSearchString] = useState('');
 
+  const location = useLocation();
+
   useEffect(() => {
     if (isOpenLogin) {
       setIsOpenReg(false);
@@ -73,6 +75,12 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
     if (isOpenReg) {
       setIsOpenLogin(false);
     }
+
+    const params = new URLSearchParams(location.search);
+    const queryResult = params.get('search');
+
+    setSearchString(queryResult);
+
   }, [isOpenLogin, isOpenReg]);
 
   const history = useHistory();
@@ -135,6 +143,7 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
             labelWidth={45}
             onChange={handleOnChange}
             onKeyPress={handleGenerateOnKeyPressed}
+            value={searchString}
           />
         </FormControl>
       </Grid>
