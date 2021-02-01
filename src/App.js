@@ -12,6 +12,8 @@ import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material
 import CssBaseline from '@material-ui/core/CssBaseline'
 import {connect} from 'react-redux';
 
+import All from 'components/All';
+
 const lightTheme = createMuiTheme({
   palette: {
     primary: {
@@ -24,7 +26,7 @@ const lightTheme = createMuiTheme({
       default: '#ffffff',
     },
     subbackground: {
-      main: '#e1e1e1',   
+      main: '#ffffff',   
     },
     border: {
       main: '#8fa7e8',
@@ -141,9 +143,9 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
   },
   collapsed: {
-    width: 'calc(100% - 265px)',
-    margin: 'auto',
-    marginLeft: '165px',
+      width: 'calc(100% - 265px)',
+      margin: 'auto',
+      marginLeft: '165px',
   },
 }));
 
@@ -215,43 +217,7 @@ function App() {
   return (
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
-        <div>
-        <Header />
-        <Grid container className={currentClasses.content}>
-          <Switch>
-            <Route exact path="/">
-              <Grid item className={collapsedSidebar ? currentClasses.inner : currentClasses.collapsed}>
-                <HomePage />
-              </Grid>
-            </Route>
-            <Route exact path="/video/:id" render={(props) => (
-              <VideoPage {...props} className={classes.fullWidth}/>
-            )}>
-            </Route>
-            <Route exact path="/playlists" component={Page404}>
-              <Grid item className={collapsedSidebar ? currentClasses.inner : currentClasses.collapsed}>
-                <Page404 />
-              </Grid>
-            </Route>
-            <Route exact path="/categories">
-              <Grid item className={collapsedSidebar ? currentClasses.inner : currentClasses.collapsed}>
-                <Page404 />
-              </Grid>
-            </Route>
-            <Route exact path="/curses">
-              <Grid item className={collapsedSidebar ? currentClasses.inner : currentClasses.collapsed}>
-                <Page404 />
-              </Grid>
-            </Route>
-          </Switch>
-        </Grid>
-        <Sidebar collapsed={collapsedSidebar} setCollapsed={setCollapsedSidebar} setTheme={setTheme} isLightTheme={isLightTheme} />
-        <Hidden smDown>
-          <SidebarRight />
-        </Hidden>
-
-        <Grid container className={currentClasses.rounded}/>
-        </div>
+        <All isCollapsedSidebar={collapsedSidebar} isLightTheme={isLightTheme} setCollapsedSidebar={setCollapsedSidebar} setTheme={setTheme}></All>
       </ThemeProvider>
   );
 }
