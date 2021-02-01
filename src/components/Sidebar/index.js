@@ -20,11 +20,19 @@ const useStyles = makeStyles((theme) => ({
     top: '0',
     left: '0',
     height: '100%',
-    width: '150px',
+
     overflow: 'hidden',
     '& button':{
       borderColor: theme.palette.border.main,
     },
+
+    [theme.breakpoints.up('sm')]: {
+      width: '150px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '125px',
+    },
+
   },
   collapsed: {
     width: '75px',

@@ -92,7 +92,7 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
           <img src={imgLogo} height={40} alt="logo"/>
         </Link>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={8} sm={6}>
         <FormControl fullWidth size="small" variant="outlined" className={classes.searchbar}>
           <InputLabel htmlFor="outlined-adornment-password" className={classes.searchbar_text}>Поиск</InputLabel>
           <OutlinedInput
@@ -116,10 +116,10 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
           />
         </FormControl>
       </Grid>
-      <Grid item xs={4} className={classes.loginBox}>
+      <Grid item xs={2} sm={4} className={classes.loginBox}>
         <Grid container spacing={1} className={classes.rightAlign}>
+        <Hidden mdDown>
           <Grid item>
-            <Hidden mdDown>
               <Button
                 className={classes.button}
                 variant="contained"
@@ -129,21 +129,21 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
               >
                 Вход
               </Button>
-            </Hidden>
-          </Grid>
-          <Grid item>
-            <Hidden smDown>
-              <Button
-                className={classes.button}
-                variant="contained"
-                color="secondary"
-                size="small"
-                onClick={() => setIsOpenReg(true)}
-              >
-                Регистрация
-              </Button>
-            </Hidden>
-          </Grid>
+            </Grid>
+          </Hidden>
+          <Hidden smDown>
+            <Grid item>
+                <Button
+                  className={classes.button}
+                  variant="contained"
+                  color="secondary"
+                  size="small"
+                  onClick={() => setIsOpenReg(true)}
+                >
+                  Регистрация
+                </Button>
+            </Grid>
+          </Hidden>
           <Grid item>
             <Avatar
               alt="avatar"
