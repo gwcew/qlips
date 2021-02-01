@@ -21,6 +21,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import {setSearchResult, setSearchContentByString} from 'redux/actions';
+import {useHistory} from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -62,6 +64,8 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
 
+  const [searchString, setSearchString] = useState('');
+
   useEffect(() => {
     if (isOpenLogin) {
       setIsOpenReg(false);
@@ -71,15 +75,33 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
     }
   }, [isOpenLogin, isOpenReg]);
 
+  const history = useHistory();
+
+  
   const handleOnChange = (event) => {
-    handleSearch(event.target.value);
+    setSearchString(event.target.value);
+  };
+
+  const handleOnClickSearchButton = () => {
+    const params = new URLSearchParams();
+
+    if (searchString) {
+      params.append('search', searchString);
+      history.push({search: '?'+params.toString()});
+    }
+    else {
+      params.delete('search');
+      history.push({search: ''});
+    }
   };
 
   const handleGenerateOnKeyPressed = (event) => {
     if (event.key === 'Enter') {
-      handleGenerateContentBySearch();
+      handleOnClickSearchButton();
     }
   };
+
+
 
   const handleClickAvatar = () => {
     setIsOpenLogin(true);
@@ -104,7 +126,7 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
               <InputAdornment position="end">
                 <IconButton
                   edge="end"
-                  onClick={handleGenerateContentBySearch}
+                  onClick={handleOnClickSearchButton}
                 >
                   <Search />
                 </IconButton>

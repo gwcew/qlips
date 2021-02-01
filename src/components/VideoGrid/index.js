@@ -3,19 +3,29 @@ import { Grid } from '@material-ui/core';
 import VideoBlick from './VideoBlock';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setAccessType} from '../../redux/actions';
+import {setAccessType, setSearchContentByString} from '../../redux/actions';
 import PropTypes from 'prop-types';
 import {ACCESS_TYPE_DEFAULT} from 'components/LoginForm/AccessTypes'
 import Placeholder from './Placeholder';
+import {useLocation} from 'react-router-dom';
 
-function VideoGrid({videocontent, handleAccessType}) {
+function VideoGrid({videocontent, handleAccessType, handleSearchString}) {
   let accessType = localStorage.getItem('accessType');
 
   if (accessType === undefined || accessType === null) {
     accessType = ACCESS_TYPE_DEFAULT;
   }
 
-  useEffect(() => handleAccessType(accessType), [])
+  const location = useLocation();
+//  useEffect(() => handleAccessType(accessType), [])
+
+  useEffect(() => {
+    handleAccessType(accessType);
+    const params = new URLSearchParams(location.search);
+    const queryResult = params.get('search');
+
+    handleSearchString(queryResult);
+  }, []);
 
   const handleGeneratingItems = () => {
     if (videocontent.searchOutput.length === 0 
@@ -30,8 +40,10 @@ function VideoGrid({videocontent, handleAccessType}) {
       return videocontent.searchOutput.map((element, index) => <VideoBlick key={index} width={3} videoData={element}/>);
     }
 
-    if (videocontent.searchOutput.length === 0 && videocontent.searchString.length !== 0) {
-      return <Placeholder></Placeholder>;
+    if (videocontent.searchString) {
+      if (videocontent.searchOutput.length === 0 && videocontent.searchString.length !== 0) {
+        return <Placeholder></Placeholder>;
+      }
     }
 
     return videocontent.content.map((element, index) => 
@@ -56,12 +68,14 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleAccessType: setAccessType,
+    handleSearchString: setSearchContentByString,
   }, dispatch);
 }
 
 VideoGrid.propTypes = {
   videocontent: PropTypes.object,
   handleAccessType: PropTypes.func,
+  handleSearchString: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoGrid);

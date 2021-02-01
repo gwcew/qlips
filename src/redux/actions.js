@@ -49,8 +49,9 @@ export const setSearchResult = (string) => {
   };
 }; 
 
-export const setSearchContentByString = () => {
+export const setSearchContentByString = (searchString) => {
   return {
     type: VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING,
+    searchString: searchString,
   };
 };

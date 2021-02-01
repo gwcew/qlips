@@ -25,7 +25,6 @@ import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_STUDENT, ACCESS_TYPE_SPECIAL} from '../
 
 import fuzzySearch from 'fuzzy-search';
 
-
 const contentVideo = [
     {
         id: 0,
@@ -103,15 +102,21 @@ export default function reducer(state = initialState, action) {
             return result;
         }
         case VIDEO_SET_SEARCH_STRING_RESULT: {
+            // TODO: deprecated delete this
+            /*
             let result = {...state};
             result.searchString = action.searchString;
 
-            return result;
+            return result;*/
+
+            break;
         }
         case VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING: {
             let result = {...state};
 
-            if (result.searchString === '') {
+            result.searchString = action.searchString;
+
+            if (!result.searchString) {
                 result.searchOutput = [];
                 result.searchStatus = "";
                 return result;
