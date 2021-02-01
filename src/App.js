@@ -165,8 +165,16 @@ const useStylesDark = makeStyles(theme => ({
     borderStyle: 'solid',
   },
   inner: {
-    width: 'calc(100% - 190px)',
-    margin: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      width: 'calc(100% - 190px)',
+      margin: 'auto',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      width: 'calc(100% - 105px)',
+      marginLeft: 'auto',
+      marginRight: '15px',
+    },
   },
   fullWidth: {
     width: '100%',
