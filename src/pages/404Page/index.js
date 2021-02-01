@@ -9,7 +9,13 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   image: {
-    width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '125%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '50%',
+    },
+
   },
 }));
 
