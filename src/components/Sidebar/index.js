@@ -128,8 +128,6 @@ const useStyles = makeStyles((theme) => ({
 
   },
   grid: {
-    marginTop: '2px',
-    maringRight: '2px',
   },
   selected: {},
   hover: {},
@@ -253,7 +251,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
               </Grid>
               {
                 !isSideBarCollapsed ? null : 
-                <Grid item style={{paddingRight: '20px'}}>
+                <Grid item>
                   {isSideBarCollapsed && "Плейлисты"}
                 </Grid>
               }
