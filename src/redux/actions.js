@@ -7,6 +7,8 @@ import {
   VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING,
   THEME_SET_STATUS,
   SIDEBAR_SET_STATUS,
+  MODAL_LOGINFORM_SET_STATUS,
+  MODAL_REGISTERFORM_SET_STATUS,
 } from './actionTypes';
 
 /*
@@ -69,5 +71,19 @@ export const setSideBarStatus = (status) => {
   return {
     type: SIDEBAR_SET_STATUS,
     sideBarCollapsed: status,
+  };
+};
+
+export const setModalLoginFormStatus = (status) => {
+  return {
+    type: MODAL_LOGINFORM_SET_STATUS,
+    loginFormStatus: status, 
+  };
+};
+
+export const setModalRegisterFormStatus = (status) => {
+  return {
+    type: MODAL_REGISTERFORM_SET_STATUS,
+    registerFormStatus: status,
   };
 };

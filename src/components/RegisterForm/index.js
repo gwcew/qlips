@@ -5,6 +5,10 @@ import {
   Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {setModalRegisterFormStatus} from 'redux/actions';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,22 +32,20 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.caption.main,
   },
   buttonCancel: {
-    margin: `0 ${theme.spacing(1)}`,
-
     "&.MuiButtonBase-root": {
       color: '#8e8e8e',
       borderColor: '#8e8e8e'
     },
   },
   button: {
-    margin: `0 ${theme.spacing(1)}`,
+    margin: `0 ${theme.spacing(3)}`,
   },
   input: {
     backgroundColor: theme.palette.searchbar.inputbackgroundColor,
   },
 }));
 
-function RegisterForm() {
+function RegisterForm({handleModalRegisterFormStatus}) {
   const classes = useStyles();
 
   return (
@@ -88,14 +90,14 @@ function RegisterForm() {
           копию документа из списка.
         </p>
       </Grid>
-      <Grid container className={classes.inputWrap} spacing={1}>
+      <Grid container className={classes.button} spacing={1}>
         <Grid item>
-          <Button className={classes.buttonCancel} variant="outlined" color="secondary">
+          <Button className={classes.buttonCancel} variant="outlined" color="secondary" onClick={() => handleModalRegisterFormStatus(false)}>
             Отмена
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.button} variant="contained" color="primary">
+          <Button variant="contained" color="primary">
             Регистрация
           </Button>
         </Grid>
@@ -104,4 +106,19 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+function mapStateToProps(state) {
+  return {
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    handleModalRegisterFormStatus: setModalRegisterFormStatus,
+  }, dispatch);
+}
+
+RegisterForm.propTypes = {
+  handleModalRegisterFormStatus: PropTypes.bool,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

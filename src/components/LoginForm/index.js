@@ -10,7 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_SPECIAL, ACCESS_TYPE_STUDENT} from './AccessTypes';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setAccessType} from 'redux/actions';
+import {setAccessType, setModalLoginFormStatus} from 'redux/actions';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +39,15 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.caption.main,
   },
   button: {
-    margin: `0 ${theme.spacing(1)}`,
+    [theme.breakpoints.down('lm')]: {
+      margin: `0 ${theme.spacing(3)}`,
+    },
+    [theme.breakpoints.up('lm')]: {
+      margin: `0 ${theme.spacing(5.5)}`,
+    },
+    [theme.breakpoints.up('sm')]: {
+      margin: `0 ${theme.spacing(7)}`,
+    },
   },
   textfield: {
     backgroundColor: theme.palette.searchbar.inputbackgroundColor,
@@ -69,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   selected: {},
 }));
 
-function LoginForm({handleAccessType}) {
+function LoginForm({handleAccessType, handleLoginFormStatus}) {
   const classes = useStyles();
 
   let accessType = localStorage.getItem('accessType');
@@ -140,7 +148,7 @@ function LoginForm({handleAccessType}) {
       </Grid>
       <Grid container className={classes.button} spacing={1}>
         <Grid item>
-          <Button variant="outlined" className={classes.buttonCancel}>
+          <Button variant="outlined" className={classes.buttonCancel} onClick={() => handleLoginFormStatus(false)}>
             Отмена
           </Button>
         </Grid>
@@ -156,6 +164,7 @@ function LoginForm({handleAccessType}) {
 
 LoginForm.propTypes = {
   handleAccessType: PropTypes.func,
+  handleLoginFormStatus: PropTypes.func,
 };
 
 function mapStateToProps(state) {
@@ -167,6 +176,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleAccessType: setAccessType,
+    handleLoginFormStatus: setModalLoginFormStatus,
   }, dispatch);
 }
 

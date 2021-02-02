@@ -20,7 +20,7 @@ import imgLogo from './logo.png';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
-import {setSearchResult, setSearchContentByString} from 'redux/actions';
+import {setSearchResult, setSearchContentByString, setModalLoginFormStatus, setModalRegisterFormStatus} from 'redux/actions';
 import {useHistory, useLocation} from 'react-router-dom';
 
 
@@ -63,7 +63,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 {/* width - для отладки когда мобилка а когда ПК */}
-function Header({width, handleSearch, handleGenerateContentBySearch}) {
+function Header({isLoginFormOpen, isRegisterFormOpen,
+   width, handleSearch, handleGenerateContentBySearch, handleModalLoginFormStatus, handleModalRegisterFormStatus}) {
   const classes = useStyles();
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
@@ -113,10 +114,10 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
     }
   };
 
-
+ 
 
   const handleClickAvatar = () => {
-    setIsOpenLogin(true);
+    handleModalLoginFormStatus(true);
   };
 
   return (
@@ -160,7 +161,7 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
                 variant="contained"
                 color="primary"
                 size="small"
-                onClick={() => setIsOpenLogin(true)}
+                onClick={() => handleModalLoginFormStatus(true)}
               >
                 Вход
               </Button>
@@ -173,7 +174,7 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
                   variant="contained"
                   color="secondary"
                   size="small"
-                  onClick={() => setIsOpenReg(true)}
+                  onClick={() => handleModalRegisterFormStatus(true)}
                 >
                   Регистрация
                 </Button>
@@ -190,10 +191,10 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
           </Grid>
         </Grid>
       </Grid>
-      <Modal isOpen={isOpenLogin} handler={setIsOpenLogin}>
+      <Modal isOpen={isLoginFormOpen} handler={handleModalLoginFormStatus}>
         <LoginForm />
       </Modal>
-      <Modal isOpen={isOpenReg} handler={setIsOpenReg}>
+      <Modal isOpen={isRegisterFormOpen} handler={handleModalRegisterFormStatus}>
         <RegisterForm />
       </Modal>
     </Grid>
@@ -203,6 +204,8 @@ function Header({width, handleSearch, handleGenerateContentBySearch}) {
 function mapStateToProps(state) {
   return {
     videoContent: state.gridvideo,
+    isLoginFormOpen: state.window.loginFormStatus,
+    isRegisterFormOpen: state.window.registerFormStatus,
   }
 }
 
@@ -210,12 +213,18 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleSearch: setSearchResult,
     handleGenerateContentBySearch: setSearchContentByString,
+    handleModalLoginFormStatus: setModalLoginFormStatus,
+    handleModalRegisterFormStatus: setModalRegisterFormStatus,
   }, dispatch);
 }
 
 Header.propTypes = {
+  isLoginFormOpen: PropTypes.bool,
+  isRegisterFormOpen: PropTypes.bool,
   handleSearch: PropTypes.func,
   handleGenerateContentBySearch: PropTypes.func,
+  handleModalLoginFormStatus: PropTypes.func,
+  handleModalRegisterFormStatus: PropTypes.func,
   width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
 };
 
