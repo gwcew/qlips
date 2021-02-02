@@ -8,6 +8,7 @@ import {
   FormatListBulleted,
   School,
   Home,
+  Close,
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
@@ -56,7 +57,10 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginBottom: '8px!important',
-    color: '#CDD3',
+    "&.MuiButtonBase-root": {
+      color: theme.palette.text.main,
+      textTransform: 'none',
+    },
   },
   icon: {
     color: theme.palette.border.main,
@@ -96,8 +100,9 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           color="primary"
           size="small"
           onClick={() => setCollapsed(!collapsed)}
+          disableRipple
         >
-          <Dehaze />
+          {collapsed ? <Dehaze /> : <Close></Close>}
         </Button>
         <Button
           fullWidth
