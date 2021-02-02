@@ -15,9 +15,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
     backgroundColor: theme.palette.sidebar.backgroundColor,
     borderRadius: '0 0 0 0',
-    borderColor: theme.palette.border.main,
-    borderWidth: '1px',
-    borderStyle: 'solid',
+    border: `1px solid ${theme.palette.border.main}`,
+    borderRight: '0px solid green',
     height: '100vh',
   },
 }));
