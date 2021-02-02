@@ -73,6 +73,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.sidebar.iconBackgroundColor,
     border: `1px solid ${theme.palette.border.main}`,
     borderRadius: '6px',
+    width: '32px',
+    height: '32px',
   },
   paper: {
     backgroundColor: theme.palette.background.default,
@@ -80,6 +82,8 @@ const useStyles = makeStyles((theme) => ({
   unselectedIcon: {
     color: theme.palette.border.main,
     backgroundColor: theme.palette.sidebar.iconUnSelectedBackgroundColor,
+    width: '32px',
+    height: '32px',
   },
   togglebutton: {
     "&.MuiButtonBase-root": {
@@ -128,6 +132,13 @@ const useStyles = makeStyles((theme) => ({
 
   },
   grid: {
+    paddingTop: '10px',
+  },
+  gridItemIcon: {
+    margin: '2px',
+  },
+  gridItemText: {
+    marginTop: '4px',
   },
   selected: {},
   hover: {},
@@ -228,12 +239,12 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickMainPageButton}>
             <Grid container spacing={1} className={classes.grid}>
-              <Grid item>
+              <Grid item className={classes.gridItemIcon}>
                 <Home className={alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon}/>
               </Grid>
               {
                 !isSideBarCollapsed ? null :
-                <Grid item>
+                <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Главная"}
                 </Grid>
               }
@@ -246,12 +257,12 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickPlaylistsPageButton}>
             <Grid container spacing={1} className={classes.grid}>
-              <Grid item>
+              <Grid item className={classes.gridItemIcon}>
                 <FilterNone className={alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon} />
               </Grid>
               {
                 !isSideBarCollapsed ? null : 
-                <Grid item>
+                <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Плейлисты"}
                 </Grid>
               }
@@ -265,13 +276,13 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickCategoryPageButton}>
             <Grid container spacing={1} className={classes.grid}>
-              <Grid item>
+              <Grid item className={classes.gridItemIcon}>
                 <FormatListBulleted className={alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon} />
               </Grid>
 
               {
                 !isSideBarCollapsed ? null : 
-                <Grid item>
+                <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Категории"}
                 </Grid>
               }
@@ -285,12 +296,12 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickCursesPageButton}>
             <Grid container spacing={1} className={classes.grid}>
-              <Grid item>
+              <Grid item className={classes.gridItemIcon}>
                 <School className={alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon} />
               </Grid>
               {
                 !isSideBarCollapsed ? null : 
-                <Grid item>
+                <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Курсы"}
                 </Grid>
               }
