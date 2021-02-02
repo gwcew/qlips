@@ -14,6 +14,7 @@ import {connect} from 'react-redux';
 
 import All from 'components/All';
 
+
 const lightTheme = createMuiTheme({
   palette: {
     primary: {
@@ -114,7 +115,7 @@ const darkTheme = createMuiTheme({
     },
     loginform: {
       buttonbackgroundColor: '#8e8e8e',
-    }
+    },
   },
 });
 

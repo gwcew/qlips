@@ -75,17 +75,17 @@ export default function MainPage({isCollapsedSidebar, isLightTheme, setCollapsed
         </Route>
         <Route exact path="/playlists" component={Page404}>
           <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
-            <Page404 />
+            <Page404/>
           </Grid>
         </Route>
         <Route exact path="/categories">
           <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
-            <Page404 />
+            <Page404/>
           </Grid>
         </Route>
         <Route exact path="/curses">
           <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
-            <Page404 />
+            <Page404/>
           </Grid>
         </Route>
       </Switch>

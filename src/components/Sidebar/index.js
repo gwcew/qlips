@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button, Grid, Paper } from '@material-ui/core';
 import {
@@ -11,8 +11,9 @@ import {
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-
-
+import {setThemeStatus} from 'redux/actions';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,16 +66,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme }) {
+function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThemeStatus }) {
   const classes = useStyles();
   const history = useHistory();
 
+  useEffect(() => {
+    handleSetThemeStatus(localStorage.getItem('theme'));
+  });
+
   const onClickChangeTheme = () => {
       if (isLightTheme === "true") {
+        handleSetThemeStatus("false");
         setTheme("false");
         localStorage.setItem('theme', 'false');
       }
       else {
+        handleSetThemeStatus("true");
         setTheme("true");
         localStorage.setItem('theme', 'true');
       }
@@ -149,11 +156,23 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme }) {
   );
 }
 
+function mapStateToProps(state) {
+  return {
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    handleSetThemeStatus: setThemeStatus,
+  }, dispatch);
+}
+
 Sidebar.propTypes = {
   collapsed: PropTypes.bool,
   setCollapsed: PropTypes.func,
   setTheme: PropTypes.func,
-  isLightTheme: PropTypes.string
+  isLightTheme: PropTypes.string,
+  handleSetThemeStatus: PropTypes.func,
 };
 
-export default Sidebar;
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

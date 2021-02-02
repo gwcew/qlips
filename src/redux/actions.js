@@ -4,7 +4,8 @@ import {
   VIDEO_CLICK,
   VIDEO_SET_ACCESS_TYPE,
   VIDEO_SET_SEARCH_STRING_RESULT,
-  VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING
+  VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING,
+  THEME_SET_STATUS,
 } from './actionTypes';
 
 /*
@@ -53,5 +54,12 @@ export const setSearchContentByString = (searchString) => {
   return {
     type: VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING,
     searchString: searchString,
+  };
+};
+
+export const setThemeStatus = (theme) => {
+  return {
+    type: THEME_SET_STATUS,
+    themeStatus: theme,
   };
 };
