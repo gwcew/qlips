@@ -118,7 +118,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 RegisterForm.propTypes = {
-  handleModalRegisterFormStatus: PropTypes.bool,
+  handleModalRegisterFormStatus: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);
