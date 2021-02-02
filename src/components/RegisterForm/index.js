@@ -92,7 +92,7 @@ function RegisterForm({handleModalRegisterFormStatus}) {
       </Grid>
       <Grid container className={classes.button} spacing={1}>
         <Grid item>
-          <Button className={classes.buttonCancel} variant="outlined" color="secondary" onClick={() => handleModalRegisterFormStatus(false)}>
+          <Button className={classes.buttonCancel} variant="outlined" onClick={() => handleModalRegisterFormStatus(false)}>
             Отмена
           </Button>
         </Grid>
