@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
         top: '75px',
         boxShadow: `0 0 0px 20px ${theme.palette.subbackground.main}`,
         minHeight: 'calc(100vh - 75px)',
-        borderRadius: '2.5% 2.5% 0 0',
+        borderRadius: '16px 16px 0 0',
         borderColor: `${theme.palette.border.main}`,
         borderWidth: '1px',
         borderStyle: 'solid',
