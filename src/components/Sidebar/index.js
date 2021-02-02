@@ -60,12 +60,11 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   menuButton: {
-    marginBottom: '8px!important',
+
     "&.MuiButtonBase-root": {
       borderRadius: '10px',
       color: theme.palette.text.main,
       backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
-      textTransform: 'none',
     },
   },
   icon: {
@@ -311,16 +310,29 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
         </ToggleButtonGroup>
       </Grid>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
-        <Button
-          fullWidth
-          className={classes.menuButton}
-          variant="outlined"
-          size="small"
-          onClick={onClickChangeTheme}
+      <ToggleButtonGroup
+        exclusive
+        orientation="vertical"
         >
-            <NightsStay className={classes.unselectedIcon} />
-          {isSideBarCollapsed && 'Тема'}
-        </Button>
+
+          <ToggleButton 
+          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          disableRipple
+          onClick={onClickChangeTheme}>
+            <Grid container className={classes.grid}>
+              <Grid item className={classes.gridItemIcon}>
+                <NightsStay className={classes.unselectedIcon}/>
+              </Grid>
+              {
+                !isSideBarCollapsed ? null :
+                <Grid item className={classes.gridItemText}>
+                  {isSideBarCollapsed && "Тема"}
+                </Grid>
+              }
+            </Grid>
+          </ToggleButton>
+
+        </ToggleButtonGroup>
       </Grid>
     </Grid>
   );
