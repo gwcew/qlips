@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginTop: '6px!important',
+    "&.MuiButtonBase-root": {
+      color: 'white',
+      fontWeight: 'bold',
+    },
   },
   avatar: {
     width: theme.spacing(3),
