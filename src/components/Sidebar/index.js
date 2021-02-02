@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '2px',
   },
   gridItemText: {
-    marginTop: '4px',
+    marginTop: '5px',
   },
   selected: {},
   hover: {},
@@ -238,7 +238,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           classes={{root: classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickMainPageButton}>
-            <Grid container spacing={1} className={classes.grid}>
+            <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
                 <Home className={alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon}/>
               </Grid>
@@ -256,7 +256,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           classes={{root: classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickPlaylistsPageButton}>
-            <Grid container spacing={1} className={classes.grid}>
+            <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
                 <FilterNone className={alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon} />
               </Grid>
@@ -275,7 +275,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           classes={{root: classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickCategoryPageButton}>
-            <Grid container spacing={1} className={classes.grid}>
+            <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
                 <FormatListBulleted className={alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon} />
               </Grid>
@@ -295,7 +295,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           classes={{root: classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickCursesPageButton}>
-            <Grid container spacing={1} className={classes.grid}>
+            <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
                 <School className={alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon} />
               </Grid>
