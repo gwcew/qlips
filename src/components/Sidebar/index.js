@@ -57,12 +57,17 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginBottom: '8px!important',
     "&.MuiButtonBase-root": {
+      borderRadius: '10px',
       color: theme.palette.text.main,
+      backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
       textTransform: 'none',
     },
   },
   icon: {
     color: theme.palette.border.main,
+    backgroundColor: theme.palette.sidebar.iconBackgroundColor,
+    border: `1px solid ${theme.palette.border.main}`,
+    borderRadius: '6px',
   },
   paper: {
     backgroundColor: theme.palette.background.default,
@@ -109,6 +114,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
         <Button
           fullWidth
+          style={{backgroundColor: 'transparent'}}
           className={classes.menuButton}
           color="primary"
           size="small"
@@ -154,8 +160,14 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           size="small"
           onClick={() => history.push('/curses')}
         >
+          <Grid container direction="row" spacing={2}>
+            <Grid item>
             <School className={classes.icon} />
-          {isSideBarCollapsed && 'Курсы'}
+            </Grid>
+            <Grid item>
+            {isSideBarCollapsed && 'Курсы'}
+            </Grid>
+          </Grid>
         </Button>
       </Grid>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
