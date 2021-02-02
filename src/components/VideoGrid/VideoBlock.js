@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme) => ({
   },
   previewImg: {
     width: '100%',
-    borderRadius: '5px',
-    boxShadow: '2px 2px 5px #A0A0A0',
+    border: `1px solid ${theme.palette.videoPreview.borderColor}`,
+    borderRadius: '6px',
   },
   captionWrap: {
     marginTop: theme.spacing(0.25),

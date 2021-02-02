@@ -66,6 +66,9 @@ const lightTheme = createMuiTheme({
     loginform: {
       buttonbackgroundColor: '#8e8e8e',
     },
+    videoPreview: {
+      borderColor: '#4a7feb',
+    },
   },
   breakpoints: {
     values: {
@@ -125,6 +128,9 @@ const darkTheme = createMuiTheme({
     },
     loginform: {
       buttonbackgroundColor: '#8e8e8e',
+    },
+    videoPreview: {
+      borderColor: '#5082c3',
     },
   },
   breakpoints: {
