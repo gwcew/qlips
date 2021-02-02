@@ -3,9 +3,16 @@ import {
   THEME_SET_STATUS,
   MODAL_LOGINFORM_SET_STATUS,
   MODAL_REGISTERFORM_SET_STATUS,
+  SIDEBAR_SET_SELECTED_PAGE_ID,
 } from '../actionTypes';
 
-const initialState = {themeStatus: 'null', sideBarCollapsed: false, loginFormStatus: false, registerFormStatus: false};
+const initialState = {
+  themeStatus: 'null',
+  sideBarCollapsed: false,
+  loginFormStatus: false,
+  registerFormStatus: false,
+  sidebarPageID: 1,
+};
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -35,6 +42,13 @@ export default function (state = initialState, action) {
       result.registerFormStatus = (action.registerFormStatus);
 
       return result;
+    }
+    case SIDEBAR_SET_SELECTED_PAGE_ID: {
+        let result = {...state};
+
+        result.sidebarPageID = Number(action.sidebarPageID);
+
+        return result;
     }
     default:
       return state;

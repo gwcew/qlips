@@ -59,6 +59,7 @@ const lightTheme = createMuiTheme({
     sidebar: {
       backgroundColor: '#f5f5f5',
       iconBackgroundColor: '#f4f4f4',
+      iconUnSelectedBackgroundColor: 'transparent',
       buttonBackgroundColor: '#fefefe',
     },
     searchbar: {
@@ -124,6 +125,7 @@ const darkTheme = createMuiTheme({
     sidebar: {
       backgroundColor: '#383838',
       iconBackgroundColor: '#373737',
+      iconUnSelectedBackgroundColor: 'transparent',
       buttonBackgroundColor: '#252525',
     },
     searchbar: {

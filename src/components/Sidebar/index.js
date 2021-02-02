@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button, Grid, Paper } from '@material-ui/core';
+import { Button, ToggleButtonGroup, ToggleButton, Grid, Paper } from '@material-ui/core';
 import {
   Dehaze,
   NightsStay,
@@ -12,9 +12,14 @@ import {
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import {setThemeStatus, setSideBarStatus} from 'redux/actions';
+import {setThemeStatus, setSideBarStatus, setSideBarSelectedPageID} from 'redux/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
+const SIDEBAR_MAIN_PAGE_ID = 1;
+const SIDEBAR_PLAYLISTS_PAGE_ID = 2;
+const SIDEBAR_CATEGORY_PAGE_ID = 3;
+const SIDEBAR_CURSES_PAGE_ID = 4;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,13 +77,72 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.default,
   },
+  unselectedIcon: {
+    color: theme.palette.border.main,
+    backgroundColor: theme.palette.sidebar.iconUnSelectedBackgroundColor,
+  },
+  togglebutton: {
+    "&.MuiButtonBase-root": {
+      backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
+      marginBottom: '8px',
+      color: theme.palette.text.main,
+      textTransform: 'none',
+      borderRadius: '10px',
+      border: `1px solid ${theme.palette.border.main}`,
+    },
+    "&.MuiToggleButton-root": {
+      backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
+      borderRadius: '10px',
+      border: `1px solid ${theme.palette.border.main}`,
+
+      '&:hover': {
+        backgroundColor: 'transparent',
+        borderRadius: '10px',
+        border: `1px solid ${theme.palette.border.main}`,
+      },
+    },
+    '&$selected': {
+      backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
+      borderRadius: '10px',
+      border: `1px solid ${theme.palette.border.main}`,
+    },
+  },
+
+  togglebuttonmenu: {
+    "&.MuiButtonBase-root": {
+      backgroundColor: 'transparent',
+      marginBottom: '8px',
+      color: theme.palette.text.main,
+      textTransform: 'none',
+    },
+    "&.MuiToggleButton-root": {
+      backgroundColor: 'transparent',
+
+      '&:hover': {
+        backgroundColor: 'transparent',
+      },
+    },
+    '&$selected': {
+      backgroundColor: 'transparent',
+    },
+
+  },
+  grid: {
+    marginTop: '2px',
+    maringRight: '2px',
+  },
+  selected: {},
+  hover: {},
 }));
 
-function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThemeStatus, handleSideBarStatus, isSideBarCollapsed }) {
+function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
+   handleSetThemeStatus, handleSideBarStatus, isSideBarCollapsed,
+   sidebarPageID, handleSideBarSelectedPageID }) {
   const classes = useStyles();
   const history = useHistory();
 
   const localCollapsed = localStorage.getItem('SideBarCollapsed');
+  const localSelectedPageID = localStorage.getItem('SelectedPageID');
 
   const handleOnClickMenuButton = () => {
     if (localCollapsed === "true") {
@@ -109,66 +173,133 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
       }
   };
 
+  const [alignment, setAlignment] = useState(!(!!localSelectedPageID) ? sidebarPageID : Number(localSelectedPageID));
+  
+  console.log(localSelectedPageID);
+
+  const handleAlignment = (event, newAlignment) => {
+    if (newAlignment === 0) {
+      return;
+    }
+
+    setAlignment(newAlignment);
+    handleSideBarSelectedPageID(newAlignment);
+    localStorage.setItem('SelectedPageID', newAlignment);
+  };
+
+  const handleOnClickMainPageButton = () => {
+    history.push('/');
+  };
+
+  const handleOnClickPlaylistsPageButton = () => {
+    history.push('/playlists');
+  };
+
+  const handleOnClickCategoryPageButton = () => {
+    history.push('/categories');
+  };
+
+  const handleOnClickCursesPageButton = () => {
+    history.push('/curses');
+  };
+
   return (
     <Grid className={!isSideBarCollapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
-        <Button
-          fullWidth
-          style={{backgroundColor: 'transparent'}}
-          className={classes.menuButton}
-          color="primary"
-          size="small"
-          onClick={handleOnClickMenuButton}
+        <ToggleButtonGroup
+        value={alignment}
+        exclusive
+        orientation="vertical"
+        onChange={handleAlignment}
+        >
+          <ToggleButton 
+          value={0} 
+          classes={{root: classes.togglebuttonmenu, selected: classes.selected}} 
           disableRipple
-        >
-          {!isSideBarCollapsed ? <Dehaze /> : <Close></Close>}
-        </Button>
-        <Button
-          fullWidth
-          className={classes.menuButton}
-          variant="outlined"
-          size="small"
-          onClick={() => history.push('/')}
-        >
-            <Home className={classes.icon}/>
-          {isSideBarCollapsed && 'Главная'}
-        </Button>
-        <Button
-          fullWidth
-          className={classes.menuButton}
-          variant="outlined"
-          size="small"
-          onClick={() => history.push('/playlists')}
-        >
-            <FilterNone className={classes.icon} />
-          {isSideBarCollapsed && 'Плейлисты'}
-        </Button>
-        <Button
-          fullWidth
-          className={classes.menuButton}
-          variant="outlined"
-          size="small"
-          onClick={() => history.push('/categories')}
-        >
-            <FormatListBulleted className={classes.icon} />
-          {isSideBarCollapsed && 'Категории'}
-        </Button>
-        <Button
-          fullWidth
-          className={classes.menuButton}
-          variant="outlined"
-          size="small"
-          onClick={() => history.push('/curses')}
-        >
-          <Grid container direction="row" spacing={2}>
-            <Grid item>
-            <School className={classes.icon} />
+          onClick={handleOnClickMenuButton}>
+            <Grid container>
+              <Grid item xs={12}>
+                {!isSideBarCollapsed ? <Dehaze></Dehaze> : <Close></Close>}
+              </Grid>
             </Grid>
-            <Grid item>
-            {isSideBarCollapsed && 'Курсы'}
+          </ToggleButton>
+
+          <ToggleButton 
+          value={SIDEBAR_MAIN_PAGE_ID} 
+          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          disableRipple
+          onClick={handleOnClickMainPageButton}>
+            <Grid container spacing={1} className={classes.grid}>
+              <Grid item>
+                <Home className={alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon}/>
+              </Grid>
+              {
+                !isSideBarCollapsed ? null :
+                <Grid item>
+                  {isSideBarCollapsed && "Главная"}
+                </Grid>
+              }
             </Grid>
-          </Grid>
-        </Button>
+          </ToggleButton>
+
+          <ToggleButton 
+          value={SIDEBAR_PLAYLISTS_PAGE_ID} 
+          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          disableRipple
+          onClick={handleOnClickPlaylistsPageButton}>
+            <Grid container spacing={1} className={classes.grid}>
+              <Grid item>
+                <FilterNone className={alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon} />
+              </Grid>
+              {
+                !isSideBarCollapsed ? null : 
+                <Grid item style={{paddingRight: '20px'}}>
+                  {isSideBarCollapsed && "Плейлисты"}
+                </Grid>
+              }
+
+            </Grid>
+          </ToggleButton>
+
+          <ToggleButton 
+          value={SIDEBAR_CATEGORY_PAGE_ID} 
+          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          disableRipple
+          onClick={handleOnClickCategoryPageButton}>
+            <Grid container spacing={1} className={classes.grid}>
+              <Grid item>
+                <FormatListBulleted className={alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon} />
+              </Grid>
+
+              {
+                !isSideBarCollapsed ? null : 
+                <Grid item>
+                  {isSideBarCollapsed && "Категории"}
+                </Grid>
+              }
+
+            </Grid>
+          </ToggleButton>
+
+          <ToggleButton 
+          value={SIDEBAR_CURSES_PAGE_ID} 
+          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          disableRipple
+          onClick={handleOnClickCursesPageButton}>
+            <Grid container spacing={1} className={classes.grid}>
+              <Grid item>
+                <School className={alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon} />
+              </Grid>
+              {
+                !isSideBarCollapsed ? null : 
+                <Grid item>
+                  {isSideBarCollapsed && "Курсы"}
+                </Grid>
+              }
+            </Grid>
+          </ToggleButton>
+
+        </ToggleButtonGroup>
       </Grid>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
         <Button
@@ -178,7 +309,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           size="small"
           onClick={onClickChangeTheme}
         >
-            <NightsStay className={classes.icon} />
+            <NightsStay className={classes.unselectedIcon} />
           {isSideBarCollapsed && 'Тема'}
         </Button>
       </Grid>
@@ -189,6 +320,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
 function mapStateToProps(state) {
   return {
     isSideBarCollapsed: state.window.sideBarCollapsed,
+    sidebarPageID: state.window.sidebarPageID,
   };
 }
 
@@ -196,17 +328,20 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleSetThemeStatus: setThemeStatus,
     handleSideBarStatus: setSideBarStatus,
+    handleSideBarSelectedPageID: setSideBarSelectedPageID,
   }, dispatch);
 }
 
 Sidebar.propTypes = {
   collapsed: PropTypes.bool,
+  isSideBarCollapsed: PropTypes.bool,
+  sidebarPageID: PropTypes.number,
+  handleSideBarStatus: PropTypes.func,
+  handleSideBarSelectedPageID: PropTypes.func,
+  handleSetThemeStatus: PropTypes.func,
   setCollapsed: PropTypes.func,
   setTheme: PropTypes.func,
   isLightTheme: PropTypes.string,
-  handleSetThemeStatus: PropTypes.func,
-  isSideBarCollapsed: PropTypes.bool,
-  handleSideBarStatus: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

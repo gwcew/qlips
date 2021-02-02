@@ -9,6 +9,7 @@ import {
   SIDEBAR_SET_STATUS,
   MODAL_LOGINFORM_SET_STATUS,
   MODAL_REGISTERFORM_SET_STATUS,
+  SIDEBAR_SET_SELECTED_PAGE_ID,
 } from './actionTypes';
 
 /*
@@ -85,5 +86,12 @@ export const setModalRegisterFormStatus = (status) => {
   return {
     type: MODAL_REGISTERFORM_SET_STATUS,
     registerFormStatus: status,
+  };
+};
+
+export const setSideBarSelectedPageID = (stringID) => {
+  return {
+    type: SIDEBAR_SET_SELECTED_PAGE_ID,
+    sidebarPageID: stringID,
   };
 };
