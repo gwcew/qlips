@@ -12,7 +12,7 @@ import {
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import {setThemeStatus} from 'redux/actions';
+import {setThemeStatus, setSideBarStatus} from 'redux/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -70,11 +70,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThemeStatus }) {
+function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThemeStatus, handleSideBarStatus, isSideBarCollapsed }) {
   const classes = useStyles();
   const history = useHistory();
 
+  const localCollapsed = localStorage.getItem('SideBarCollapsed');
+
+  const handleOnClickMenuButton = () => {
+    if (localCollapsed === "true") {
+      handleSideBarStatus(false);
+      localStorage.setItem('SideBarCollapsed', "false");
+    }
+    else {
+      handleSideBarStatus(true);
+      localStorage.setItem('SideBarCollapsed', "true");
+    }
+  };
+
   useEffect(() => {
+    handleSideBarStatus(localCollapsed === "true");
     handleSetThemeStatus(localStorage.getItem('theme'));
   });
 
@@ -92,17 +106,17 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
   };
 
   return (
-    <Grid className={collapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
+    <Grid className={!isSideBarCollapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
         <Button
           fullWidth
           className={classes.menuButton}
           color="primary"
           size="small"
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={handleOnClickMenuButton}
           disableRipple
         >
-          {collapsed ? <Dehaze /> : <Close></Close>}
+          {!isSideBarCollapsed ? <Dehaze /> : <Close></Close>}
         </Button>
         <Button
           fullWidth
@@ -112,7 +126,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           onClick={() => history.push('/')}
         >
             <Home className={classes.icon}/>
-          {!collapsed && 'Главная'}
+          {isSideBarCollapsed && 'Главная'}
         </Button>
         <Button
           fullWidth
@@ -122,7 +136,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           onClick={() => history.push('/playlists')}
         >
             <FilterNone className={classes.icon} />
-          {!collapsed && 'Плейлисты'}
+          {isSideBarCollapsed && 'Плейлисты'}
         </Button>
         <Button
           fullWidth
@@ -132,7 +146,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           onClick={() => history.push('/categories')}
         >
             <FormatListBulleted className={classes.icon} />
-          {!collapsed && 'Категории'}
+          {isSideBarCollapsed && 'Категории'}
         </Button>
         <Button
           fullWidth
@@ -142,7 +156,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           onClick={() => history.push('/curses')}
         >
             <School className={classes.icon} />
-          {!collapsed && 'Курсы'}
+          {isSideBarCollapsed && 'Курсы'}
         </Button>
       </Grid>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
@@ -154,7 +168,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
           onClick={onClickChangeTheme}
         >
             <NightsStay className={classes.icon} />
-          {!collapsed && 'Тема'}
+          {isSideBarCollapsed && 'Тема'}
         </Button>
       </Grid>
     </Grid>
@@ -163,12 +177,14 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme, handleSetThe
 
 function mapStateToProps(state) {
   return {
+    isSideBarCollapsed: state.window.sideBarCollapsed,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleSetThemeStatus: setThemeStatus,
+    handleSideBarStatus: setSideBarStatus,
   }, dispatch);
 }
 
@@ -178,6 +194,8 @@ Sidebar.propTypes = {
   setTheme: PropTypes.func,
   isLightTheme: PropTypes.string,
   handleSetThemeStatus: PropTypes.func,
+  isSideBarCollapsed: PropTypes.bool,
+  handleSideBarStatus: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

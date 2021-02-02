@@ -194,7 +194,7 @@ function App() {
 
   const location = useLocation();
   const [crutchLocation, setCrutchLocation] = useState(false);
-  const [collapsedSidebar, setCollapsedSidebar] = useState(true);
+  
 
   // By default we use light theme, but user can change it at anytime!
   const requestedTheme = localStorage.getItem('theme');
@@ -206,6 +206,8 @@ function App() {
     } else {
       setCrutchLocation(true);
     }
+
+    
   }, [location]);
   
   const currentTheme = isLightTheme === "true" ? lightTheme : darkTheme;
@@ -218,7 +220,7 @@ function App() {
   return (
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
-        <All isCollapsedSidebar={collapsedSidebar} isLightTheme={isLightTheme} setCollapsedSidebar={setCollapsedSidebar} setTheme={setTheme}></All>
+        <All isLightTheme={isLightTheme} setTheme={setTheme}></All>
       </ThemeProvider>
   );
 }

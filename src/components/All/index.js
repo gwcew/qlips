@@ -9,6 +9,8 @@ import SidebarRight from 'components/SidebarRight';
 import VideoPage from 'pages/VideoPage';
 import Page404 from 'pages/404Page';
 import { Grid, Hidden } from '@material-ui/core';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
 const useStyles = makeStyles(theme => ({
     content: {
@@ -57,15 +59,16 @@ const useStyles = makeStyles(theme => ({
       },
 }));
 
-export default function MainPage({isCollapsedSidebar, isLightTheme, setCollapsedSidebar, setTheme}) {
+function MainPage({isCollapsedSidebar, isLightTheme, setTheme}) {
     const classes = useStyles();
 
+    console.log(isCollapsedSidebar);
     return         <div>
     <Header />
     <Grid container className={classes.content}>
       <Switch>
         <Route exact path="/">
-          <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
+          <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
             <HomePage />
           </Grid>
         </Route>
@@ -74,23 +77,23 @@ export default function MainPage({isCollapsedSidebar, isLightTheme, setCollapsed
         )}>
         </Route>
         <Route exact path="/playlists" component={Page404}>
-          <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
+          <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
             <Page404/>
           </Grid>
         </Route>
         <Route exact path="/categories">
-          <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
+          <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
             <Page404/>
           </Grid>
         </Route>
         <Route exact path="/curses">
-          <Grid item className={isCollapsedSidebar ? classes.inner : classes.collapsed}>
+          <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
             <Page404/>
           </Grid>
         </Route>
       </Switch>
     </Grid>
-    <Sidebar collapsed={isCollapsedSidebar} setCollapsed={setCollapsedSidebar} setTheme={setTheme} isLightTheme={isLightTheme} />
+    <Sidebar setTheme={setTheme} isLightTheme={isLightTheme} />
     <Hidden smDown>
       <SidebarRight />
     </Hidden>
@@ -99,9 +102,21 @@ export default function MainPage({isCollapsedSidebar, isLightTheme, setCollapsed
     </div>
 }
 
+function mapStateToProps(state) {
+  return {
+    isCollapsedSidebar: state.window.sideBarCollapsed,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+  }, dispatch);
+}
+
 MainPage.propTypes = {
-    isCollapsedSidebar: PropTypes.bool,
     isLightTheme: PropTypes.bool,
-    setCollapsedSidebar: PropTypes.func,
+    isCollapsedSidebar: PropTypes.bool,
     setTheme: PropTypes.func,
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

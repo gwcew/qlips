@@ -6,6 +6,7 @@ import {
   VIDEO_SET_SEARCH_STRING_RESULT,
   VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING,
   THEME_SET_STATUS,
+  SIDEBAR_SET_STATUS,
 } from './actionTypes';
 
 /*
@@ -61,5 +62,12 @@ export const setThemeStatus = (theme) => {
   return {
     type: THEME_SET_STATUS,
     themeStatus: theme,
+  };
+};
+
+export const setSideBarStatus = (status) => {
+  return {
+    type: SIDEBAR_SET_STATUS,
+    sideBarCollapsed: status,
   };
 };
