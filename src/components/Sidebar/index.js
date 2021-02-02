@@ -84,6 +84,14 @@ const useStyles = makeStyles((theme) => ({
     width: '32px',
     height: '32px',
   },
+  iconUnselectedCollapsed: {
+    color: theme.palette.border.main,
+    backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
+    border: `1px solid ${theme.palette.border.main}`,
+    borderRadius: '6px',
+    width: '32px',
+    height: '32px',
+  },
   togglebutton: {
     "&.MuiButtonBase-root": {
       backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
@@ -108,6 +116,23 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
       borderRadius: '10px',
       border: `1px solid ${theme.palette.border.main}`,
+    },
+  },
+
+  togglebuttonUnSelected: {
+    "&.MuiButtonBase-root": {
+      backgroundColor: 'transparent',
+      marginBottom: '8px',
+      color: theme.palette.text.main,
+      textTransform: 'none',
+    },
+    "&.MuiToggleButton-root": {
+      backgroundColor: 'transparent',
+
+      '&:hover': {
+      },
+    },
+    '&$selected': {
     },
   },
 
@@ -234,12 +259,13 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
           <ToggleButton 
           value={SIDEBAR_MAIN_PAGE_ID} 
-          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickMainPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <Home className={alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon}/>
+                <Home className={isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                  : (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon)}/>
               </Grid>
               {
                 !isSideBarCollapsed ? null :
@@ -252,12 +278,13 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
           <ToggleButton 
           value={SIDEBAR_PLAYLISTS_PAGE_ID} 
-          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickPlaylistsPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <FilterNone className={alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon} />
+                <FilterNone className={isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                  : (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
               {
                 !isSideBarCollapsed ? null : 
@@ -271,12 +298,13 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
           <ToggleButton 
           value={SIDEBAR_CATEGORY_PAGE_ID} 
-          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickCategoryPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <FormatListBulleted className={alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon} />
+                <FormatListBulleted className={isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                  : (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
 
               {
@@ -291,12 +319,13 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
           <ToggleButton 
           value={SIDEBAR_CURSES_PAGE_ID} 
-          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
           disableRipple
           onClick={handleOnClickCursesPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <School className={alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon} />
+                <School className={isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                  : (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
               {
                 !isSideBarCollapsed ? null : 
