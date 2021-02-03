@@ -72,8 +72,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.sidebar.iconBackgroundColor,
     border: `1px solid ${theme.palette.border.main}`,
     borderRadius: '6px',
-    width: '32px',
-    height: '32px',
+    width: '39px',
+    height: '39px',
+    padding: '5px',
   },
   paper: {
     backgroundColor: theme.palette.background.default,
@@ -81,8 +82,9 @@ const useStyles = makeStyles((theme) => ({
   unselectedIcon: {
     color: theme.palette.border.main,
     backgroundColor: theme.palette.sidebar.iconUnSelectedBackgroundColor,
-    width: '32px',
-    height: '32px',
+    width: '26px',
+    height: '26px',
+    margin: '6px',
   },
   iconUnselectedCollapsed: {
     color: theme.palette.border.main,
@@ -156,10 +158,12 @@ const useStyles = makeStyles((theme) => ({
 
   },
   grid: {
-    paddingTop: '10px',
+    paddingTop: '0px',
+
   },
   gridItemIcon: {
-    margin: '2px',
+    margin: '2px 2px 0px 2px',
+    lineHeight: '1',
   },
   gridItemText: {
     marginTop: '5px',
@@ -207,7 +211,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
   };
 
   const [alignment, setAlignment] = useState(!(!!localSelectedPageID) ? sidebarPageID : Number(localSelectedPageID));
-  
+
   console.log(localSelectedPageID);
 
   const handleAlignment = (event, newAlignment) => {
@@ -245,9 +249,9 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
         orientation="vertical"
         onChange={handleAlignment}
         >
-          <ToggleButton 
-          value={0} 
-          classes={{root: classes.togglebuttonmenu, selected: classes.selected}} 
+          <ToggleButton
+          value={0}
+          classes={{root: classes.togglebuttonmenu, selected: classes.selected}}
           disableRipple
           onClick={handleOnClickMenuButton}>
             <Grid container>
@@ -257,14 +261,14 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
             </Grid>
           </ToggleButton>
 
-          <ToggleButton 
-          value={SIDEBAR_MAIN_PAGE_ID} 
-          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
+          <ToggleButton
+          value={SIDEBAR_MAIN_PAGE_ID}
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}}
           disableRipple
           onClick={handleOnClickMainPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <Home className={isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                <Home className={isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon)}/>
               </Grid>
               {
@@ -276,18 +280,18 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
             </Grid>
           </ToggleButton>
 
-          <ToggleButton 
-          value={SIDEBAR_PLAYLISTS_PAGE_ID} 
-          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
+          <ToggleButton
+          value={SIDEBAR_PLAYLISTS_PAGE_ID}
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}}
           disableRipple
           onClick={handleOnClickPlaylistsPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <FilterNone className={isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                <FilterNone className={isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
               {
-                !isSideBarCollapsed ? null : 
+                !isSideBarCollapsed ? null :
                 <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Плейлисты"}
                 </Grid>
@@ -296,19 +300,19 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
             </Grid>
           </ToggleButton>
 
-          <ToggleButton 
-          value={SIDEBAR_CATEGORY_PAGE_ID} 
-          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
+          <ToggleButton
+          value={SIDEBAR_CATEGORY_PAGE_ID}
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}}
           disableRipple
           onClick={handleOnClickCategoryPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <FormatListBulleted className={isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                <FormatListBulleted className={isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
 
               {
-                !isSideBarCollapsed ? null : 
+                !isSideBarCollapsed ? null :
                 <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Категории"}
                 </Grid>
@@ -317,18 +321,18 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
             </Grid>
           </ToggleButton>
 
-          <ToggleButton 
-          value={SIDEBAR_CURSES_PAGE_ID} 
-          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}} 
+          <ToggleButton
+          value={SIDEBAR_CURSES_PAGE_ID}
+          classes={{root: isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID) ? classes.togglebutton : classes.togglebuttonUnSelected  : classes.togglebutton, selected: classes.selected}}
           disableRipple
           onClick={handleOnClickCursesPageButton}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <School className={isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed) 
+                <School className={isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
               {
-                !isSideBarCollapsed ? null : 
+                !isSideBarCollapsed ? null :
                 <Grid item className={classes.gridItemText}>
                   {isSideBarCollapsed && "Курсы"}
                 </Grid>
@@ -344,8 +348,8 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
         orientation="vertical"
         >
 
-          <ToggleButton 
-          classes={{root: classes.togglebutton, selected: classes.selected}} 
+          <ToggleButton
+          classes={{root: classes.togglebutton, selected: classes.selected}}
           disableRipple
           onClick={onClickChangeTheme}>
             <Grid container className={classes.grid}>
