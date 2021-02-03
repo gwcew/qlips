@@ -91,8 +91,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.sidebar.buttonBackgroundColor,
     border: `1px solid ${theme.palette.border.main}`,
     borderRadius: '6px',
-    width: '32px',
-    height: '32px',
+    width: '39px',
+    height: '39px',
+    padding: '5px',
   },
   togglebutton: {
     "&.MuiButtonBase-root": {
@@ -166,10 +167,13 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: '1',
   },
   gridItemText: {
-    marginTop: '5px',
+    margin: '9px 0 0 3px',
   },
   selected: {},
   hover: {},
+  buttonsWrapper: {
+    width: '95%',
+  },
 }));
 
 function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
@@ -245,6 +249,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
         <ToggleButtonGroup
         value={alignment}
+        className={isSideBarCollapsed ? classes.buttonsWrapper : ""}
         exclusive
         orientation="vertical"
         onChange={handleAlignment}
@@ -345,9 +350,9 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
       <ToggleButtonGroup
         exclusive
+        className={isSideBarCollapsed ? classes.buttonsWrapper : ""}
         orientation="vertical"
         >
-
           <ToggleButton
           classes={{root: classes.togglebutton, selected: classes.selected}}
           disableRipple
