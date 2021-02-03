@@ -13,7 +13,7 @@ import image3 from 'data/previews/dokmed2.jpg'
 import image4 from 'data/previews/test1.jpg'
 import image5 from 'data/previews/neyrogenetika_2020.jpg'
 import image6 from 'data/previews/neyrosteroidy2020.png'
- 
+
 import video1 from 'data/video/CO_2020.mp4';
 import video2 from 'data/video/dokmed_2020.mp4';
 import video3 from 'data/video/dokmed2.mp4';
@@ -28,7 +28,7 @@ import fuzzySearch from 'fuzzy-search';
 const contentVideo = [
     {
         id: 0,
-        title: 'Отравления уграным газом: помощь на догоспитальном этапе',
+        title: 'Отравления угарным газом: помощь на догоспитальном этапе',
         author: 'Кремков Андрей Владимирович',
         url_preview: image1,
         url_video: video1,
@@ -123,7 +123,7 @@ export default function reducer(state = initialState, action) {
             }
 
             const wheretosearch = result.content.filter(element => element.accessType <= result.accessType);
-            
+
             const searcher = new fuzzySearch(wheretosearch, ['title', 'author'], {caseSensitive: false});
 
             const test = searcher.search(result.searchString);
