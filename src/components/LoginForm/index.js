@@ -61,6 +61,12 @@ const useStyles = makeStyles((theme) => ({
     },
     "&.MuiToggleButton-root": {
       padding: '4px',
+
+      "&:hover": {
+        backgroundColor: 'rgb(52,77,158)',
+        transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+        boxShadow: '0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)',
+      },
     },
     '&$selected': {
       backgroundColor: theme.palette.primary.main,
