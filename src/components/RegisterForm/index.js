@@ -43,6 +43,13 @@ const useStyles = makeStyles((theme) => ({
   input: {
     backgroundColor: theme.palette.searchbar.inputbackgroundColor,
   },
+  buttonList: {
+    "&.MuiButtonBase-root": {
+      width: '23%',
+      height: '23%',
+      textTransform: 'none',
+    },
+  },
 }));
 
 function RegisterForm({handleModalRegisterFormStatus}) {
@@ -87,7 +94,7 @@ function RegisterForm({handleModalRegisterFormStatus}) {
         </p>
         <p className={classes.caption}>
           Для этого необходимо прислать электронную
-          копию документа из списка.
+          копию документа из <Button className={classes.buttonList} variant="contained">списка.</Button>
         </p>
       </Grid>
       <Grid container className={classes.button} spacing={1}>
