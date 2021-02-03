@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
       width: '150px',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '125px',
+      width: '150px',
     },
 
   },
@@ -219,7 +219,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
   console.log(localSelectedPageID);
 
   const handleAlignment = (event, newAlignment) => {
-    if (newAlignment === 0) {
+    if (newAlignment === 0 || newAlignment === null) {
       return;
     }
 

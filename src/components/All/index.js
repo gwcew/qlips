@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
           width: 'calc(100% - 190px)',
           margin: 'auto',
         },
-    
+
         [theme.breakpoints.down('sm')]: {
           width: 'calc(100% - 105px)',
           marginLeft: 'auto',
@@ -52,9 +52,9 @@ const useStyles = makeStyles(theme => ({
             marginLeft: '165px',
         },
         [theme.breakpoints.down('sm')]: {
-            width: 'calc(100% - 150px)',
-            margin: 'auto',
-            marginLeft: '128px',     
+            width: 'calc(100% - 105px)',
+            marginLeft: 'auto',
+            marginRight: '15px',
         },
       },
 }));

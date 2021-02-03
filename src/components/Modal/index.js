@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Modal, Fade, Backdrop } from '@material-ui/core';
+import { Dialog, Fade, Backdrop } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
@@ -13,10 +13,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.searchbar.backgroundColor,
     padding: theme.spacing(2, 4, 3),
     outline: 'none!important',
-    borderRadius: '40px',
     minWidth: '300px',
     maxWidth: '350px',
-    width: '90%',
+    width: '100%',
   },
 }));
 
@@ -43,7 +42,7 @@ function ModalComponent({ isOpen = true, handler, children }) {
   }, [isOpen]);
 
   return (
-    <Modal
+    <Dialog
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       className={classes.modal}
@@ -60,7 +59,7 @@ function ModalComponent({ isOpen = true, handler, children }) {
           {children}
         </div>
       </Fade>
-    </Modal>
+    </Dialog>
   );
 }
 

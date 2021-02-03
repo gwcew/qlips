@@ -27,7 +27,7 @@ const lightTheme = createMuiTheme({
       default: '#ffffff',
     },
     subbackground: {
-      main: '#ffffff',   
+      main: '#ffffff',
     },
     border: {
       main: '#8fa7e8',
@@ -70,7 +70,7 @@ const lightTheme = createMuiTheme({
       buttonbackgroundColor: '#8e8e8e',
     },
     videoPreview: {
-      borderColor: '#4a7feb',
+      borderColor: '#8fa7e8',
     },
   },
   breakpoints: {
@@ -100,7 +100,7 @@ const darkTheme = createMuiTheme({
       main: '#262626',
     },
     border: {
-      main: '#778594',
+      main: '#8fa7e8',
     },
     text: {
       main: '#b4c1f6',
@@ -136,7 +136,7 @@ const darkTheme = createMuiTheme({
       buttonbackgroundColor: '#8e8e8e',
     },
     videoPreview: {
-      borderColor: '#5082c3',
+      borderColor: '#8fa7e8',
     },
   },
   breakpoints: {
@@ -226,7 +226,7 @@ function App() {
 
   const location = useLocation();
   const [crutchLocation, setCrutchLocation] = useState(false);
-  
+
 
   // By default we use light theme, but user can change it at anytime!
   const requestedTheme = localStorage.getItem('theme');
@@ -239,9 +239,9 @@ function App() {
       setCrutchLocation(true);
     }
 
-    
+
   }, [location]);
-  
+
   const currentTheme = isLightTheme === "true" ? lightTheme : darkTheme;
 
   const classes = useStyles();
