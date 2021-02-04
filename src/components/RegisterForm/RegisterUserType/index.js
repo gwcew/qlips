@@ -3,6 +3,7 @@ import {
     Grid,
     ToggleButton,
     ToggleButtonGroup,
+    Button,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/styles';
@@ -52,6 +53,14 @@ const useStyles = makeStyles(theme => ({
           backgroundColor: theme.palette.primary.main,
         },
     },
+    buttonCancel: {
+        margin: `0 ${theme.spacing(1)}`,
+    
+        "&.MuiButtonBase-root": {
+          color: '#8e8e8e',
+          borderColor: '#8e8e8e'
+        },
+      },
     selected: {},
 }));
 
@@ -65,11 +74,11 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
     };
 
     return (
-        <Grid container className={classes.root}>
+        <Grid container className={classes.root} justifyContent="center">
             <Grid item className={classes.gridItemHeader}>
                 <div className={classes.headerText}>Список документов, подтверждающих статус пользователя</div>
             </Grid>
-            <Grid item className={classes.gridItemToggles}>
+            <Grid item>
                 <ToggleButtonGroup
                 value={alignment}
                 exclusive
@@ -85,6 +94,9 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
             </Grid>
             <Grid item>
                 {alignment === ACCESS_TYPE_USER_REGISTER_AS_STUDY ? <ContentStudy></ContentStudy> : <ContentSpecialist></ContentSpecialist>}
+            </Grid>
+            <Grid item xs={4}>
+                <Button variant="outlined" className={classes.buttonCancel}>Отмена</Button>
             </Grid>
         </Grid>
     );
