@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiButtonBase-root": {
       color: 'white',
       fontWeight: 'bold',
+      textTransform: 'none',
     },
   },
   avatar: {
