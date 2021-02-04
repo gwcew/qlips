@@ -12,15 +12,47 @@ import {
     setModalRegisterFormStatus,
     setModalRegisterFormListUserStatus,
 } from 'redux/actions';
-import {ACCESS_TYPE_USER_REGISTER_AS_STUDY, ACCESS_TYPE_USER_REGISTER_AS_STUDENT} from './AccessTypes';
+import {ACCESS_TYPE_USER_REGISTER_AS_STUDY, ACCESS_TYPE_USER_REGISTER_AS_SPECIALIST} from './AccessTypes';
+import ContentStudy from './ContentForStudy';
+import ContentSpecialist from './ContentForSpecialist';
 
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: theme.palette.searchbar.backgroundColor,
     },
-    headerText: {
-
+    gridItemHeader: {
+        paddingBottom: '25px',
     },
+    gridItemToggles: {
+        paddingLeft: '25px',
+    },
+    headerText: {
+        color: theme.palette.text.main,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: '100%',
+    },
+    togglebutton: {
+        "&.MuiButtonBase-root": {
+          backgroundColor: theme.palette.loginform.buttonbackgroundColor,
+          borderRadius: '7px',
+          marginLeft: '12px',
+          textTransform: 'none',
+        },
+        "&.MuiToggleButton-root": {
+          padding: '4px',
+    
+          "&:hover": {
+            backgroundColor: 'rgb(52,77,158)',
+            transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+            boxShadow: '0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%)',
+          },
+        },
+        '&$selected': {
+          backgroundColor: theme.palette.primary.main,
+        },
+    },
+    selected: {},
 }));
 
 function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListStatus}) {
@@ -34,22 +66,25 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
 
     return (
         <Grid container className={classes.root}>
-            <Grid item>
+            <Grid item className={classes.gridItemHeader}>
                 <div className={classes.headerText}>Список документов, подтверждающих статус пользователя</div>
             </Grid>
-            <Grid item>
+            <Grid item className={classes.gridItemToggles}>
                 <ToggleButtonGroup
                 value={alignment}
                 exclusive
                 onChange={handleAlignment}
                 >
-                    <ToggleButton value={ACCESS_TYPE_USER_REGISTER_AS_STUDY}>
+                    <ToggleButton value={ACCESS_TYPE_USER_REGISTER_AS_STUDY} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
                         Обучающийся
                     </ToggleButton>
-                    <ToggleButton value={ACCESS_TYPE_USER_REGISTER_AS_STUDENT}>
-                        Студент
+                    <ToggleButton value={ACCESS_TYPE_USER_REGISTER_AS_SPECIALIST} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+                        Специалист
                     </ToggleButton>
                 </ToggleButtonGroup>
+            </Grid>
+            <Grid item>
+                {alignment === ACCESS_TYPE_USER_REGISTER_AS_STUDY ? <ContentStudy></ContentStudy> : <ContentSpecialist></ContentSpecialist>}
             </Grid>
         </Grid>
     );
