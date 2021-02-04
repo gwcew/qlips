@@ -13,6 +13,12 @@ import image3 from 'data/previews/dokmed2.jpg'
 import image4 from 'data/previews/test1.jpg'
 import image5 from 'data/previews/neyrogenetika_2020.jpg'
 import image6 from 'data/previews/neyrosteroidy2020.png'
+import image7 from 'data/previews/Carpe_Deim.jpg';
+import image8 from 'data/previews/Medach_On_Air_1.jpg';
+import image9 from 'data/previews/Medach_On_Air_2.jpg';
+import image10 from 'data/previews/Weekend_Medicine_1.jpg';
+import image11 from 'data/previews/Weekend_Medicine_2.jpg';
+import image12 from 'data/previews/science_dont_do.jpg';
 
 import video1 from 'data/video/CO_2020.mp4';
 import video2 from 'data/video/dokmed_2020.mp4';
@@ -20,6 +26,12 @@ import video3 from 'data/video/dokmed2.mp4';
 import video4 from 'data/video/demo1.mov';
 import video5 from 'data/video/neyrogenetika_2020.mp4';
 import video6 from 'data/video/neyrosteroidy2020.mp4';
+import video7 from 'data/video/Carpe_Deim.mp4';
+import video8 from 'data/video/Medach_On_Air_1.mp4';
+import video9 from 'data/video/Medach_On_Air_2.mp4';
+import video10 from 'data/video/Weekend_Medicine_1.mp4';
+import video11 from 'data/video/Weekend_Medicine_2.mp4';
+import video12 from 'data/video/science_dont_do.mp4';
 
 import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_STUDENT, ACCESS_TYPE_SPECIAL} from '../../components/LoginForm/AccessTypes';
 
@@ -73,6 +85,54 @@ const contentVideo = [
         url_preview: image6,
         url_video: video6,
         accessType: ACCESS_TYPE_SPECIAL,
+    },
+    {
+        id: 6,
+        title: 'Carpe Deim: О научной карьере',
+        author: 'Medical Channel',
+        url_preview: image7,
+        url_video: video7,
+        accessType: ACCESS_TYPE_DEFAULT,
+    },
+    {
+        id: 7,
+        title: 'Medach On Air #1',
+        author: 'Medical Channel',
+        url_preview: image8,
+        url_video: video8,
+        accessType: ACCESS_TYPE_DEFAULT,
+    },
+    {
+        id: 8,
+        title: 'Medach On Air #2',
+        author: 'Medical Channel',
+        url_preview: image9,
+        url_video: video9,
+        accessType: ACCESS_TYPE_DEFAULT,
+    },
+    {
+        id: 9,
+        title: 'Weekend Medicine #1',
+        author: 'Medical Channel',
+        url_preview: image10,
+        url_video: video10,
+        accessType: ACCESS_TYPE_DEFAULT,
+    },
+    {
+        id: 10,
+        title: 'Weekend Medicine #2',
+        author: 'Medical Channel',
+        url_preview: image11,
+        url_video: video11,
+        accessType: ACCESS_TYPE_DEFAULT,
+    },
+    {
+        id: 11,
+        title: 'Чем (не) занимается когнитивная наука',
+        author: 'Medical Channel',
+        url_preview: image12,
+        url_video: video12,
+        accessType: ACCESS_TYPE_DEFAULT,
     },
 ];
 
