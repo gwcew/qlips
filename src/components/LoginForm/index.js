@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: theme.spacing(1),
+    "&.MuiButtonBase-root": {
+      textTransform: 'none',
+    },
   },
   textfield: {
     backgroundColor: theme.palette.searchbar.inputbackgroundColor,
@@ -72,7 +75,8 @@ const useStyles = makeStyles((theme) => ({
 
     "&.MuiButtonBase-root": {
       color: '#8e8e8e',
-      borderColor: '#8e8e8e'
+      borderColor: '#8e8e8e', 
+      textTransform: 'none'
     },
   },
   regButtonWrap: {
@@ -131,13 +135,13 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
           exclusive
           onChange={handleAlignment}
         >
-          <ToggleButton value={ACCESS_TYPE_SPECIAL} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+          <ToggleButton value={ACCESS_TYPE_SPECIAL} style={{color: 'white', textTransform: 'none'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
             Специалист
           </ToggleButton>
-          <ToggleButton value={ACCESS_TYPE_STUDENT} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+          <ToggleButton value={ACCESS_TYPE_STUDENT} style={{color: 'white', textTransform: 'none'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
             Студент
           </ToggleButton>
-          <ToggleButton value={ACCESS_TYPE_DEFAULT} style={{color: 'white'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
+          <ToggleButton value={ACCESS_TYPE_DEFAULT} style={{color: 'white', textTransform: 'none'}} classes={{root: classes.togglebutton, selected: classes.selected}}>
             Обычный
           </ToggleButton>
         </ToggleButtonGroup>
@@ -164,6 +168,7 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
       </Grid>
       <Grid className={classes.regButtonWrap}>
         <Button
+          style={{textTransform: 'none'}}
           variant="contained"
           color="secondary"
           onClick={() => {
