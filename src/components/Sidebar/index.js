@@ -163,7 +163,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   gridItemIcon: {
-    margin: '2px 2px 0px 2px',
+    margin: '2px 2px 0px 1.5px',
     lineHeight: '1',
   },
   gridItemText: {
