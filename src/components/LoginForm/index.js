@@ -106,6 +106,10 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
   const [alignment, setAlignment] = useState(Number(accessType));
 
   const handleAlignment = (event, newAlignment) => {
+    if (newAlignment === null || newAlignment === undefined) {
+      return;
+    }
+
     localStorage.setItem('accessType', newAlignment);
     handleAccessType(newAlignment);
     setAlignment(newAlignment);
