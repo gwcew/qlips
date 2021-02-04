@@ -8,18 +8,41 @@ const useStyles = makeStyles((theme) => ({
     root: {
         color: theme.palette.text.main,
     },
+    text: {
+        fontWeight: 'bold',
+        fontSize: '200%',
+        textAlign: 'center',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '125%',
+        },
+    },
+    icon: {
+        width: '100%', 
+        height: '100%',
+
+        [theme.breakpoints.down('sm')]: {
+            width: '85%',
+            height: '85%',
+        },
+    },
 }));
 
 function Placeholder() {
     const classes = useStyles();
 
-    return <Grid container justifyContent="center">
+    return <Grid container justifyContent="center" alignItems="center" direction="row">
         <div className={classes.root}>
-            <Grid item>
-                <FilterDrama style={{width: 64, height: 64, marginLeft: '115px'}}></FilterDrama>
+            <Grid container justifyContent="center" direction="row">
+                <Grid item xs={4}>
+                </Grid>
+                <Grid item xs={4}>
+                    <FilterDrama className={classes.icon}></FilterDrama>
+                </Grid>
+                <Grid item xs={4}>
+                </Grid>
             </Grid>
-            <Grid item>
-                <h1>Ничего не найдено!</h1>
+            <Grid item xs={12}>
+                <div className={classes.text}>Ничего не найдено!</div>
             </Grid>
         </div>
     </Grid>
