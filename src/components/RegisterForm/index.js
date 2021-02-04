@@ -107,12 +107,12 @@ function RegisterForm({handleModalRegisterFormStatus, handleModalRegisterFormUse
       </Grid>
       <Grid container className={classes.button} spacing={1}>
         <Grid item>
-          <Button className={classes.buttonCancel} variant="outlined" onClick={() => handleModalRegisterFormStatus(false)}>
+          <Button style={{textTransform: 'none'}} className={classes.buttonCancel} variant="outlined" onClick={() => handleModalRegisterFormStatus(false)}>
             Отмена
           </Button>
         </Grid>
         <Grid item>
-          <Button variant="contained" color="primary">
+          <Button style={{textTransform: 'none'}} variant="contained" color="primary">
             Регистрация
           </Button>
         </Grid>
