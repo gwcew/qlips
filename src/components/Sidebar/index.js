@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 import {setThemeStatus, setSideBarStatus, setSideBarSelectedPageID} from 'redux/actions';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 const SIDEBAR_MAIN_PAGE_ID = 1;
 const SIDEBAR_PLAYLISTS_PAGE_ID = 2;
@@ -359,7 +360,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           onClick={onClickChangeTheme}>
             <Grid container className={classes.grid}>
               <Grid item className={classes.gridItemIcon}>
-                <NightsStay className={classes.unselectedIcon}/>
+                {isLightTheme === "true" ? <WbSunnyIcon className={classes.unselectedIcon}></WbSunnyIcon> : <NightsStay className={classes.unselectedIcon}/>}
               </Grid>
               {
                 !isSideBarCollapsed ? null :
