@@ -102,7 +102,7 @@ function RegisterForm({handleModalRegisterFormStatus, handleModalRegisterFormUse
         </p>
         <p className={classes.caption}>
           Для этого необходимо прислать электронную
-          копию документа из <Button className={classes.buttonList} variant="contained" onClick={handleOnClickUserListButton}>списка.</Button>
+          копию документа из <Button className={classes.buttonList} variant="contained" onClick={handleOnClickUserListButton}>списка</Button>
         </p>
       </Grid>
       <Grid container className={classes.button} spacing={1}>
