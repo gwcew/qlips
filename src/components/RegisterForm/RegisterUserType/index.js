@@ -73,6 +73,11 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
       setAlignment(newAlignment);
     };
 
+    const handleOnClickButtonCancel = () => {
+        handleModalRegisterFormUserListStatus(false);
+        handleModalRegisterFormStatus(true);
+    };
+
     return (
         <Grid container className={classes.root} justifyContent="center">
             <Grid item className={classes.gridItemHeader}>
@@ -96,7 +101,7 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
                 {alignment === ACCESS_TYPE_USER_REGISTER_AS_STUDY ? <ContentStudy></ContentStudy> : <ContentSpecialist></ContentSpecialist>}
             </Grid>
             <Grid item xs={4}>
-                <Button variant="outlined" className={classes.buttonCancel}>Отмена</Button>
+                <Button variant="outlined" className={classes.buttonCancel} onClick={handleOnClickButtonCancel}>Отмена</Button>
             </Grid>
         </Grid>
     );
