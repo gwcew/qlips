@@ -205,7 +205,7 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
       <Modal isOpen={isRegisterFormOpen} handler={handleModalRegisterFormStatus}>
         <RegisterForm />
       </Modal>
-      <Modal isOpen={isRegisterFormUserListOpen} handler={handleModalRegisterUserListFormStatus}>
+      <Modal isOpen={isRegisterFormUserListOpen} handler={handleModalRegisterUserListFormStatus} isLongWidth={true}>
         <RegisterUserListForm></RegisterUserListForm>
       </Modal>
     </Grid>

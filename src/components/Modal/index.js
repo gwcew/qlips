@@ -17,9 +17,17 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '350px',
     width: '100%',
   },
+  paperLongWidth: {
+    backgroundColor: theme.palette.searchbar.backgroundColor,
+    padding: theme.spacing(2, 4, 3),
+    outline: 'none!important',
+    minWidth: '300px',
+    maxWidth: '500px',
+    width: '100%',
+  },
 }));
 
-function ModalComponent({ isOpen = true, handler, children }) {
+function ModalComponent({ isOpen = true, handler, children, isLongWidth }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -55,7 +63,7 @@ function ModalComponent({ isOpen = true, handler, children }) {
       }}
     >
       <Fade in={open}>
-        <div className={classes.paper}>
+        <div className={isLongWidth ? classes.paperLongWidth : classes.paper}>
           {children}
         </div>
       </Fade>
@@ -65,6 +73,7 @@ function ModalComponent({ isOpen = true, handler, children }) {
 
 ModalComponent.propTypes = {
   isOpen: PropTypes.bool,
+  isLongWidth: PropTypes.bool,
   handler: PropTypes.func,
   children: PropTypes.object
 };

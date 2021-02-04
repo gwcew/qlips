@@ -54,13 +54,19 @@ const useStyles = makeStyles(theme => ({
         },
     },
     buttonCancel: {
-        margin: `0 ${theme.spacing(1)}`,
+       margin: `0 ${theme.spacing(1)}`,
     
-        "&.MuiButtonBase-root": {
-          color: '#8e8e8e',
-          borderColor: '#8e8e8e'
-        },
-      },
+       "&.MuiButtonBase-root": {
+         color: '#8e8e8e',
+         borderColor: '#8e8e8e'
+       },
+    },
+    caption: {
+       fontSize: '14px',
+       color: theme.palette.caption.main,
+       textAlign: 'center',
+       paddingBottom: '25px',
+    },
     selected: {},
 }));
 
@@ -100,7 +106,10 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
             <Grid item>
                 {alignment === ACCESS_TYPE_USER_REGISTER_AS_STUDY ? <ContentStudy></ContentStudy> : <ContentSpecialist></ContentSpecialist>}
             </Grid>
-            <Grid item xs={4}>
+            <Grid item>
+                <div className={classes.caption}>Вы можете получить доступ к ресурсу, предоставив один или несколько документов из списка</div>
+            </Grid>
+            <Grid item xs={2}>
                 <Button variant="outlined" className={classes.buttonCancel} onClick={handleOnClickButtonCancel}>Отмена</Button>
             </Grid>
         </Grid>
