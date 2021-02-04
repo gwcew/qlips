@@ -7,7 +7,10 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setModalRegisterFormStatus} from 'redux/actions';
+import {
+  setModalRegisterFormStatus,
+  setModalRegisterFormListUserStatus,
+} from 'redux/actions';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,8 +55,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RegisterForm({handleModalRegisterFormStatus}) {
+function RegisterForm({handleModalRegisterFormStatus, handleModalRegisterFormUserListStatus}) {
   const classes = useStyles();
+
+  const handleOnClickUserListButton = () => {
+    handleModalRegisterFormStatus(false);
+    handleModalRegisterFormUserListStatus(true);
+  };
 
   return (
     <Grid className={classes.root}>
@@ -94,7 +102,7 @@ function RegisterForm({handleModalRegisterFormStatus}) {
         </p>
         <p className={classes.caption}>
           Для этого необходимо прислать электронную
-          копию документа из <Button className={classes.buttonList} variant="contained">списка.</Button>
+          копию документа из <Button className={classes.buttonList} variant="contained" onClick={handleOnClickUserListButton}>списка.</Button>
         </p>
       </Grid>
       <Grid container className={classes.button} spacing={1}>
@@ -121,11 +129,13 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleModalRegisterFormStatus: setModalRegisterFormStatus,
+    handleModalRegisterFormUserListStatus: setModalRegisterFormListUserStatus,
   }, dispatch);
 }
 
 RegisterForm.propTypes = {
   handleModalRegisterFormStatus: PropTypes.func,
+  handleModalRegisterFormUserListStatus: PropTypes.func,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

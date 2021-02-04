@@ -2,6 +2,13 @@ import React from 'react';
 import {Grid} from '@material-ui/core';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/styles';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {
+    setModalRegisterFormStatus,
+    setModalRegisterFormListUserStatus,
+} from 'redux/actions';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -12,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function Page({}) {
+function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListStatus}) {
     const classes = useStyles();
 
     return (
@@ -25,7 +32,20 @@ function Page({}) {
 }
 
 Page.propTypes = {
-
+    handleModalRegisterFormStatus: PropTypes.func,
+    handleModalRegisterFormUserListStatus: PropTypes.func,
 };
 
-export default Page;
+function mapStateToProps(state) {
+   return {
+   }
+}
+  
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    handleModalRegisterFormStatus: setModalRegisterFormStatus,
+    handleModalRegisterFormUserListStatus: setModalRegisterFormListUserStatus,
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Page);

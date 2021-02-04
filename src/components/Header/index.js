@@ -14,14 +14,20 @@ import {
 import Modal from 'components/Modal';
 import LoginForm from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
-import RegisterUserList from 'components/RegisterForm/RegisterUserType';
+import RegisterUserListForm from 'components/RegisterForm/RegisterUserType';
 import { Search, Person } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import imgLogo from './logo.png';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
-import {setSearchResult, setSearchContentByString, setModalLoginFormStatus, setModalRegisterFormStatus} from 'redux/actions';
+import {
+  setSearchResult,
+  setSearchContentByString, 
+  setModalLoginFormStatus, 
+  setModalRegisterFormStatus,
+  setModalRegisterFormListUserStatus,
+} from 'redux/actions';
 import {useHistory, useLocation} from 'react-router-dom';
 
 
@@ -64,8 +70,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 {/* width - для отладки когда мобилка а когда ПК */}
-function Header({isLoginFormOpen, isRegisterFormOpen,
-   width, handleSearch, handleGenerateContentBySearch, handleModalLoginFormStatus, handleModalRegisterFormStatus}) {
+function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen,
+   width, handleSearch, handleGenerateContentBySearch,
+   handleModalLoginFormStatus, handleModalRegisterFormStatus, handleModalRegisterUserListFormStatus}) {
   const classes = useStyles();
   const [isOpenLogin, setIsOpenLogin] = useState(false);
   const [isOpenReg, setIsOpenReg] = useState(false);
@@ -198,6 +205,9 @@ function Header({isLoginFormOpen, isRegisterFormOpen,
       <Modal isOpen={isRegisterFormOpen} handler={handleModalRegisterFormStatus}>
         <RegisterForm />
       </Modal>
+      <Modal isOpen={isRegisterFormUserListOpen} handler={handleModalRegisterUserListFormStatus}>
+        <RegisterUserListForm></RegisterUserListForm>
+      </Modal>
     </Grid>
   );
 }
@@ -207,6 +217,7 @@ function mapStateToProps(state) {
     videoContent: state.gridvideo,
     isLoginFormOpen: state.window.loginFormStatus,
     isRegisterFormOpen: state.window.registerFormStatus,
+    isRegisterFormUserListOpen: state.window.registerFormUserListStatus,
   }
 }
 
@@ -216,16 +227,19 @@ function mapDispatchToProps(dispatch) {
     handleGenerateContentBySearch: setSearchContentByString,
     handleModalLoginFormStatus: setModalLoginFormStatus,
     handleModalRegisterFormStatus: setModalRegisterFormStatus,
+    handleModalRegisterUserListFormStatus: setModalRegisterFormListUserStatus,
   }, dispatch);
 }
 
 Header.propTypes = {
   isLoginFormOpen: PropTypes.bool,
   isRegisterFormOpen: PropTypes.bool,
+  isRegisterFormUserListOpen: PropTypes.bool,
   handleSearch: PropTypes.func,
   handleGenerateContentBySearch: PropTypes.func,
   handleModalLoginFormStatus: PropTypes.func,
   handleModalRegisterFormStatus: PropTypes.func,
+  handleModalRegisterUserListFormStatus: PropTypes.func,
   width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
 };
 
