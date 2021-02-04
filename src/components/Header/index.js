@@ -41,6 +41,10 @@ const useStyles = makeStyles((theme) => ({
   },
   loginBox: {
     textAlign: 'right',
+    paddingTop: '5px',
+  },
+  gridItemSearchBar: {
+    paddingTop: '5px',
   },
   button: {
     marginTop: '6px!important',
@@ -132,10 +136,10 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
     <Grid className={classes.root} container>
       <Grid item xs={2}>
         <Link to="/">
-          <img src={imgLogo} height={40} alt="logo"/>
+          <img src={imgLogo} height={53} alt="logo"/>
         </Link>
       </Grid>
-      <Grid item xs={8} sm={6}>
+      <Grid item xs={8} sm={6} className={classes.gridItemSearchBar}>
         <FormControl fullWidth size="small" variant="outlined" className={classes.searchbar}>
           <InputLabel htmlFor="outlined-adornment-password" className={classes.searchbar_text}>Поиск</InputLabel>
           <OutlinedInput
