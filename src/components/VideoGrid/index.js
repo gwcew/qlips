@@ -9,7 +9,7 @@ import {ACCESS_TYPE_DEFAULT} from 'components/LoginForm/AccessTypes'
 import Placeholder from './Placeholder';
 import {useLocation} from 'react-router-dom';
 
-function VideoGrid({videocontent, handleAccessType, handleSearchString}) {
+function VideoGrid({videocontent, handleAccessType, handleSearchString, isLightTheme}) {
   let accessType = localStorage.getItem('accessType');
 
   if (accessType === undefined || accessType === null) {
@@ -42,7 +42,7 @@ function VideoGrid({videocontent, handleAccessType, handleSearchString}) {
 
     if (videocontent.searchString) {
       if (videocontent.searchOutput.length === 0 && videocontent.searchString.length !== 0) {
-        return <Placeholder></Placeholder>;
+        return <Placeholder isLightTheme={isLightTheme}></Placeholder>;
       }
     }
 
@@ -76,6 +76,7 @@ VideoGrid.propTypes = {
   videocontent: PropTypes.object,
   handleAccessType: PropTypes.func,
   handleSearchString: PropTypes.func,
+  isLightTheme: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoGrid);

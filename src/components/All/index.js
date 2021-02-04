@@ -69,7 +69,7 @@ function MainPage({isCollapsedSidebar, isLightTheme, setTheme}) {
       <Switch>
         <Route exact path="/">
           <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
-            <HomePage />
+            <HomePage isLightTheme={isLightTheme} />
           </Grid>
         </Route>
         <Route exact path="/video/:id" render={(props) => (
