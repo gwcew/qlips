@@ -1,6 +1,14 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import {
+   Grid,
+   ToggleButton,
+   ToggleButtonGroup,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {
+  NightsStay,
+} from '@material-ui/icons';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +34,9 @@ function SidebarRight() {
 
   return (
     <Grid className={classes.root} container>
-      <Grid item xs={12} className={classes.menuBlock} />
+      <Grid item xs={12} className={classes.menuBlock}>
+        
+      </Grid>
     </Grid>
   );
 }

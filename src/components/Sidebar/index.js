@@ -163,8 +163,20 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '0px',
 
   },
-  gridItemIcon: {
+  gridItemIconMainPage: {
     margin: '2px 2px 0px 1.5px',
+    lineHeight: '1',
+  },
+  gridItemIconPlaylistsPage: {
+    margin: '2px 2px 0px 1.5px',
+    lineHeight: '1',
+  },
+  gridItemIconCategoryPage: {
+    margin: '2.5px 2px 0px 1.5px',
+    lineHeight: '1',
+  },
+  gridItemIconCursesPage: {
+    margin: '2px 2px -0.5px 1.5px',
     lineHeight: '1',
   },
   gridItemText: {
@@ -273,7 +285,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickMainPageButton}>
             <Grid container className={classes.grid}>
-              <Grid item className={classes.gridItemIcon}>
+              <Grid item className={classes.gridItemIconMainPage}>
                 <Home className={isSideBarCollapsed ? (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_MAIN_PAGE_ID ? classes.icon : classes.unselectedIcon)}/>
               </Grid>
@@ -292,7 +304,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickPlaylistsPageButton}>
             <Grid container className={classes.grid}>
-              <Grid item className={classes.gridItemIcon}>
+              <Grid item className={classes.gridItemIconPlaylistsPage}>
                 <FilterNone className={isSideBarCollapsed ? (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_PLAYLISTS_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
@@ -312,7 +324,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickCategoryPageButton}>
             <Grid container className={classes.grid}>
-              <Grid item className={classes.gridItemIcon}>
+              <Grid item className={classes.gridItemIconCategoryPage}>
                 <FormatListBulleted className={isSideBarCollapsed ? (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_CATEGORY_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
@@ -333,7 +345,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
           disableRipple
           onClick={handleOnClickCursesPageButton}>
             <Grid container className={classes.grid}>
-              <Grid item className={classes.gridItemIcon}>
+              <Grid item className={classes.gridItemIconCursesPage}>
                 <School className={isSideBarCollapsed ? (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.iconUnselectedCollapsed)
                   : (alignment === SIDEBAR_CURSES_PAGE_ID ? classes.icon : classes.unselectedIcon)} />
               </Grid>
@@ -370,7 +382,6 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
               }
             </Grid>
           </ToggleButton>
-
         </ToggleButtonGroup>
       </Grid>
     </Grid>
