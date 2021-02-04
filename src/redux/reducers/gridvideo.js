@@ -183,8 +183,8 @@ export default function reducer(state = initialState, action) {
             }
 
             const wheretosearch = result.content.filter(element => element.accessType <= result.accessType);
-
-            const searcher = new fuzzySearch(wheretosearch, ['title', 'author'], {caseSensitive: false});
+            const whattosearch = ['title', 'author'];
+            const searcher = new fuzzySearch(wheretosearch, whattosearch, {caseSensitive: false});
 
             const test = searcher.search(result.searchString);
 
