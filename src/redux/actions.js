@@ -9,6 +9,7 @@ import {
   SIDEBAR_SET_STATUS,
   MODAL_LOGINFORM_SET_STATUS,
   MODAL_REGISTERFORM_SET_STATUS,
+  MODAL_REGISTERFORM_USER_LIST_STATUS,
   SIDEBAR_SET_SELECTED_PAGE_ID,
 } from './actionTypes';
 
@@ -82,10 +83,10 @@ export const setModalLoginFormStatus = (status) => {
   };
 };
 
-export const setModalRegisterFormStatus = (status) => {
+export const setModalRegisterFormStatus = (boolStatus) => {
   return {
     type: MODAL_REGISTERFORM_SET_STATUS,
-    registerFormStatus: status,
+    registerFormStatus: boolStatus,
   };
 };
 
@@ -93,5 +94,12 @@ export const setSideBarSelectedPageID = (stringID) => {
   return {
     type: SIDEBAR_SET_SELECTED_PAGE_ID,
     sidebarPageID: stringID,
+  };
+};
+
+export const setModalRegisterFormListUserStatus = (boolStatus) => {
+  return {
+    type: MODAL_REGISTERFORM_USER_LIST_STATUS,
+    registerFormUserListStatus: boolStatus,
   };
 };

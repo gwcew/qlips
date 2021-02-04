@@ -14,6 +14,7 @@ import {
 import Modal from 'components/Modal';
 import LoginForm from 'components/LoginForm';
 import RegisterForm from 'components/RegisterForm';
+import RegisterUserList from 'components/RegisterForm/RegisterUserType';
 import { Search, Person } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import imgLogo from './logo.png';

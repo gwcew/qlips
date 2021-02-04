@@ -3,6 +3,7 @@ import {
   THEME_SET_STATUS,
   MODAL_LOGINFORM_SET_STATUS,
   MODAL_REGISTERFORM_SET_STATUS,
+  MODAL_REGISTERFORM_USER_LIST_STATUS,
   SIDEBAR_SET_SELECTED_PAGE_ID,
 } from '../actionTypes';
 
@@ -11,6 +12,7 @@ const initialState = {
   sideBarCollapsed: false,
   loginFormStatus: false,
   registerFormStatus: false,
+  registerFormUserListStatus: false,
   sidebarPageID: 1,
 };
 
@@ -47,6 +49,13 @@ export default function (state = initialState, action) {
         let result = {...state};
 
         result.sidebarPageID = Number(action.sidebarPageID);
+
+        return result;
+    }
+    case MODAL_REGISTERFORM_USER_LIST_STATUS: {
+        let result = {...state};
+
+        result.registerFormUserListStatus = Boolean(action.registerFormUserListStatus);
 
         return result;
     }
