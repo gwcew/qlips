@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuBlockSecondary: {
     height: '100vh',
+    paddingTop: '10px',
   },
   menuButton: {
 
