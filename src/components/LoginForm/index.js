@@ -82,6 +82,14 @@ const useStyles = makeStyles((theme) => ({
   regButtonWrap: {
     textAlign: 'center',
   },
+  regButtonStyle: {
+    "&.MuiButtonBase-root": {
+      color: '#8e8e8e',
+      borderColor: '#8e8e8e', 
+      textTransform: 'none',
+      fontSize: '12px',
+    },
+  },
   selected: {},
 }));
 
@@ -168,9 +176,9 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
       </Grid>
       <Grid className={classes.regButtonWrap}>
         <Button
-          style={{textTransform: 'none'}}
-          variant="contained"
-          color="secondary"
+          className={classes.regButtonStyle}
+          variant="outlined"
+          color="primary"
           onClick={() => {
             handleModalRegisterFormStatus(true);
           }}
