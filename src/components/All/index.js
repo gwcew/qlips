@@ -95,7 +95,7 @@ function MainPage({isCollapsedSidebar, isLightTheme, setTheme}) {
     </Grid>
     <Sidebar setTheme={setTheme} isLightTheme={isLightTheme} />
     <Hidden smDown>
-      <SidebarRight />
+      <SidebarRight setTheme={setTheme}/>
     </Hidden>
 
     <Grid container className={classes.rounded}/>
