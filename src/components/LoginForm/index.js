@@ -115,6 +115,11 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
     setAlignment(newAlignment);
   };
 
+  const handleOnClickRegisterButton = () => {
+    handleLoginFormStatus(false);
+    handleModalRegisterFormStatus(true);
+  };
+
   return (
     <Grid className={classes.root}>
       <h2 className={classes.header}>Вход</h2>
@@ -183,9 +188,7 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
           className={classes.regButtonStyle}
           variant="outlined"
           color="primary"
-          onClick={() => {
-            handleModalRegisterFormStatus(true);
-          }}
+          onClick={handleOnClickRegisterButton}
         >
           Регистрация
         </Button>

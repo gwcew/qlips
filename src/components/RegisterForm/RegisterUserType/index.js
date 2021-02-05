@@ -12,6 +12,7 @@ import {bindActionCreators} from 'redux';
 import {
     setModalRegisterFormStatus,
     setModalRegisterFormListUserStatus,
+    setModalLoginFormStatus,
 } from 'redux/actions';
 import {ACCESS_TYPE_USER_REGISTER_AS_STUDY, ACCESS_TYPE_USER_REGISTER_AS_SPECIALIST} from './AccessTypes';
 import ContentStudy from './ContentForStudy';
@@ -70,7 +71,11 @@ const useStyles = makeStyles(theme => ({
     selected: {},
 }));
 
-function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListStatus}) {
+function Page({
+    handleModalRegisterFormStatus, 
+    handleModalRegisterFormUserListStatus,
+    handleModalLoginFormStatus,
+}) {
     const classes = useStyles();
 
     const [alignment, setAlignment] = useState(ACCESS_TYPE_USER_REGISTER_AS_STUDY);
@@ -80,6 +85,7 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
     };
 
     const handleOnClickButtonCancel = () => {
+        handleModalLoginFormStatus(false);
         handleModalRegisterFormUserListStatus(false);
         handleModalRegisterFormStatus(true);
     };
@@ -119,6 +125,7 @@ function Page({handleModalRegisterFormStatus, handleModalRegisterFormUserListSta
 Page.propTypes = {
     handleModalRegisterFormStatus: PropTypes.func,
     handleModalRegisterFormUserListStatus: PropTypes.func,
+    handleModalLoginFormStatus: PropTypes.func,
 };
 
 function mapStateToProps(state) {
@@ -130,6 +137,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleModalRegisterFormStatus: setModalRegisterFormStatus,
     handleModalRegisterFormUserListStatus: setModalRegisterFormListUserStatus,
+    handleModalLoginFormStatus: setModalLoginFormStatus,
   }, dispatch);
 }
 
