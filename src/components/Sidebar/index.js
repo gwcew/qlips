@@ -16,6 +16,7 @@ import {setThemeStatus, setSideBarStatus, setSideBarSelectedPageID} from 'redux/
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const SIDEBAR_MAIN_PAGE_ID = 1;
 const SIDEBAR_PLAYLISTS_PAGE_ID = 2;
@@ -258,6 +259,8 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
     history.push('/curses');
   };
 
+  const stringMatchesResult = useMediaQuery('(min-height: 420px)');
+
   return (
     <Grid className={!isSideBarCollapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
@@ -361,30 +364,33 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
         </ToggleButtonGroup>
       </Grid>
-      <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
-      <ToggleButtonGroup
-        exclusive
-        className={isSideBarCollapsed ? classes.buttonsWrapper : ""}
-        orientation="vertical"
-        >
-          <ToggleButton
-          classes={{root: classes.togglebutton, selected: classes.selected}}
-          disableRipple
-          onClick={onClickChangeTheme}>
-            <Grid container className={classes.grid}>
-              <Grid item className={classes.gridItemIcon}>
-                {isLightTheme === "true" ? <WbSunnyIcon className={classes.unselectedIcon}></WbSunnyIcon> : <NightsStay className={classes.unselectedIcon}/>}
-              </Grid>
-              {
-                !isSideBarCollapsed ? null :
-                <Grid item className={classes.gridItemText}>
-                  {isSideBarCollapsed && "Тема"}
-                </Grid>
-              }
+      {stringMatchesResult ? 
+            <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
+            <ToggleButtonGroup
+              exclusive
+              className={isSideBarCollapsed ? classes.buttonsWrapper : ""}
+              orientation="vertical"
+              >
+                <ToggleButton
+                classes={{root: classes.togglebutton, selected: classes.selected}}
+                disableRipple
+                onClick={onClickChangeTheme}>
+                  <Grid container className={classes.grid}>
+                    <Grid item className={classes.gridItemIcon}>
+                      {isLightTheme === "true" ? <WbSunnyIcon className={classes.unselectedIcon}></WbSunnyIcon> : <NightsStay className={classes.unselectedIcon}/>}
+                    </Grid>
+                    {
+                      !isSideBarCollapsed ? null :
+                      <Grid item className={classes.gridItemText}>
+                        {isSideBarCollapsed && "Тема"}
+                      </Grid>
+                    }
+                  </Grid>
+                </ToggleButton>
+              </ToggleButtonGroup>
             </Grid>
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </Grid>
+      : null}
+
     </Grid>
   );
 }
