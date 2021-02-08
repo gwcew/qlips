@@ -12,10 +12,10 @@ import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        color: 'white'
+        color: theme.palette.text.main,
     },
     icon: {
-        color: 'white',
+        color: theme.palette.text.main,
     },
 }));
 
@@ -47,7 +47,7 @@ function Page({}) {
                 Копия справки об обучении с печатью университета
             </ListItemText>
         </ListItem>
-    </List> 
+    </List>
 }
 
 Page.propTypes = {

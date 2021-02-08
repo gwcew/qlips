@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 
     "&.MuiButtonBase-root": {
       color: '#8e8e8e',
-      borderColor: '#8e8e8e', 
+      borderColor: '#8e8e8e',
       textTransform: 'none'
     },
   },
@@ -85,9 +85,9 @@ const useStyles = makeStyles((theme) => ({
   regButtonStyle: {
     "&.MuiButtonBase-root": {
       color: '#8e8e8e',
-      borderColor: '#8e8e8e', 
+      borderColor: '#8e8e8e',
       textTransform: 'none',
-      fontSize: '12px',
+      fontSize: '10px',
     },
   },
   selected: {},

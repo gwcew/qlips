@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
         },
         "&.MuiToggleButton-root": {
           padding: '4px',
-    
+
           "&:hover": {
             backgroundColor: 'rgb(52,77,158)',
             transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
@@ -56,9 +56,10 @@ const useStyles = makeStyles(theme => ({
     },
     buttonCancel: {
        margin: `0 ${theme.spacing(1)}`,
-    
+
        "&.MuiButtonBase-root": {
          color: '#8e8e8e',
+         textTransform: 'none',
          borderColor: '#8e8e8e'
        },
     },
@@ -72,7 +73,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Page({
-    handleModalRegisterFormStatus, 
+    handleModalRegisterFormStatus,
     handleModalRegisterFormUserListStatus,
     handleModalLoginFormStatus,
 }) {
@@ -132,7 +133,7 @@ function mapStateToProps(state) {
    return {
    }
 }
-  
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     handleModalRegisterFormStatus: setModalRegisterFormStatus,

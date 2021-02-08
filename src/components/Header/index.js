@@ -23,8 +23,8 @@ import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
 import {
   setSearchResult,
-  setSearchContentByString, 
-  setModalLoginFormStatus, 
+  setSearchContentByString,
+  setModalLoginFormStatus,
   setModalRegisterFormStatus,
   setModalRegisterFormListUserStatus,
 } from 'redux/actions';
@@ -33,7 +33,7 @@ import {useHistory, useLocation} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: theme.spacing(1),
+    padding: '11px 7px 0px',
     position: 'fixed',
     top: '0',
     backgroundColor: theme.palette.searchbar.backgroundColor,
@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchbar: {
     background: theme.palette.searchbar.inputbackgroundColor,
+    borderRadius: '4px',
   },
   searchbar_text: {
     color: theme.palette.text.main,
@@ -103,7 +104,7 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
 
   const history = useHistory();
 
-  
+
   const handleOnChange = (event) => {
     setSearchString(event.target.value);
   };
@@ -127,18 +128,23 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
     }
   };
 
- 
+
 
   const handleClickAvatar = () => {
     handleModalLoginFormStatus(true);
   };
 
+  const handleLogoClick = () => {
+    localStorage.setItem('SelectedPageID', 1);
+    history.push('/');
+  };
+
   return (
     <Grid className={classes.root} container>
       <Grid item xs={2}>
-        <Link to="/">
+        <a onClick={handleLogoClick}>
           <img src={imgLogo} height={53} alt="logo"/>
-        </Link>
+        </a>
       </Grid>
       <Grid item xs={8} sm={6} className={classes.gridItemSearchBar}>
         <FormControl fullWidth size="small" variant="outlined" className={classes.searchbar}>

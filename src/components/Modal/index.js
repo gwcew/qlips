@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    "& .MuiDialog-paper": {
+      backgroundColor: 'transparent',
+    }
   },
   paper: {
     backgroundColor: theme.palette.searchbar.backgroundColor,

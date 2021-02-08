@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.border.main,
     backgroundColor: theme.palette.sidebar.iconBackgroundColor,
     border: `1px solid ${theme.palette.border.main}`,
-    borderRadius: '6px',
+    borderRadius: '7px',
     width: '39px',
     height: '39px',
     padding: '5px',
@@ -166,19 +166,19 @@ const useStyles = makeStyles((theme) => ({
 
   },
   gridItemIconMainPage: {
-    margin: '2px 2px 0px 1.5px',
+    margin: '2px 2px 0px 2px',
     lineHeight: '1',
   },
   gridItemIconPlaylistsPage: {
-    margin: '2px 2px 0px 1.5px',
+    margin: '2px 2px 0px 2px',
     lineHeight: '1',
   },
   gridItemIconCategoryPage: {
-    margin: '2.5px 2px 0px 1.5px',
+    margin: '2px 2px 0px 2px',
     lineHeight: '1',
   },
   gridItemIconCursesPage: {
-    margin: '2px 2px -0.5px 1.5px',
+    margin: '2px 2px 0 2px',
     lineHeight: '1',
   },
   gridItemText: {
@@ -256,7 +256,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
   };
 
   const handleOnClickCursesPageButton = () => {
-    history.push('/curses');
+    history.push('/courses');
   };
 
   const stringMatchesResult = useMediaQuery('(min-height: 420px)');
@@ -364,7 +364,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
         </ToggleButtonGroup>
       </Grid>
-      {stringMatchesResult ? 
+      {stringMatchesResult ?
             <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockSecondary].join(' ')}>
             <ToggleButtonGroup
               exclusive
@@ -376,7 +376,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
                 disableRipple
                 onClick={onClickChangeTheme}>
                   <Grid container className={classes.grid}>
-                    <Grid item className={classes.gridItemIcon}>
+                    <Grid item className={classes.gridItemIconCursesPage}>
                       {isLightTheme === "true" ? <WbSunnyIcon className={classes.unselectedIcon}></WbSunnyIcon> : <NightsStay className={classes.unselectedIcon}/>}
                     </Grid>
                     {
