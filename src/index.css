@@ -10,6 +10,10 @@ body {
   height: 100%;
 }
 
+div,span {
+  transition: background 1s ease;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
