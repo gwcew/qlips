@@ -86,7 +86,7 @@ function MainPage({isCollapsedSidebar, isLightTheme, setTheme}) {
             <Page404/>
           </Grid>
         </Route>
-        <Route exact path="/curses">
+        <Route exact path="/courses">
           <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
             <Page404/>
           </Grid>
