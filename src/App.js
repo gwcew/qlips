@@ -158,7 +158,12 @@ function App() {
 
 
   // By default we use light theme, but user can change it at anytime!
-  const requestedTheme = localStorage.getItem('theme');
+  let requestedTheme = localStorage.getItem('theme');
+
+  if (requestedTheme === null) {
+    requestedTheme = 'true';
+  }
+
   const [isLightTheme, setTheme] = useState(requestedTheme);
 
   useEffect(() => {
@@ -167,7 +172,6 @@ function App() {
     } else {
       setCrutchLocation(true);
     }
-
 
   }, [location]);
 

@@ -233,8 +233,6 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
 
   const [alignment, setAlignment] = useState(!(!!localSelectedPageID) ? sidebarPageID : Number(localSelectedPageID));
 
-  console.log(localSelectedPageID);
-
   const handleAlignment = (event, newAlignment) => {
     if (newAlignment === 0 || newAlignment === null) {
       return;
