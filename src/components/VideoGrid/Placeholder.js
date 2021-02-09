@@ -20,8 +20,14 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     icon: {
-        width: '100%', 
-        height: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '100%', 
+            height: '100%',
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '175%',
+            height: '100%',
+        },
     },
 }));
 
@@ -33,12 +39,12 @@ function Placeholder({isLightTheme}) {
     return <Grid container justifyContent="center" alignItems="center" direction="row">
         <div className={classes.root}>
             <Grid container justifyContent="center" direction="row">
-                <Grid item xs={4}>
+                <Grid item sm={4}>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} sm={4}>
                     <img className={classes.icon} src={currentPlaceholderImage}></img>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} sm={4}>
                 </Grid>
             </Grid>
         </div>
