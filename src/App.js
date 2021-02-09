@@ -151,77 +151,6 @@ const darkTheme = createMuiTheme({
   },
 });
 
-const useStyles = makeStyles(theme => ({
-  content: {
-    marginTop: '75px',
-    paddingTop: '25px',
-  },
-  rounded: {
-    position: 'fixed',
-    pointerEvents: 'none',
-    top: '75px',
-    boxShadow: '0 0 0px 20px #fff',
-    minHeight: 'calc(100vh - 75px)',
-    borderRadius: '2.5% 2.5% 0 0',
-    borderColor: '#637ee0',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-  },
-  inner: {
-    width: 'calc(100% - 190px)',
-    margin: 'auto',
-  },
-  fullWidth: {
-    width: '100%',
-    margin: 'auto',
-  },
-  collapsed: {
-      width: 'calc(100% - 265px)',
-      margin: 'auto',
-      marginLeft: '165px',
-  },
-}));
-
-const useStylesDark = makeStyles(theme => ({
-  content: {
-    backgroundColor: '#383838',
-    marginTop: '75px',
-    paddingTop: '25px',
-  },
-  rounded: {
-    position: 'fixed',
-    pointerEvents: 'none',
-    top: '75px',
-    boxShadow: '0 0 0px 20px #262626',
-    minHeight: 'calc(100vh - 75px)',
-    borderRadius: '2.5% 2.5% 0 0',
-    borderColor: '#778594',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-  },
-  inner: {
-    [theme.breakpoints.up('sm')]: {
-      width: 'calc(100% - 190px)',
-      margin: 'auto',
-    },
-
-    [theme.breakpoints.down('sm')]: {
-      width: 'calc(100% - 105px)',
-      marginLeft: 'auto',
-      marginRight: '15px',
-    },
-  },
-  fullWidth: {
-    width: '100%',
-    margin: 'auto',
-  },
-  collapsed: {
-    width: 'calc(100% - 265px)',
-    margin: 'auto',
-    marginLeft: '165px',
-  },
-}));
-
 function App() {
 
   const location = useLocation();
@@ -244,10 +173,8 @@ function App() {
 
   const currentTheme = isLightTheme === "true" ? lightTheme : darkTheme;
 
-  const classes = useStyles();
-  const classesDark = useStylesDark();
-
-  const currentClasses = isLightTheme === "true" ? classes : classesDark;
+ 
+ 
 
   return (
       <ThemeProvider theme={currentTheme}>
