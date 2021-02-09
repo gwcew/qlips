@@ -42,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
       width: '150px',
     },
 
+    transition: '0.4s',
+
   },
   collapsed: {
     width: '75px',
