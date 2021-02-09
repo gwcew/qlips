@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   subheader: {
-    paddingTop: theme.spacing(2),
+    paddingTop: theme.spacing(3),
     textAlign: 'center',
   },
   label: {
@@ -148,7 +148,7 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
         <a href="/" className={classes.link}>Забыли пароль?</a>
       </Grid>
       <h3 className={classes.subheader}>Тип пользователя*</h3>
-      <Grid container className={classes.inputWrap} spacing={1}>
+      <Grid container className={classes.inputWrap} spacing={1} justifyContent="center">
         <ToggleButtonGroup
           value={alignment}
           exclusive
