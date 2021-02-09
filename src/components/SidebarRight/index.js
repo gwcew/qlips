@@ -98,6 +98,10 @@ const useStyles = makeStyles((theme) => ({
   buttonsWrapper: {
     width: '95%',
   },
+  gridItemButtonThemeSwitcher: {
+    margin: '2px 2px 0 2px',
+    lineHeight: '1',
+  },
 }));
 
 function SidebarRight({isLightTheme, handleSetThemeStatus, setTheme}) {
@@ -132,7 +136,7 @@ function SidebarRight({isLightTheme, handleSetThemeStatus, setTheme}) {
               onClick={onClickChangeTheme}
             >
               <Grid container>
-                <Grid item>
+                <Grid item className={classes.gridItemButtonThemeSwitcher}>
                   {isLightTheme === "true" ? <WbSunnyIcon className={classes.unselectedIcon}></WbSunnyIcon> : <NightsStay className={classes.unselectedIcon}/>}
                 </Grid>
               </Grid>
