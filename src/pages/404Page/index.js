@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useLayoutEffect} from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import img404LightDesktop from 'pages/404Page/images/light_desktop.png';
@@ -8,6 +8,7 @@ import img404DarkMobile from 'pages/404Page/images/dark_mobile.png';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,64 +28,31 @@ const useStyles = makeStyles((theme) => ({
 function Page404({themeStatus}) {
   const classes = useStyles();
 
-  const [selectedImage, setImage] = useState();
-  const [windowWidth, setWindowWidth] = useState(0);
+  const matchesQueryStringResultForDesktopImage = useMediaQuery('(min-width: 501px)');
+  const matchesQueryStringResultForMobileImage = useMediaQuery('(max-width: 500px)');
 
-  let resizeWindow = () => {
-    setWindowWidth(window.innerWidth);
-  };
+  let currentImage = null;
 
-  useEffect(() => {
-    resizeWindow();
-    window.addEventListener("resize", resizeWindow);
-
-    const currentWidth = windowWidth;
-
-
-
-    if (currentWidth >= 600) {
-      if (themeStatus === "true") { 
-        setImage(img404LightDesktop);
-      }
-      else {
-        setImage(img404DarkDesktop);
-      }
+  if (matchesQueryStringResultForDesktopImage) {
+    if (themeStatus === "true") {
+      currentImage = img404LightDesktop;
     }
     else {
-      if (themeStatus === "true") {
-        setImage(img404LightMobile);
-      } 
-      else {
-        setImage(img404DarkMobile);
-      }
+      currentImage = img404DarkDesktop;
     }
-
-    return () => window.removeEventListener("resize", resizeWindow);
-  }, []);
-
-
-  const PickImage = (classes) => {
-    if (windowWidth >= 500) {
-      if (themeStatus === "true") { 
-        return <img className={classes.image} src={img404LightDesktop} alt="404"></img>
-      }
-      else {
-        return <img className={classes.image} src={img404DarkDesktop} alt="404"></img>
-      }
+  }
+  else if (matchesQueryStringResultForMobileImage) {
+    if (themeStatus === "true") {
+      currentImage = img404LightMobile;
     }
     else {
-      if (themeStatus === "true") {
-        return <img className={classes.image} src={img404LightMobile} alt="404"></img>
-      } 
-      else {
-        return <img className={classes.image} src={img404DarkMobile} alt="404"></img>
-      }
+      currentImage = img404DarkMobile;
     }
-  };
-
+  }
+  
   return (
     <Grid className={classes.root}>
-      {PickImage(classes)}
+      <img className={classes.image} src={currentImage} alt="404"></img>
     </Grid>
   );
 }
