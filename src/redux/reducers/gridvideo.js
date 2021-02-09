@@ -33,6 +33,8 @@ import video10 from 'data/video/Weekend_Medicine_1.mp4';
 import video11 from 'data/video/Weekend_Medicine_2.mp4';
 import video12 from 'data/video/science_dont_do.mp4';
 
+import imageAvatarMedicalChannel from 'data/avatars/mc.png';
+
 import {ACCESS_TYPE_DEFAULT, ACCESS_TYPE_STUDENT, ACCESS_TYPE_SPECIAL} from '../../components/LoginForm/AccessTypes';
 
 import fuzzySearch from 'fuzzy-search';
@@ -44,6 +46,7 @@ const contentVideo = [
         author: 'Кремков Андрей Владимирович',
         url_preview: image1,
         url_video: video1,
+        url_avatar: null,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -52,6 +55,7 @@ const contentVideo = [
         author: 'Арсланов Глеб Маратович',
         url_preview: image2,
         url_video: video2,
+        url_avatar: null,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -60,6 +64,7 @@ const contentVideo = [
         author: 'Барон Екатерина Алексеевна',
         url_preview: image3,
         url_video: video3,
+        url_avatar: null,
         accessType: ACCESS_TYPE_STUDENT,
     },
     {
@@ -68,6 +73,7 @@ const contentVideo = [
         author: 'Sons of Medicine',
         url_preview: image4,
         url_video: video4,
+        url_avatar: null,
         accessType: ACCESS_TYPE_STUDENT,
     },
     {
@@ -76,6 +82,7 @@ const contentVideo = [
         author: 'Евгений Касьянов',
         url_preview: image5,
         url_video: video5,
+        url_avatar: null,
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
@@ -84,6 +91,7 @@ const contentVideo = [
         author: 'Осипенко Антон Николаевич',
         url_preview: image6,
         url_video: video6,
+        url_avatar: null,
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
@@ -92,6 +100,7 @@ const contentVideo = [
         author: 'Medical Channel',
         url_preview: image7,
         url_video: video7,
+        url_avatar: imageAvatarMedicalChannel,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -100,6 +109,7 @@ const contentVideo = [
         author: 'Medical Channel',
         url_preview: image8,
         url_video: video8,
+        url_avatar: imageAvatarMedicalChannel,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -108,6 +118,7 @@ const contentVideo = [
         author: 'Medical Channel',
         url_preview: image9,
         url_video: video9,
+        url_avatar: imageAvatarMedicalChannel,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -116,6 +127,7 @@ const contentVideo = [
         author: 'Medical Channel',
         url_preview: image10,
         url_video: video10,
+        url_avatar: imageAvatarMedicalChannel,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -124,6 +136,7 @@ const contentVideo = [
         author: 'Medical Channel',
         url_preview: image11,
         url_video: video11,
+        url_avatar: imageAvatarMedicalChannel,
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -132,6 +145,7 @@ const contentVideo = [
         author: 'Medical Channel',
         url_preview: image12,
         url_video: video12,
+        url_avatar: imageAvatarMedicalChannel,
         accessType: ACCESS_TYPE_DEFAULT,
     },
 ];

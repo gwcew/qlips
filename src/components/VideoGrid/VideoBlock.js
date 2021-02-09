@@ -56,6 +56,7 @@ function VideoBlock({ width = 3, videoData }) {
               <Avatar
                 alt="channel avatar"
                 className={classes.avatar}
+                src={videoData.url_avatar}
               />
             </div>
             <div className={classes.videoCaption}>
