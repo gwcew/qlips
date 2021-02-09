@@ -213,10 +213,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
     }
   };
 
-  useEffect(() => {
-    handleSideBarStatus(localCollapsed === "true");
-    handleSetThemeStatus(localStorage.getItem('theme'));
-  });
+
 
   const onClickChangeTheme = () => {
       if (isLightTheme === "true") {
@@ -232,6 +229,17 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
   };
 
   const [alignment, setAlignment] = useState(!(!!localSelectedPageID) ? sidebarPageID : Number(localSelectedPageID));
+
+  useEffect(() => {
+    handleSideBarStatus(localCollapsed === "true");
+    handleSetThemeStatus(localStorage.getItem('theme'));
+
+    const isMainPage = history.location.pathname === "/" ? true : false;
+
+    if (isMainPage) {
+      setAlignment(SIDEBAR_MAIN_PAGE_ID);
+    }
+  });
 
   const handleAlignment = (event, newAlignment) => {
     if (newAlignment === 0 || newAlignment === null) {

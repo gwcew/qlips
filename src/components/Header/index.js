@@ -86,6 +86,7 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
   const [searchString, setSearchString] = useState('');
 
   const location = useLocation();
+  const history = useHistory();
 
   useEffect(() => {
     if (isOpenLogin) {
@@ -99,10 +100,9 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
     const queryResult = params.get('search');
 
     setSearchString(queryResult);
-
   }, [isOpenLogin, isOpenReg]);
 
-  const history = useHistory();
+
 
 
   const handleOnChange = (event) => {
@@ -111,14 +111,19 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
 
   const handleOnClickSearchButton = () => {
     const params = new URLSearchParams();
-
-    if (searchString) {
-      params.append('search', searchString);
-      history.push({search: '?'+params.toString()});
+    const isWeAreOnMainPage = location.pathname === "/" ? true : false;
+    if (isWeAreOnMainPage) {
+      if (searchString) {
+        params.append('search', searchString);
+        history.push({search: '?'+params.toString()});
+      }
+      else {
+        params.delete('search');
+        history.push({search: ''});
+      }
     }
     else {
-      params.delete('search');
-      history.push({search: ''});
+      history.push({pathname: '/', search: ''});
     }
   };
 
