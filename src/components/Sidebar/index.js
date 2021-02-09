@@ -259,7 +259,7 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
     history.push('/courses');
   };
 
-  const stringMatchesResult = useMediaQuery('(min-height: 420px)');
+  const stringMatchesResult = useMediaQuery('(min-height: 421px)');
 
   return (
     <Grid className={!isSideBarCollapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
