@@ -7,12 +7,11 @@ import {
     VIDEO_SET_OUTPUT_CONTENT_AFTER_APPLIED_SEARCH_STRING
 } from '../actionTypes'
 
-import image1 from 'data/previews/CO_2020.png'
-import image2 from 'data/previews/dokmed_2020.png'
-import image3 from 'data/previews/dokmed2.jpg'
-import image4 from 'data/previews/test1.jpg'
-import image5 from 'data/previews/neyrogenetika_2020.jpg'
-import image6 from 'data/previews/neyrosteroidy2020.png'
+import image1 from 'data/previews/CO_2020.jpg';
+import image2 from 'data/previews/dokmed_2020.jpg';
+import image3 from 'data/previews/dokmed2.jpg';
+import image5 from 'data/previews/neyrogenetika_2020.jpg';
+import image6 from 'data/previews/neyrosteroidy2020.jpg';
 import image7 from 'data/previews/Carpe_Deim.jpg';
 import image8 from 'data/previews/Medach_On_Air_1.jpg';
 import image9 from 'data/previews/Medach_On_Air_2.jpg';
@@ -23,7 +22,6 @@ import image12 from 'data/previews/science_dont_do.jpg';
 import video1 from 'data/video/CO_2020.mp4';
 import video2 from 'data/video/dokmed_2020.mp4';
 import video3 from 'data/video/dokmed2.mp4';
-import video4 from 'data/video/demo1.mov';
 import video5 from 'data/video/neyrogenetika_2020.mp4';
 import video6 from 'data/video/neyrosteroidy2020.mp4';
 import video7 from 'data/video/Carpe_Deim.mp4';
@@ -64,15 +62,6 @@ const contentVideo = [
         author: 'Барон Екатерина Алексеевна',
         url_preview: image3,
         url_video: video3,
-        url_avatar: null,
-        accessType: ACCESS_TYPE_STUDENT,
-    },
-    {
-        id: 3,
-        title: 'Медицинская генетика',
-        author: 'Sons of Medicine',
-        url_preview: image4,
-        url_video: video4,
         url_avatar: null,
         accessType: ACCESS_TYPE_STUDENT,
     },

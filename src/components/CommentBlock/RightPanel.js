@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: theme.palette.comment.backgroundColor,
         borderRadius: '8px',
-    },  
+    },
 
     input: {
         "&.MuiFormControl-root": {
@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.comment.secondaryColor,
         fontWeight: 'bold',
     },
+    text: {
+        color: theme.palette.comment.secondaryColor,
+    },
     makeUnderline: {
         color: theme.palette.comment.secondaryColor,
         textDecoration: 'underline',
@@ -40,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
     },
     sendButton: {
         color: theme.palette.comment.secondaryColor,
+        textAlign: 'right',
+        cursor: "pointer",
     },
     default: {
         color: theme.palette.comment.secondaryColor,
@@ -58,24 +63,11 @@ function RightPanelPage() {
         </Grid>
         <Grid item>
             <Grid container direction="row" alignItems="center" justify="flex-end">
-                <Grid item>
-                    <div className={classes.makeBold}>B</div>
+                <Grid xs={4} item className={classes.text}>
+                    <span className={classes.makeBold}>B</span>/<span className={classes.makeUnderline}>U</span>
                 </Grid>
-                <Grid item className={classes.default}>
-                    /
-                </Grid>
-                <Grid item>
-                    <div className={classes.makeUnderline}>U</div>
-                </Grid>
-                <Grid container direction="row" alignItems="center" justify="flex-end">
-                    <Grid item>
-                        <MoodIcon className={classes.default}></MoodIcon>
-                    </Grid>
-                    <Grid item>
-                        <div className={classes.sendButton}>
-                            Отправить
-                        </div>
-                    </Grid>
+                <Grid xs={8} item className={classes.sendButton}>
+                    Отправить
                 </Grid>
             </Grid>
         </Grid>

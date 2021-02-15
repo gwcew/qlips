@@ -165,7 +165,7 @@ const useStyles = makeStyles((theme) => ({
   },
   grid: {
     paddingTop: '0px',
-
+    flexWrap: 'nowrap',
   },
   gridItemIconMainPage: {
     margin: '2px 2px 0px 2px',
@@ -273,17 +273,18 @@ function Sidebar({ collapsed, setCollapsed, setTheme, isLightTheme,
     <Grid className={!isSideBarCollapsed ? [classes.root, classes.collapsed].join(' ') : classes.root} container>
       <Grid item xs={12} className={[classes.menuBlock, classes.menuBlockMain].join(' ')}>
         <ToggleButtonGroup
-        value={alignment}
-        className={isSideBarCollapsed ? classes.buttonsWrapper : ""}
-        exclusive
-        orientation="vertical"
-        onChange={handleAlignment}
+          value={alignment}
+          className={isSideBarCollapsed ? classes.buttonsWrapper : ""}
+          exclusive
+          orientation="vertical"
+          onChange={handleAlignment}
         >
           <ToggleButton
-          value={0}
-          classes={{root: classes.togglebuttonmenu, selected: classes.selected}}
-          disableRipple
-          onClick={handleOnClickMenuButton}>
+            value={0}
+            classes={{root: classes.togglebuttonmenu, selected: classes.selected}}
+            disableRipple
+            onClick={handleOnClickMenuButton}
+          >
             <Grid container>
               <Grid item xs={12}>
                 {!isSideBarCollapsed ? <Dehaze></Dehaze> : <Close></Close>}

@@ -48,7 +48,7 @@ const styles = (theme) => ({
               backgroundColor: theme.palette.comment.hoverColor,
           }
     },
-  
+
     listItemDone: {
       borderRadius: "1em",
       "&,&:focus": {
@@ -61,14 +61,15 @@ const styles = (theme) => ({
     },
 
     authorName: {
+        marginTop: "5px",
         color: theme.palette.comment.authorNameColor,
         fontSize: 15,
     },
     buttonOptions: {
         "&.MuiButtonBase-root": {
             position: 'absolute',
-            right: 0,
-            bottom: 32,
+            right: 5,
+            top: 5,
             color: theme.palette.comment.optionsColor,
           },
           "&:hover": {
@@ -82,8 +83,8 @@ const styles = (theme) => ({
     buttonOptionsNested: {
         "&.MuiButtonBase-root": {
             position: 'absolute',
-            right: 0,
-            bottom: 32,
+            right: 5,
+            top: 5,
             color: theme.palette.comment.optionsColor,
           },
           "&:hover": {
@@ -96,17 +97,18 @@ const styles = (theme) => ({
     },
     buttonAnswer: {
         position: 'relative',
-        top: 15,
-        left: 0,
+        bottom: 5,
+        right: 5,
         color: theme.palette.comment.secondaryColor,
         "&.MuiTypography-root": {
             fontSize: '0.7rem',
             fontWeight: 'bold',
         },
     },
-    contentName: {
+  commentText: {
         color: theme.palette.comment.contentNameColor,
         fontSize: 14,
+        marginBottom: "5px",
     },
     avatar: {
         color: theme.palette.comment.avatarColor,
@@ -115,9 +117,10 @@ const styles = (theme) => ({
 });
 
 function CustomListItemComponent(props) {
-    return <ListItem button className={props.isNested ? props.classes.rootnested : props.classes.root} disableRipple={true}>
+    return (
+    <ListItem button className={props.isNested ? props.classes.rootnested : props.classes.root} disableRipple={true}>
         <ListItemIcon className={props.classes.avatar}>
-            <AccountCircleIcon style={{width: '48px', height: '48px'}}></AccountCircleIcon>
+            <AccountCircleIcon style={{width: '36px', height: '36px'}}></AccountCircleIcon>
         </ListItemIcon>
         <ListItemText>
             <Grid container direction="column">
@@ -126,9 +129,9 @@ function CustomListItemComponent(props) {
                         {props.authorName}
                     </div>
                 </Grid>
-                <Grid item className={props.classes.contentName}>
+                <Grid item className={props.classes.commentText}>
                     <div>
-                        {props.contentName}
+                        {props.commentText}
                     </div>
                 </Grid>
             </Grid>
@@ -139,27 +142,36 @@ function CustomListItemComponent(props) {
         <Typography variant="h6" className={props.classes.buttonAnswer}>
             Ответить
         </Typography>
-    </ListItem>
+    </ListItem>);
 }
 
 CustomListItemComponent.propTypes = {
     classes: PropTypes.object,
     authorName: PropTypes.string,
-    contentName: PropTypes.string,
+    commentText: PropTypes.string,
     isNested: PropTypes.bool,
 };
 
 const CustomListItem = withStyles(styles)(CustomListItemComponent);
 
-function Comment({authorName, contentName, iconURL, replies}) {
- 
+function Comment({authorName, commentText, iconURL, answers = []}) {
+
 
     return <>
         <List component="nav">
-            <CustomListItem authorName={authorName} contentName={contentName}></CustomListItem>
-            <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
-            <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
-            <CustomListItem isNested={true} authorName={authorName} contentName={contentName}></CustomListItem>
+            <CustomListItem authorName={authorName} commentText={commentText} />
+            {answers.length > 0 &&
+              answers.map((answer, key) => {
+                return (
+                  <CustomListItem
+                    key={key}
+                    isNested={true}
+                    authorName={answer.authorName}
+                    commentText={answer.commentText}
+                  />
+                );
+              })
+            }
             <CloseButton caption=""></CloseButton>
         </List>
         </>
@@ -167,9 +179,9 @@ function Comment({authorName, contentName, iconURL, replies}) {
 
 Comment.propTypes = {
     authorName: PropTypes.string,
-    contentName: PropTypes.string, 
+    commentText: PropTypes.string,
+    answers: PropTypes.array,
     iconURL: PropTypes.string,
-    replies: PropTypes.array,
 };
 
 export default Comment;

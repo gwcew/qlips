@@ -22,6 +22,7 @@ const useStyles = makeStyles(theme => ({
         position: 'fixed',
         pointerEvents: 'none',
         top: '75px',
+        transition: '0.4s',
         boxShadow: `0 0 0px 20px ${theme.palette.subbackground.main}`,
         minHeight: 'calc(100vh - 75px)',
         borderRadius: '16px 16px 0 0',
@@ -47,9 +48,8 @@ const useStyles = makeStyles(theme => ({
       },
       collapsed: {
         [theme.breakpoints.up('sm')]: {
-            width: 'calc(100% - 265px)',
+            width: 'calc(100% - 190px)',
             margin: 'auto',
-            marginLeft: '165px',
         },
         [theme.breakpoints.down('sm')]: {
             width: 'calc(100% - 105px)',
@@ -73,7 +73,9 @@ function MainPage({isCollapsedSidebar, isLightTheme, setTheme}) {
           </Grid>
         </Route>
         <Route exact path="/video/:id" render={(props) => (
-          <VideoPage {...props} className={classes.fullWidth}/>
+          <Grid item className={!isCollapsedSidebar ? classes.inner : classes.collapsed}>
+            <VideoPage {...props} className={classes.fullWidth}/>
+          </Grid>
         )}>
         </Route>
         <Route exact path="/playlists" component={Page404}>

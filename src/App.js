@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Route, Switch, useLocation } from 'react-router-dom';
-import HomePage from 'pages/HomePage';
-import Header from 'components/Header';
-import Sidebar from 'components/Sidebar';
-import SidebarRight from 'components/SidebarRight';
-import VideoPage from 'pages/VideoPage';
-import Page404 from 'pages/404Page';
-import { Grid, Hidden } from '@material-ui/core';
-import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
+import { useLocation } from 'react-router-dom';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline'
-import {connect} from 'react-redux';
-
 import All from 'components/All';
-
 
 const lightTheme = createMuiTheme({
   palette: {
@@ -28,6 +18,9 @@ const lightTheme = createMuiTheme({
     },
     subbackground: {
       main: '#ffffff',
+    },
+    sidePanels: {
+      main: '#e1e1e1',
     },
     border: {
       main: '#8fa7e8',
@@ -97,6 +90,9 @@ const darkTheme = createMuiTheme({
       default: '#383838',
     },
     subbackground: {
+      main: '#262626',
+    },
+    sidePanels: {
       main: '#262626',
     },
     border: {
@@ -177,8 +173,8 @@ function App() {
 
   const currentTheme = isLightTheme === "true" ? lightTheme : darkTheme;
 
- 
- 
+
+
 
   return (
       <ThemeProvider theme={currentTheme}>
