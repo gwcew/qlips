@@ -155,8 +155,6 @@ CustomListItemComponent.propTypes = {
 const CustomListItem = withStyles(styles)(CustomListItemComponent);
 
 function Comment({authorName, commentText, iconURL, answers = []}) {
-
-
     return <>
         <List component="nav">
             <CustomListItem authorName={authorName} commentText={commentText} />
