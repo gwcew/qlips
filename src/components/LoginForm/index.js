@@ -46,9 +46,20 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: theme.spacing(1),
+    marginBottom: '0px',
     "&.MuiButtonBase-root": {
       textTransform: 'none',
+    },
+  },
+  logButtonStyle: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: '0px',
+    "&.MuiButtonBase-root": {
+      textTransform: 'none',
+      paddingLeft: '24px',
+      paddingRight: '24px',
     },
   },
   textfield: {
@@ -180,12 +191,12 @@ function LoginForm({handleAccessType, handleLoginFormStatus, handleModalRegister
           </Button>
         </Grid>
         <Grid item>
-          <Button className={classes.button} variant="contained" color="primary">
+          <Button className={classes.logButtonStyle} variant="contained" color="primary">
             Вход
           </Button>
         </Grid>
       </Grid>
-      <Grid className={classes.regButtonWrap}>
+      <Grid item className={classes.regButtonWrap}>
         <Button
           className={classes.regButtonStyle}
           variant="outlined"
