@@ -46,7 +46,7 @@ function Comments({commentData}) {
                 authorName={element.authorName}
                 commentText={element.commentTextName}
                 iconURL={element.urlAvatarImage}
-                answers={element.replies}/>
+                answers={element.userReplies}/>
         );
     });
 
