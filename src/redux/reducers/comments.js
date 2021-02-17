@@ -102,7 +102,7 @@ const initialState = {
             comments: [
                 {
                     authorName: 'Ганс Селье',
-                    urlAvatarImage: imageValdisZatlers,
+                    urlAvatarImage: imageHansSelye,
                     commentTextName: 'Секрет удачного выбора сотрудников прост - надо находить людей, которые сами хотят делать то, что бы вам хотелось от них',
                     userReplies: [],
                 },
