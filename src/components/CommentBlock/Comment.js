@@ -168,6 +168,7 @@ function Comment({authorName, commentText, iconURL, answers = []}) {
                     isNested={true}
                     authorName={answer.authorName}
                     commentText={answer.commentTextName}
+                    authorAvatarImage={answer.urlAvatarImage}
                   />
                 );
               })

@@ -108,7 +108,7 @@ const initialState = {
                 },
                 {
                     authorName: 'Николай Бурденко',
-                    urlAvatarImage: imageHansSelye,
+                    urlAvatarImage: null,
                     commentTextName: 'Тот, кто работает, всегда молод. И иногда мне кажется, что, может быть, труд вырабатывает какие-нибудь особые гормоны, повышающие жизненный импульс.',
                     userReplies: [],
                 },

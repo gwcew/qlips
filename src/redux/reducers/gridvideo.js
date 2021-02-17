@@ -45,6 +45,46 @@ const contentVideo = [
         url_preview: image1,
         url_video: video1,
         url_avatar: null,
+        leftMenu: {
+            storage: [
+                {
+                    sectionName: 'Вступление',
+                    section: [
+                        {
+                            headerName: 'Клинический случай',
+                            timingName: '0:00',
+                            subheaders: [
+                                {
+                                    headerName: 'Анамнез',
+                                    timingName: '0:33',
+                                },
+                                {
+                                    headerName: 'Опрос',
+                                    timingName: '1:04',
+                                },
+                                {
+                                    headerName: 'Осмотр',
+                                    timingName: '1:44',
+                                },
+                                {
+                                    headerName: 'Вопрос',
+                                    timingName: '2:03',
+                                },
+                                {
+                                    headerName: 'Диагноз',
+                                    timingName: '2:54',
+                                },
+                            ],
+                        },
+                        {
+                            headerName: 'Угарный газ',
+                            timingName: '3:34',
+                            subheaders: [],
+                        },
+                    ],
+                },
+            ],
+        },
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
