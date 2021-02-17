@@ -106,7 +106,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_STUDENT,
     },
     {
-        id: 4,
+        id: 3,
         title: 'Генетика и Психопатология',
         author: 'Евгений Касьянов',
         url_preview: image5,
@@ -115,7 +115,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
-        id: 5,
+        id: 4,
         title: 'Нейростероиды: биологические функции и терапевтический потенциал',
         author: 'Осипенко Антон Николаевич',
         url_preview: image6,
@@ -124,7 +124,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
-        id: 6,
+        id: 5,
         title: 'Carpe Deim: О научной карьере',
         author: 'Medical Channel',
         url_preview: image7,
@@ -133,7 +133,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 7,
+        id: 6,
         title: 'Medach On Air #1',
         author: 'Medical Channel',
         url_preview: image8,
@@ -142,7 +142,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 8,
+        id: 7,
         title: 'Medach On Air #2',
         author: 'Medical Channel',
         url_preview: image9,
@@ -151,7 +151,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 9,
+        id: 8,
         title: 'Weekend Medicine #1',
         author: 'Medical Channel',
         url_preview: image10,
@@ -160,7 +160,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 10,
+        id: 9,
         title: 'Weekend Medicine #2',
         author: 'Medical Channel',
         url_preview: image11,
@@ -169,7 +169,7 @@ const contentVideo = [
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
-        id: 11,
+        id: 10,
         title: 'Чем (не) занимается когнитивная наука',
         author: 'Medical Channel',
         url_preview: image12,

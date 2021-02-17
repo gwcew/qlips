@@ -74,6 +74,9 @@ function VideoPage(props) {
   const classes = useStyles();
   const [leftSidebar, setLeftSidebar] = useState(false);
   const [rightSidebar, setRightSidebar] = useState(false);
+  
+  console.log(props.videocontent.content);
+  console.log(props.match.params.id);
 
   const videoData = props.videocontent.content[props.match.params.id];
   const commentData = props.commentscontent.commentsStorage.filter(element => element.id_to_video_page === Number(props.match.params.id));

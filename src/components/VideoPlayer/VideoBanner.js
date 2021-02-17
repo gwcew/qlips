@@ -41,6 +41,7 @@ function VideoBanner({videoData}) {
           <CardHeader
             avatar={<Avatar
               alt="channel avatar"
+              src={videoData.url_avatar}
               className={classes.avatar}
             />}
             title={videoData.title}

@@ -85,7 +85,7 @@ const initialState = {
 
         // Генетика и Психопатология
         {
-            id_to_video_page: 4,
+            id_to_video_page: 3,
             comments: [
                 {
                     authorName: 'Рональд Росс',
@@ -98,7 +98,7 @@ const initialState = {
 
         // Нейростероиды
         {
-            id_to_video_page: 5,
+            id_to_video_page: 4,
             comments: [
                 {
                     authorName: 'Ганс Селье',
@@ -117,7 +117,7 @@ const initialState = {
 
         // Carpe Deim
         {
-            id_to_video_page: 6,
+            id_to_video_page: 5,
             comments: [
                 {
                     authorName: 'Валдис Затлерс',
@@ -136,31 +136,31 @@ const initialState = {
 
         // Medach On Air #1
         {
-            id_to_video_page: 7,
+            id_to_video_page: 6,
             comments: [],
         },
 
         // Medach On Air #2
         {
-            id_to_video_page: 8,
+            id_to_video_page: 7,
             comments: [],
         },
 
         // Weekend Medicine #1
         {
-            id_to_video_page: 9,
+            id_to_video_page: 8,
             comments: [],
         },
 
         // Weekend Medicine #2
         {
-            id_to_video_page: 10,
+            id_to_video_page: 9,
             comments: [],
         },
 
         // Чем (не) занимается когнитивная наука
         {
-            id_to_video_page: 11,
+            id_to_video_page: 10,
             comments: [
                 {
                     authorName: 'Альберт Швейцер',
