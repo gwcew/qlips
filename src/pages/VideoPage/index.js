@@ -76,6 +76,7 @@ function VideoPage(props) {
   const [rightSidebar, setRightSidebar] = useState(false);
 
   const videoData = props.videocontent.content[props.match.params.id];
+  const commentData = props.commentscontent.commentsStorage.filter(element => element.id_to_video_page === Number(props.match.params.id));
 
   const leftSidebarClick = () => {
     if(leftSidebar){
@@ -162,7 +163,7 @@ function VideoPage(props) {
         </Grid>
       </Grid>
       <Grid item xs={12} className={classes.comments}>
-        <Comments />
+        <Comments commentData={commentData[0]} />
       </Grid>
     </Grid>
   );
@@ -171,12 +172,14 @@ function VideoPage(props) {
 VideoPage.propTypes = {
   className: PropTypes.string,
   videocontent: PropTypes.object,
+  commentscontent: PropTypes.object, 
   match: PropTypes.object,
 };
 
 function mapStateToProps(state) {
   return {
     videocontent: state.gridvideo,
+    commentscontent: state.commentHandler,
   }
 }
 

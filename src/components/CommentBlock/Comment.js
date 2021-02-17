@@ -8,6 +8,7 @@ import {
     Grid,
     IconButton,
     ListItemSecondaryAction,
+    Avatar,
     Typography,
 } from '@material-ui/core';
 import {makeStyles, withStyles} from '@material-ui/styles';
@@ -120,7 +121,7 @@ function CustomListItemComponent(props) {
     return (
     <ListItem button className={props.isNested ? props.classes.rootnested : props.classes.root} disableRipple={true}>
         <ListItemIcon className={props.classes.avatar}>
-            <AccountCircleIcon style={{width: '36px', height: '36px'}}></AccountCircleIcon>
+            <Avatar style={{width: '36px', height: '36px'}} alt="user_avatar" src={props.authorAvatarImage}></Avatar>
         </ListItemIcon>
         <ListItemText>
             <Grid container direction="column">
@@ -149,6 +150,7 @@ CustomListItemComponent.propTypes = {
     classes: PropTypes.object,
     authorName: PropTypes.string,
     commentText: PropTypes.string,
+    authorAvatarImage: PropTypes.string,
     isNested: PropTypes.bool,
 };
 
@@ -157,7 +159,7 @@ const CustomListItem = withStyles(styles)(CustomListItemComponent);
 function Comment({authorName, commentText, iconURL, answers = []}) {
     return <>
         <List component="nav">
-            <CustomListItem authorName={authorName} commentText={commentText} />
+            <CustomListItem authorName={authorName} commentText={commentText} authorAvatarImage={iconURL}/>
             {answers.length > 0 &&
               answers.map((answer, key) => {
                 return (
@@ -165,7 +167,7 @@ function Comment({authorName, commentText, iconURL, answers = []}) {
                     key={key}
                     isNested={true}
                     authorName={answer.authorName}
-                    commentText={answer.commentText}
+                    commentText={answer.commentTextName}
                   />
                 );
               })
