@@ -3,8 +3,18 @@ import {
     COMMENT_DELETE,
 } from '../actionTypes'
 
-
- 
+import imageNikolayPirogov from 'data/avatars/avatar_np.jpg';
+import imageTheophrastusHohenheim from 'data/avatars/avatar_th.jpg';
+import imagePaulEhrlich from 'data/avatars/avatar_pe.jpg';
+import imageCharlesRichet from 'data/avatars/avatar_cr.jpg';
+import imageAulusCorneliusCelsus from 'data/avatars/avatar_acs.jpg';
+import imageAlbertSchweitzer from 'data/avatars/avatar_as.jpg';
+import imageErnstFeuchtersleben from 'data/avatars/avatar_ef.jpg';
+import imageRonaldRoss from 'data/avatars/avatar_rr.jpg';
+import imageHansSelye from 'data/avatars/avatar_hs.jpg';
+import imageFrederickCook from 'data/avatars/avatar_fc.jpg';
+import imageValdisZatlers from 'data/avatars/avatar_vz.jpg';
+import imageGiuseppeMoscati from 'data/avatars/avatar_gm.jpg';
 
 const initialState = {
     commentsStorage: [
@@ -14,11 +24,13 @@ const initialState = {
             comments: [
                 {
                     authorName: 'Николай Пирогов',
+                    urlAvatarImage: imageNikolayPirogov,
                     contentTextName: 'Будущее принадлежит медицине предохранительной. Эта наука, идя рука об руку с лечебной, принесет несомненную пользу человечеству',
                     userReplies: [],
                 },
                 {
                     authorName: 'Теофраст Гогенхайм',
+                    urlAvatarImage: imageTheophrastusHohenheim,
                     contentTextName: 'Всё есть яд, и ничто не лишено ядовитости, и только доза делает яд безвредным',
                     userReplies: [],
                 },
@@ -32,16 +44,19 @@ const initialState = {
             comments: [
                 {
                     authorName: 'Пауль Эрлих',
+                    urlAvatarImage: imagePaulEhrlich,
                     contentTextName: 'Причина всех наших неудач заключается в недостаточной точности работы. Обязательно должны быть какие-то математические законы, управляющие действием ядов, вакцин и сывороток',
                     userReplies: [
                         {
                             authorName: 'Шарль Рише',
+                            urlAvatarImage: imageCharlesRichet,
                             contentTextName: 'Не тот глупец, кто чего-то не понимает, а тот, кто таки понимает, но действует, как если бы не понимал вот.',
                         },
                     ],
                 },
                 {
                     authorName: 'Авл Корнелий Цельс',
+                    urlAvatarImage: imageAulusCorneliusCelsus,
                     contentTextName: 'Болезни не красноречием, а лекарствами лечатся',
                     userReplies: [],
                 },
@@ -54,11 +69,13 @@ const initialState = {
             comments: [
                 {
                     authorName: 'Альберт Швейцер',
+                    urlAvatarImage: imageAlbertSchweitzer,
                     contentTextName: 'Личный пример - не просто лучший метод убеждения, а единственный',
                     userReplies: [],
                 },
                 {
                     authorName: 'Эрнст Фейхтерслебен',
+                    urlAvatarImage: imageErnstFeuchtersleben,
                     contentTextName: 'Существует только одна нравственность — это правда, только одна безнравственность — ложь.',
                     userReplies: [],
                 },
@@ -70,13 +87,9 @@ const initialState = {
             id_to_video_page: 4,
             comments: [
                 {
-                    authorName: 'Альберт Швейцер',
-                    contentTextName: 'Личный пример - не просто лучший метод убеждения, а единственный',
-                    userReplies: [],
-                },
-                {
-                    authorName: 'Эрнст Фейхтерслебен',
-                    contentTextName: 'Существует только одна нравственность — это правда, только одна безнравственность — ложь.',
+                    authorName: 'Рональд Росс',
+                    urlAvatarImage: imageRonaldRoss,
+                    contentTextName: 'Все, за что бы я ни принимался, мне не удавалось. Но неудачи не сразили меня. Они увлекли меня ввысь, на далекие холодные вершины одиночества. В этом настроении была известная доля эгоизма, но много было в нем и возвышенного. Мне ничего не хотелось, я не искал ничьей похвалы. У меня не было ни друзей, ни врагов, ни любви, ни ненависти',
                     userReplies: [],
                 },
             ],
@@ -85,50 +98,99 @@ const initialState = {
         // Нейростероиды
         {
             id_to_video_page: 5,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [
+                {
+                    authorName: 'Ганс Селье',
+                    urlAvatarImage: imageValdisZatlers,
+                    contentTextName: 'Секрет удачного выбора сотрудников прост - надо находить людей, которые сами хотят делать то, что бы вам хотелось от них',
+                    userReplies: [],
+                },
+                {
+                    authorName: 'Николай Бурденко',
+                    urlAvatarImage: imageHansSelye,
+                    contentTextName: 'Тот, кто работает, всегда молод. И иногда мне кажется, что, может быть, труд вырабатывает какие-нибудь особые гормоны, повышающие жизненный импульс.',
+                    userReplies: [],
+                },
+            ],
         },
 
         // Carpe Deim
         {
             id_to_video_page: 6,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [
+                {
+                    authorName: 'Валдис Затлерс',
+                    urlAvatarImage: imageValdisZatlers,
+                    contentTextName: 'Нет плана действий, нет действий',
+                    userReplies: [],
+                },
+                {
+                    authorName: 'Джузеппе Москати',
+                    urlAvatarImage: imageGiuseppeMoscati,
+                    contentTextName: 'Рядом с больным нет иерархии. Все мы приходим сюда, чтобы учиться: заведующие, коадъюторы, ассистенты - все мы приходим к ложу больного, потому что больной - это книга природы.',
+                    userReplies: [],
+                },
+            ],
         },
 
         // Medach On Air #1
         {
             id_to_video_page: 7,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [],
         },
 
         // Medach On Air #2
         {
             id_to_video_page: 8,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [],
         },
 
         // Weekend Medicine #1
         {
             id_to_video_page: 9,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [],
         },
 
         // Weekend Medicine #2
         {
             id_to_video_page: 10,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [],
         },
 
         // Чем (не) занимается когнитивная наука
         {
             id_to_video_page: 11,
-            authorName: 'bruh',
-            commentTextName: 'something',
+            comments: [
+                {
+                    authorName: 'Альберт Швейцер',
+                    urlAvatarImage: imageAlbertSchweitzer,
+                    contentTextName: 'Абстракция — это смерть для этики, ибо этика есть живое отношение к живой жизни',
+                    userReplies: [],
+                },
+                {
+                    authorName: 'Фредерик Кук',
+                    urlAvatarImage: imageFrederickCook,
+                    contentTextName: 'Истинное удовлетворение дает не само достижение цели, а преодоление препятствий на пути к ней.',
+                    userReplies: [],
+                },
+            ],
         },
     ],
+};
+
+export default function reducer(state = initialState, action) {
+    switch (action.type) {
+        case COMMENT_ADD: {
+            const result = {...state};
+
+            return result;
+        }
+        case COMMENT_DELETE: {
+            const result = {...state};
+
+            return result;
+        }
+    }
+
+    return state;
 };
