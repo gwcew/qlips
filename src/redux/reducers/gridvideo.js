@@ -46,9 +46,8 @@ const contentVideo = [
         url_video: video1,
         url_avatar: null,
         leftMenu: {
-            storage: [
+            storage: 
                 {
-                    sectionName: 'Вступление',
                     section: [
                         {
                             headerName: 'Клинический случай',
@@ -83,7 +82,6 @@ const contentVideo = [
                         },
                     ],
                 },
-            ],
         },
         accessType: ACCESS_TYPE_DEFAULT,
     },
@@ -94,6 +92,62 @@ const contentVideo = [
         url_preview: image2,
         url_video: video2,
         url_avatar: null,
+        leftMenu: {
+            storage: 
+                {
+                    section: [
+                        {
+                            headerName: 'Вступление',
+                            timingName: '0:00',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'Конфликт интересов',
+                            timingName: '0:22',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'Подходы к медицинской практике',
+                            timingName: '1:00',
+                            subheaders: [
+                                {
+                                    headerName: 'Медицина опыта',
+                                    timingName: '1:26',
+                                },
+                                {
+                                    headerName: 'Медицина эмоций',
+                                    timingName: '1:47',
+                                },
+                                {
+                                    headerName: 'Красноречивая медицина',
+                                    timingName: '2:06',
+                                },
+                                {
+                                    headerName: 'Медицина провидения',
+                                    timingName: '2:30',
+                                },
+                                {
+                                    headerName: 'Неуверенная медицина',
+                                    timingName: '3:02',
+                                },
+                                {
+                                    headerName: 'Нервная медицина',
+                                    timingName: '3:22',
+                                },
+                                {
+                                    headerName: 'Доказательная медицина',
+                                    timingName: '3:40',
+                                },
+                            ],
+                        },
+                        {
+                            headerName: 'Определение',
+                            timingName: '3:57',
+                            subheaders: [],
+                        },
+                    ],
+                },
+        },
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -103,6 +157,36 @@ const contentVideo = [
         url_preview: image3,
         url_video: video3,
         url_avatar: null,
+        leftMenu: {
+            storage: 
+                {
+                    section: [
+                        {
+                            headerName: 'Вступление',
+                            timingName: '0:00',
+                            subheaders: [
+                                {
+                                    headerName: 'Вопрос',
+                                    timingName: '0:49',
+                                },
+                                {
+                                    headerName: 'История из жизни',
+                                    timingName: '1:16',
+                                },
+                                {
+                                    headerName: 'Где взять ответы на вопросы?',
+                                    timingName: '4:02',
+                                },
+                            ],
+                        },
+                        {
+                            headerName: 'История доказательной медицины',
+                            timingName: '4:27',
+                            subheaders: [],
+                        },
+                    ],
+                },
+        },
         accessType: ACCESS_TYPE_STUDENT,
     },
     {
@@ -112,6 +196,36 @@ const contentVideo = [
         url_preview: image5,
         url_video: video5,
         url_avatar: null,
+        leftMenu: {
+            storage: 
+                {
+                    section: [
+                        {
+                            headerName: 'Вступление',
+                            timingName: '0:00',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'Проблема категорий',
+                            timingName: '0:27',
+                            subheaders: [
+                                {
+                                    headerName: 'О классификации психических расстройств',
+                                    timingName: '1:14',
+                                },
+                                {
+                                    headerName: 'Семейные и близнецовые исследования',
+                                    timingName: '1:59',
+                                },
+                                {
+                                    headerName: 'Биполярное аффективное расстройство ',
+                                    timingName: '4:34',
+                                },
+                            ],
+                        },
+                    ],
+                },
+        },
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
@@ -121,6 +235,36 @@ const contentVideo = [
         url_preview: image6,
         url_video: video6,
         url_avatar: null,
+        leftMenu: {
+            storage: {
+                    section: [
+                        {
+                            headerName: 'История изучения нейростероидов',
+                            timingName: '0:00',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'Разница между стероидами в ЦНС',
+                            timingName: '2:44',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'Биологическая классификация',
+                            timingName: '3:18',
+                            subheaders: [
+                                {
+                                    headerName: 'По функциям',
+                                    timingName: '3:27',
+                                },
+                                {
+                                    headerName: 'По пути синтеза',
+                                    timingName: '4:44',
+                                },
+                            ],
+                        },
+                    ],
+            },
+        },
         accessType: ACCESS_TYPE_SPECIAL,
     },
     {
@@ -130,6 +274,27 @@ const contentVideo = [
         url_preview: image7,
         url_video: video7,
         url_avatar: imageAvatarMedicalChannel,
+        leftMenu: {
+            storage: {
+                    section: [
+                        {
+                            headerName: 'Вступление',
+                            timingName: '0:27',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'О себе',
+                            timingName: '0:44',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'О работе научным консультантом',
+                            timingName: '2:54',
+                            subheaders: [],
+                        },
+                    ],
+            },
+        },
         accessType: ACCESS_TYPE_DEFAULT,
     },
     {
@@ -175,6 +340,35 @@ const contentVideo = [
         url_preview: image12,
         url_video: video12,
         url_avatar: imageAvatarMedicalChannel,
+        leftMenu: {
+            storage: {
+                    section: [
+                        {
+                            headerName: 'Вступление',
+                            timingName: '0:00',
+                            subheaders: [],
+                        },
+                        {
+                            headerName: 'Определение',
+                            timingName: '0:55',
+                            subheaders: [
+                                {
+                                    headerName: 'Когнитивный шестиугольник',
+                                    timingName: '1:21',
+                                },
+                                {
+                                    headerName: 'Стартовая площадка когнитивистики',
+                                    timingName: '2:15',
+                                },
+                                {
+                                    headerName: 'Возвращение к человеку',
+                                    timingName: '4:04',
+                                },
+                            ],
+                        },
+                    ],
+            },
+        },
         accessType: ACCESS_TYPE_DEFAULT,
     },
 ];
