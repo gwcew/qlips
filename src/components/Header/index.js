@@ -123,7 +123,15 @@ function Header({isLoginFormOpen, isRegisterFormOpen, isRegisterFormUserListOpen
       }
     }
     else {
-      history.push({pathname: '/', search: ''});
+      if (searchString) {
+        params.append('search', searchString);
+        history.push({pathname: '/', search: '?'+params.toString()});
+      }
+      else {
+        params.delete('search');
+        history.push({pathname: '/', search: ''});
+      }
+
     }
   };
 
