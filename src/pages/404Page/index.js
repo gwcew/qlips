@@ -34,7 +34,7 @@ function Page404({themeStatus}) {
   let currentImage = null;
 
   if (matchesQueryStringResultForDesktopImage) {
-    if (themeStatus === "true") {
+    if (themeStatus === "true" || themeStatus === null) {
       currentImage = img404LightDesktop;
     }
     else {
@@ -42,7 +42,7 @@ function Page404({themeStatus}) {
     }
   }
   else if (matchesQueryStringResultForMobileImage) {
-    if (themeStatus === "true") {
+    if (themeStatus === "true" || themeStatus === null) {
       currentImage = img404LightMobile;
     }
     else {
